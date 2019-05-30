@@ -2,10 +2,10 @@
   Reshetar Landing
 </h1>
 
-## 🚀 Installing
+##  Installing
 
 npm i
 
-## Start
+## 🚀 Start
 
 npm run develop // start at localhost:8000
