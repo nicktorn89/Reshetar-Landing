@@ -5,6 +5,6 @@
 ## Getting Started
 
 1.  **Installing** <br/>
-  npm i
+  `npm i`
 2. 🚀 **Start** <br/>
-  npm run develop
+  `npm run develop`
