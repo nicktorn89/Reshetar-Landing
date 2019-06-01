@@ -5,20 +5,12 @@ import {
   IconsBlock, IconContainer, StyledIcon, 
   IconText, NumberBlock, NumberSpan,
 } from './styled';
+import isNil from 'ramda/es/isNil';
 
-import { faInstagram, faVk, faTelegramPlane, faViber } from '@fortawesome/free-brands-svg-icons';
+const HeaderComponent: React.FC<HeaderProps> = ({ data }) => {
+  if (isNil(data)) return null;
+  const { beforeContacts, text, links, icons, phoneNumber } = data;
 
-const defaultText = [
-  'Instagram', 'ВКонтакте', 'Telegram', 'Viber',
-];
-const defaultLinks: string[] = [
-  '#', '#', '#', '#',
-];
-const icons = [
-  faInstagram, faVk, faTelegramPlane, faViber,
-];
-
-const HeaderComponent: React.FC<HeaderProps> = ({ text = defaultText, links = defaultLinks }) => {
   const renderLinks = text.map((name, index) => (
     <IconContainer key={index} href={links[index]}>
       <StyledIcon size='lg' icon={icons[index]} />
@@ -29,14 +21,14 @@ const HeaderComponent: React.FC<HeaderProps> = ({ text = defaultText, links = de
   return (
     <Header>
       <ContactsBlock>
-        <BeforeContactsText>Задайте вопрос:</BeforeContactsText>
+        <BeforeContactsText>{beforeContacts}</BeforeContactsText>
         <IconsBlock>
           {renderLinks}
         </IconsBlock>
       </ContactsBlock>
 
       <NumberBlock>
-        <NumberSpan>+7 926 720-82-60</NumberSpan>
+        <NumberSpan>{phoneNumber}</NumberSpan>
       </NumberBlock>
     </Header>
   );

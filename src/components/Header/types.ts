@@ -1,4 +1,5 @@
+import { LocaleDataType } from 'src/locale';
+
 export default interface HeaderProps {
-  text: string[];
-  links: string[];
+  data: LocaleDataType['header'];
 }
