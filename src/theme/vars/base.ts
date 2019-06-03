@@ -50,6 +50,7 @@ const base = {
   $border_radius_base: 4,
   $border_radius_sm: 2,
   $border_width_base: 2,
+  $border_color: colors.$gray300,
 
   // --- BUTTON -----------------------------------------------------------------------------------
   $btn_success_bg: success,

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import Img from 'gatsby-image';
 import Button from 'src/components/UI/Button/Button';
+import Logo from 'src/components/UI/Logo';
 
 export const HeroContainer = styled.section`
   ${({ theme: t }) => css`
@@ -21,11 +21,13 @@ export const LogoBlock = styled.div`
   `}
 `;
 
-export const LogoImg = styled(Img)`
+export const LogoContainer = styled.div`
   ${({ theme: t }) => css`
     margin: ${t.$rythm * 2}px 0 0 ${t.$rythm * 1.25}px;
   `}
 `;
+
+export const LogoImg = styled(Logo)``;
 
 export const TextBlock = styled.div`
   width: 52%;

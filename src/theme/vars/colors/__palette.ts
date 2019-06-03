@@ -38,7 +38,7 @@ export default {
   $red000: '#ffeef0',
   $red100: '#ffdce0',
   $red200: '#fdaeb7',
-  $red300: '#f97583',
+  $red300: '#de7172',
   $red400: '#ea4a5a',
   $red500: '#d73a49',
   $red600: '#cb2431',

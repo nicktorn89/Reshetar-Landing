@@ -7,6 +7,7 @@ import ConnectedThemeProvider from 'src/components/modules/ThemeProvider/index';
 
 import Header from 'src/components/modules/Header';
 import Hero from 'src/components/modules/Hero';
+import InfoBlock from './modules/InfoBlock/index';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const localeData: LocaleDataType = useContext(LocaleData);
@@ -16,6 +17,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <ConnectedThemeProvider theme={'purple'}>
         <Header data={localeData.header} />
         <Hero data={localeData.hero} />
+        <InfoBlock data={localeData.infoBlock} />
         {children}
       </ConnectedThemeProvider>
     </React.Fragment>
