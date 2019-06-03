@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Icon from '../Icon/Icon';
+import Icon from 'src/components/UI/Icon';
 
 export const Header = styled.header`
   ${({ theme: t }) => css`

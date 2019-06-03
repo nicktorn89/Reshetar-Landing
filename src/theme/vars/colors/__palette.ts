@@ -1,5 +1,6 @@
 export default {
   $white: '#ffffff',
+  $black: '#1c1c1c',
 
   $yellow000: '#fffdef',
   $yellow100: '#fffbdd',
@@ -25,7 +26,7 @@ export default {
 
   $green000: '#f0fff4',
   $green100: '#dcffe4',
-  $green200: '#bef5cb',
+  $green200: '#3EB058',
   $green300: '#85e89d',
   $green400: '#34d058',
   $green500: '#28a745',
@@ -60,7 +61,7 @@ export default {
   $orange100: '#ffebda',
   $orange200: '#ffd1ac',
   $orange300: '#ffab70',
-  $orange400: '#fb8532',
+  $orange400: '#FFBB41',
   $orange500: '#f66a0a',
   $orange600: '#e36209',
   $orange700: '#d15704', 

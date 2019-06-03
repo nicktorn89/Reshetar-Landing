@@ -21,9 +21,9 @@ const purple = {
   $border_color_tile: colors.$purple300,
 
   // --- BUTTON -----------------------------------------------------------------------------------
-  $btn_base_bg: colors.$purple200,
+  $btn_base_bg: colors.$green200,
   $btn_primary_bg: colors.$purple400,
-  $btn_base_fc: colors.$purple700,
+  $btn_base_fc: colors.$white,
   $btn_primary_fc: colors.$white,
 
   // --- PAGINATION -------------------------------------------------------------------------------

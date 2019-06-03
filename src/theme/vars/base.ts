@@ -36,9 +36,11 @@ const base = {
 
   // --- TEXT -------------------------------------------------------------------------------------
   $text_color: colors.$white,
+  $text_color_black: colors.$black,
   $text_color_alt: colors.$purple400,
   $text_color_disabled: colors.$gray400,
   $text_color_error: failure,
+  $text_background_color: colors.$orange400,
 
   // --- TRANSITION -------------------------------------------------------------------------------
   $transition_duration_base: 0.3,

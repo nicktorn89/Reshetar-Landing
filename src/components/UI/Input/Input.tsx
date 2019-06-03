@@ -3,7 +3,7 @@ import omit from 'ramda/es/omit';
 import { InputProps } from './types';
 import { Container, Input } from './styled';
 
-const InputComponent: React.FC<InputProps> = ({ prefix, suffix, onChange, onBlur, onFocus, ...restProps }) => {
+const InputComponent: React.FC<InputProps> = ({ onChange, onBlur, onFocus, ...restProps }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleChange = (e: React.SyntheticEvent<HTMLInputElement>): void => {
