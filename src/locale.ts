@@ -1,14 +1,20 @@
 import { createContext } from 'react';
 import { faInstagram, faVk, faTelegramPlane, faViber, IconDefinition } from '@fortawesome/free-brands-svg-icons';
-import { Options } from 'tmp';
-import { InputProps } from 'src/components/UI/Input';
 
-interface InputTypes {
+import { InputProps } from 'src/components/UI/Input';
+import { Options } from './components/UI/Select/types';
+
+type InputTypes = {
   type: InputProps['type'] | 'select';
   name: string; 
   label?: string;
   options?: Options;
-}
+};
+
+type AdvantageObject = {
+  title: string;
+  text: string;
+};
 
 export interface LocaleDataType {
   header: {
@@ -32,6 +38,15 @@ export interface LocaleDataType {
       buttonText: string;
       formInputs: InputTypes[],
     };
+  };
+  infoBlock: {
+    description: string;
+    link: {
+      text: string;
+      url: string;
+    };
+    advantages: AdvantageObject[];
+    images: string[];
   };
 }
 
@@ -67,6 +82,35 @@ const LocaleData = createContext({
         },
       ],
     },
+  },
+  infoBlock: {
+    description: `<span>Меня зовут Екатерина Решетар, я профессиональный визажист/стилист по прическам.
+    Подчеркиваю Вашу красоту и создаю незабываемый и индивидуальный образ для любого события.</span>
+    <span class='with-indent'>Работаю с профессиональной и люксовой косметикой: Dior, Mac, MUFE, Urban Decay, Atelier, Bobbi Brown,Lumene, 
+    Inglot, Manly Pro и так далее.</span>`,
+    link: {
+      text: 'Все услуги',
+      url: '#',
+    },
+    advantages: [
+      {
+        title: 'Большой опыт работы с невестами и женихами',
+        text: 'Здесь Катерина придумает небольшой текст',
+      },
+      {
+        title: 'Работаю исключительно с премиальной косметикой',
+        text: 'Здесь Катерина придумает небольшой текст',
+      },
+      {
+        title: 'Всегда в курсе актуальных свадебных тенденций',
+        text: 'Здесь Катерина придумает небольшой текст',
+      },
+      {
+        title: 'Гибкие цены',
+        text: 'Здесь Катерина придумает небольшой текст',
+      },
+    ],
+    images: ['wedding-cake.svg', 'star.svg', 'interlocking-rings.svg', 'rouble-symbol.svg'], // TODO: добавить возможность вставки в запрос
   },
 });
 

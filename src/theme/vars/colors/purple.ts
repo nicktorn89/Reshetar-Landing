@@ -16,6 +16,7 @@ const purple = {
 
   // --- ANCHOR -----------------------------------------------------------------------------------
   $anchor_color_hover: colors.$white,
+  $anchor_color: colors.$red300,
 
   // --- BORDER -----------------------------------------------------------------------------------
   $border_color_tile: colors.$purple300,

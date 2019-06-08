@@ -1,13 +1,12 @@
 import React, { memo } from 'react';
-import HeroProps, { LogoQueryType } from './types';
+import HeroProps from './types';
 import { 
   HeroContainer, LogoBlock, LogoImg, 
   TextBlock, Heading, Description,
   PriceBlock, Price, Currency, UntilDate, Note,
   FormBlock, FormContainer, FormHeading,
-  InputsGroup, SendButton,
+  InputsGroup, SendButton, LogoContainer,
 } from './styled';
-import { StaticQuery, graphql } from 'gatsby';
 import parse from 'html-react-parser';
 import Input, { InputProps } from 'src/components/UI/Input';
 import Select from 'src/components/UI/Select';
@@ -20,27 +19,24 @@ const inputs = {
 
 const HeroComponent: React.FC<HeroProps> = ({ data }) => {
   const { textBlock, formBlock } = data;
-  const renderImage = (queryData: LogoQueryType) => <LogoImg fixed={queryData.file.childImageSharp.fixed} />;
 
   const renderInputs = formBlock.formInputs.map((input, index) => {
     const InputComponent = inputs[input.type];
-    const restProps = input.options && input.options;
 
     return (<InputComponent 
       key={index} 
       type={input.type as InputProps['type']} 
       name={input.name}
-      options={input.options}
+      options={input.options!}
     />);
   });
 
   return (
     <HeroContainer>
       <LogoBlock>
-        <StaticQuery
-          query={logoQuery}
-          render={renderImage}
-        />
+        <LogoContainer>
+          <LogoImg />
+        </LogoContainer>
       </LogoBlock>
 
       <TextBlock>
@@ -70,18 +66,6 @@ const HeroComponent: React.FC<HeroProps> = ({ data }) => {
     </HeroContainer>
   );
 };
-
-const logoQuery = graphql`
-  query {
-    file(relativePath: { eq: "logo.png" }) {
-      childImageSharp {
-        fixed(width: 160, height: 54) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`;
 
 HeroComponent.displayName = 'Hero';
 
