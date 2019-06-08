@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import Button from 'src/components/UI/Button/Button';
 import Logo from 'src/components/UI/Logo';
+import Select from 'src/components/UI/Select';
+import Input from 'src/components/UI/Input';
+import Checkbox from 'src/components/UI/Checkbox/Checkbox';
 
 export const HeroContainer = styled.section`
   ${({ theme: t }) => css`
@@ -141,6 +144,7 @@ export const InputsGroup = styled.div`
   ${({ theme: t }) => css`
     width: 100%;
     height: ${t.$rythm * 17}px;
+    padding: 0 ${t.$rythm * 3.5}px;
   `}
 `;
 
@@ -157,5 +161,40 @@ export const SendButton = styled(Button)`
       content: none;
       box-shadow: none;
     }
+  `}
+`;
+
+export const FormSelect = styled(Select)`
+  ${({ theme: t }) => css`
+    width: ${t.$rythm * 18}px;
+
+    &:not(:last-child) {
+      margin-bottom: ${t.$rythm * 1.5}px;
+    }
+  `}
+`;
+
+export const FormText = styled(Input)`
+  ${({ theme: t }) => css`
+    width: ${t.$rythm * 18}px;
+
+    &:not(:last-child) {
+      margin-bottom: ${t.$rythm * 1.5}px;
+    }
+  `}
+`;
+
+export const FormNumber = styled(Input)`
+  ${({ theme: t }) => css`
+    width: ${t.$rythm * 18}px;
+
+    &:not(:last-child) {
+      margin-bottom: ${t.$rythm * 1.5}px;
+    }
+  `}
+`;
+
+export const FormCheckbox = styled(Checkbox)`
+  ${({ theme: t }) => css`
   `}
 `;

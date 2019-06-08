@@ -37,15 +37,15 @@ const purple = {
   $navigation_bg: colors.$purple400,
 
   // --- SELECT -----------------------------------------------------------------------------------
-  $select_border_color: colors.$purple300,
-  $select_option_bg: colors.$purple100,
-  $select_indicator_bg: colors.$purple300,
+  $select_border_color: colors.$gray300,
+  $select_option_bg: colors.$gray300,
+  $select_indicator_bg: colors.$transparent,
   $select_indicator_color: colors.$purple800,
 
   // --- INPUT ------------------------------------------------------------------------------------
   $input_prefix_bg: colors.$purple300,
   $input_suffix_bg: colors.$purple300,
-  $input_border_color: colors.$purple300,
+  $input_border_color: colors.$gray300,
 
   // --- TOOLTIP -----------------------------------------------------------------------------------
   $tooltip_bg: colors.$purple100,

@@ -1,6 +1,7 @@
 export default {
   $white: '#ffffff',
   $black: '#1c1c1c',
+  $transparent: 'transparent',
 
   $yellow000: '#fffdef',
   $yellow100: '#fffbdd',
