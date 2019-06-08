@@ -146,7 +146,16 @@ export const InputsGroup = styled.div`
 
 export const SendButton = styled(Button)`
   ${({ theme: t }) => css`
-    width: 60%;
+    width: ${t.$rythm * 18}px;
     line-height: ${t.$rythm * 1.5}px;
+    margin-bottom: ${t.$rythm * 2}px;
+
+    display: flex;
+    justify-content: center;
+    
+    &::after {
+      content: none;
+      box-shadow: none;
+    }
   `}
 `;
