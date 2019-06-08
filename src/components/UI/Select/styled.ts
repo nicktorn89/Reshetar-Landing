@@ -75,7 +75,7 @@ export const Select = styled(ReactSelect)`
     }
     
     .select__value-container {
-      padding: 2px 6px;
+      padding: ${t.$rythm / 8}px ${t.$rythm / 2}px ${t.$rythm / 8}px ${t.$rythm * 1.25}px;
     }
   `}
 `;

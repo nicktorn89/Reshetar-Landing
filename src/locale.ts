@@ -5,10 +5,11 @@ import { InputProps } from 'src/components/UI/Input';
 import { Options } from './components/UI/Select/types';
 
 type InputTypes = {
-  type: InputProps['type'] | 'select';
+  type: InputProps['type'] | 'select' | 'checkbox';
   name: string; 
   label?: string;
   options?: Options;
+  value?: number | string | boolean;
 };
 
 type AdvantageObject = {
@@ -74,11 +75,29 @@ const LocaleData = createContext({
         {
           type: 'select' as InputProps['type'],
           name: 'serviceType',
-          options: [{ label: 'hi', value: 0 }],
+          options: [{ label: 'Макияж + прическа', value: 0 }],
         },
         {
           type: 'text' as InputProps['type'],
           name: 'phoneNumber',
+        },
+        {
+          type: 'checkbox' as InputProps['type'],
+          name: 'repetition',
+          label: 'Репетиция',
+          value: false,
+        },
+        {
+          type: 'checkbox' as InputProps['type'],
+          name: 'earlyDeparture',
+          label: 'Ранний выезд (до 8:00)',
+          value: false,
+        },
+        {
+          type: 'checkbox' as InputProps['type'],
+          name: 'guestMakeup',
+          label: 'Причёска/макияж для гостей',
+          value: false,
         },
       ],
     },

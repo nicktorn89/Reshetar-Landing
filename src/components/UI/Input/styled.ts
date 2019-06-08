@@ -4,7 +4,7 @@ import { outline } from 'src/theme/mixin';
 export const Container = styled.div`
   ${({ theme: t }) => css`
     height: ${t.$height_base}px;
-    border: ${t.$border_width_base * 3}px solid ${t.$input_border_color};
+    border: ${t.$border_width_base * 1.5}px solid ${t.$input_border_color};
     border-radius: ${t.$border_radius_base * 2.5}px;
     
     display: flex;
@@ -17,7 +17,7 @@ export const Container = styled.div`
 
 export const Input = styled.input`
   ${({ theme: t }) => css`
-    padding: 0 ${t.$rythm / 2}px;
+    padding: 0 ${t.$rythm / 2}px 0 ${t.$rythm * 1.25}px;
     width: calc(100% - ${t.$height_base * 2}px);
     
     ${ifProp(

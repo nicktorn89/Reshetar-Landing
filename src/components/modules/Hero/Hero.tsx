@@ -5,16 +5,17 @@ import {
   TextBlock, Heading, Description,
   PriceBlock, Price, Currency, UntilDate, Note,
   FormBlock, FormContainer, FormHeading,
-  InputsGroup, SendButton, LogoContainer,
+  InputsGroup, SendButton, LogoContainer, 
+  FormSelect, FormText, FormNumber, FormCheckbox,
 } from './styled';
 import parse from 'html-react-parser';
-import Input, { InputProps } from 'src/components/UI/Input';
-import Select from 'src/components/UI/Select';
+import { InputProps } from 'src/components/UI/Input';
 
 const inputs = {
-  select: Select,
-  text: Input,
-  number: Input,
+  select: FormSelect,
+  text: FormText,
+  number: FormNumber,
+  checkbox: FormCheckbox,
 };
 
 const HeroComponent: React.FC<HeroProps> = ({ data }) => {
@@ -28,6 +29,8 @@ const HeroComponent: React.FC<HeroProps> = ({ data }) => {
       type={input.type as InputProps['type']} 
       name={input.name}
       options={input.options!}
+      value={input.value as never}
+      label={input.label as never}
     />);
   });
 
