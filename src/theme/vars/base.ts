@@ -80,7 +80,7 @@ const base = {
   // --- TABS ---------------------------------------------------------------------
   $tabs_header_bg: colors.$gray100,
   $tabs_item_border_width: 4,
-  $tabs_item_border_color_hovered: colors.$gray200,
+  $tabs_item_border_color_hovered: colors.$gray300,
 
   // --- SCROLLBAR -----------------------------------------------------------------------------------
   $scrollbar: colors.$gray300,

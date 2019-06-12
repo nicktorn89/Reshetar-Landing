@@ -1,55 +1,10 @@
 import { createContext } from 'react';
-import { faInstagram, faVk, faTelegramPlane, faViber, IconDefinition } from '@fortawesome/free-brands-svg-icons';
-
+import { faInstagram, faVk, faTelegramPlane, faViber } from '@fortawesome/free-brands-svg-icons';
 import { InputProps } from 'src/components/UI/Input';
-import { Options } from './components/UI/Select/types';
 
-type InputTypes = {
-  type: InputProps['type'] | 'select' | 'checkbox';
-  name: string; 
-  label?: string;
-  options?: Options;
-  value?: number | string | boolean;
-};
-
-type AdvantageObject = {
-  title: string;
-  text: string;
-};
-
-export interface LocaleDataType {
-  header: {
-    beforeContacts: string;
-    text: string[];
-    icons: IconDefinition[];
-    links: string[];
-    phoneNumber: string;
-  };
-  hero: {
-    textBlock: {
-      heading: string;
-      description: string;
-      price: string;
-      currency: string;
-      untilDate: string;
-      note: string;
-    };
-    formBlock: {
-      heading: string;
-      buttonText: string;
-      formInputs: InputTypes[],
-    };
-  };
-  infoBlock: {
-    description: string;
-    link: {
-      text: string;
-      url: string;
-    };
-    advantages: AdvantageObject[];
-    images: string[];
-  };
-}
+const firstImage = require('src/images/description-photo.png');
+const secondImage = require('src/images/gatsby-icon.png');
+const thirdImage = require('src/images/gatsby-astronaut.png');
 
 const LocaleData = createContext({
   header: {
@@ -59,6 +14,7 @@ const LocaleData = createContext({
     links: ['#', '#', '#', '#'],
     phoneNumber: '+7 926 720-82-60',
   },
+
   hero: {
     textBlock: {
       heading: 'Свадебный визажист',
@@ -68,6 +24,7 @@ const LocaleData = createContext({
       untilDate: 'до 10 мая',
       note: '*макияж + прическа + ранний выезд',
     },
+
     formBlock: {
       heading: 'Расскажите о желаниях',
       buttonText: 'Рассчитать стоимость',
@@ -102,6 +59,7 @@ const LocaleData = createContext({
       ],
     },
   },
+
   infoBlock: {
     description: `<span>Меня зовут Екатерина Решетар, я профессиональный визажист/стилист по прическам.
     Подчеркиваю Вашу красоту и создаю незабываемый и индивидуальный образ для любого события.</span>
@@ -130,6 +88,37 @@ const LocaleData = createContext({
       },
     ],
     images: ['wedding-cake.svg', 'star.svg', 'interlocking-rings.svg', 'rouble-symbol.svg'], // TODO: добавить возможность вставки в запрос
+  },
+
+  sliderWithTabs: {
+    heading: 'Что входит в свадебный образ',
+    tabs: [
+      { value: 0, text: 'Макияж' },
+      { value: 1, text: 'Прическа' },
+      { value: 2, text: 'Аксессуары' },
+    ],
+    descriptions: [
+      {
+        heading: 'Полноценный супер- пупер макияж, который есть только у меня',
+        description: `<span>Будет сделано вот это</span> <br/> <span>А потом еще сделаю вот так</span>
+        <span>В конце можно сделать вот</span> <br/> <span>А еще не забудь вот это</span>`,
+      },
+      {
+        heading: 'Полноценный супер- пупер макияж, который есть только у меня',
+        description: `<span>Будет сделано вот это</span> <br/> <span>А потом еще сделаю вот так</span>
+        <span>В конце можно сделать вот</span> <br/> <span>А еще не забудь вот это</span>`,
+      },
+      {
+        heading: 'Полноценный супер- пупер макияж, который есть только у меня',
+        description: `<span>Будет сделано вот это</span> <br/> <span>А потом еще сделаю вот так</span>
+        <span>В конце можно сделать вот</span> <br/> <span>А еще не забудь вот это</span>`,
+      },
+    ],
+    images: [
+      [firstImage, secondImage, thirdImage],
+    ],
+    activeTab: 0,
+    nextButtonText: 'Следующий образ',
   },
 });
 

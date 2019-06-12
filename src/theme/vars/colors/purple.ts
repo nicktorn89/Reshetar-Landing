@@ -54,7 +54,10 @@ const purple = {
   $product_image_border_accent: colors.$purple600,
 
   // --- TABS --------------------------------------------------------------------------------------
-  $tabs_item_border_color: colors.$purple400,
+  $tabs_item_border_color: colors.$gray300,
+  $tabs_bg_color: colors.$white,
+  $tabs_bg_active_color: colors.$purple400,
+  $tabs_text_active_color: colors.$white,
 
   // --- CALCULATOR LOGO  --------------------------------------------------------------------------
   $calculator_logo_color_0: colors.$purple300,
