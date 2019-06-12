@@ -3,6 +3,8 @@ import { faInstagram, faVk, faTelegramPlane, faViber } from '@fortawesome/free-b
 import { InputProps } from 'src/components/UI/Input';
 
 const firstImage = require('src/images/description-photo.png');
+const secondImage = require('src/images/gatsby-icon.png');
+const thirdImage = require('src/images/gatsby-astronaut.png');
 
 const LocaleData = createContext({
   header: {
@@ -113,7 +115,7 @@ const LocaleData = createContext({
       },
     ],
     images: [
-      [firstImage],
+      [firstImage, secondImage, thirdImage],
     ],
     activeTab: 0,
     nextButtonText: 'Следующий образ',
