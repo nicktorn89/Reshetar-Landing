@@ -6,6 +6,8 @@ const firstImage = require('src/images/description-photo.png');
 const secondImage = require('src/images/gatsby-icon.png');
 const thirdImage = require('src/images/gatsby-astronaut.png');
 
+const firstRate = require('src/images/rate-photos/rate1.png');
+
 const LocaleData = createContext({
   header: {
     beforeContacts: 'Задайте вопрос:',
@@ -119,6 +121,16 @@ const LocaleData = createContext({
     ],
     activeTab: 0,
     nextButtonText: 'Следующий образ',
+  },
+
+  rateSlider: {
+    rate: 4.8,
+    rateText: (rate: number) => `Средняя\u00A0оценка\u00A0моих услуг ${rate} из 5`,
+    link: {
+      text: 'Оставить оценку',
+      url: '#',
+    },
+    images: [firstRate, firstRate, firstRate],
   },
 });
 

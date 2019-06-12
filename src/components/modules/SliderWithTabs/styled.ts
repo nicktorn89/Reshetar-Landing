@@ -104,7 +104,7 @@ export const TextDesc = styled.span`
   `}
 `;
 
-export const DescControlsGroup = styled.div`
+export const SliderControlsGroup = styled.div`
   ${({ theme: t }) => css`
     display: flex;
     margin-top: ${t.$rythm * 3}px;
@@ -112,7 +112,7 @@ export const DescControlsGroup = styled.div`
   `}
 `;
 
-export const DescControl = styled(Button)<{next?: boolean}>`
+export const SliderControl = styled(Button)<{next?: boolean}>`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 3.125}px;
     width: ${t.$rythm * 3.125}px;
