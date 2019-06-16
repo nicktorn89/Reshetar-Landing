@@ -55,6 +55,8 @@ export interface LocaleDataType {
     prices: PriceItem[];
     clarifying: string;
   };
+
+  sliderBlocks: SliderBlock[];
 }
 
 type InputTypes = {
@@ -91,4 +93,10 @@ type PriceItem = {
   beforePrice?: string;
   price: number;
   buttonText: string;
+};
+
+type SliderBlock = {
+  title: string;
+  images: string[];
+  styles?: { [property: string]: string | number; };
 };

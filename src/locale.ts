@@ -8,6 +8,8 @@ const thirdImage = require('src/images/gatsby-astronaut.png');
 
 const firstRate = require('src/images/rate-photos/rate1.png');
 
+const firstWork = require('src/images/works/work1.png');
+
 const LocaleData = createContext({
   header: {
     beforeContacts: 'Задайте вопрос:',
@@ -158,6 +160,11 @@ const LocaleData = createContext({
     ],
     clarifying: '* cтоимость указана с учетом доставки внутри МКАД',
   },
+
+  sliderBlocks: [
+    { title: 'Мои работы', images: [firstWork, firstWork, firstWork], styles: { paddingLeft: 90 } },
+    { title: 'Мои сертификаты', images: [firstWork, firstWork, firstWork] },
+  ],
 });
 
 export default LocaleData;

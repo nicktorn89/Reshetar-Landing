@@ -12,9 +12,11 @@ import InfoBlock from './modules/InfoBlock';
 import SliderWithTabs from './modules/SliderWithTabs';
 import RateSlider from './modules/RateSlider';
 import PriceBlock from './modules/PriceBlock';
+import SliderBlock from './modules/SliderBlock';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const localeData: LocaleDataType = useContext(LocaleData);
+  const renderSliderBlocks = localeData.sliderBlocks.map((block, index) => <SliderBlock data={block} key={index} />);
 
   return (
     <React.Fragment>
@@ -25,6 +27,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <SliderWithTabs data={localeData.sliderWithTabs} />
         <RateSlider data={localeData.rateSlider} />
         <PriceBlock data={localeData.priceBlock} />
+        
+        {renderSliderBlocks}
+
         {children}
       </ConnectedThemeProvider>
     </React.Fragment>
