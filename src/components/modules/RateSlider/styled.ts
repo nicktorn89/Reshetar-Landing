@@ -58,7 +58,7 @@ export const RateText = styled.span`
 
 export const RateLink = styled.a`
   ${({ theme: t }) => css`
-    font-size: ${t.$rythm};
+    font-size: ${t.$rythm}px;
     color: ${t.$anchor_color};
     margin-left: ${t.$rythm * 2}px;
   `}

@@ -49,6 +49,12 @@ export interface LocaleDataType {
     link: LinkType;
     images: string[];
   };
+
+  priceBlock: {
+    heading: string;
+    prices: PriceItem[];
+    clarifying: string;
+  };
 }
 
 type InputTypes = {
@@ -77,4 +83,12 @@ type TabType = {
 type SliderDescriptionObject = {
   heading: string;
   description: string;
+};
+
+type PriceItem = {
+  title: string;
+  options: string[];
+  beforePrice?: string;
+  price: number;
+  buttonText: string;
 };
