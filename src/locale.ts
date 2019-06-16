@@ -132,6 +132,32 @@ const LocaleData = createContext({
     },
     images: [firstRate, firstRate, firstRate],
   },
+
+  priceBlock: {
+    heading: 'Сколько стоит свадебный образ',
+    prices: [
+      {
+        title: 'Базовый',
+        options: ['Макияж + прическа', 'Ранний выезд (до 8:00)'],
+        price: 5900,
+        buttonText: 'Заказать',
+      },
+      {
+        title: 'Базовый',
+        options: ['Макияж + прическа', 'Ранний выезд (до 8:00)', 'Репетиция'],
+        price: 7900,
+        buttonText: 'Заказать',
+      },
+      {
+        title: 'Базовый',
+        options: ['Макияж + прическа', 'Ранний выезд (до 8:00)', 'Репетиция', 'Накрасить гостей'],
+        beforePrice: 'от',
+        price: 9900,
+        buttonText: 'Заказать',
+      },
+    ],
+    clarifying: '* cтоимость указана с учетом доставки внутри МКАД',
+  },
 });
 
 export default LocaleData;

@@ -11,6 +11,7 @@ import Hero from 'src/components/modules/Hero';
 import InfoBlock from './modules/InfoBlock';
 import SliderWithTabs from './modules/SliderWithTabs';
 import RateSlider from './modules/RateSlider';
+import PriceBlock from './modules/PriceBlock';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const localeData: LocaleDataType = useContext(LocaleData);
@@ -23,6 +24,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <InfoBlock data={localeData.infoBlock} />
         <SliderWithTabs data={localeData.sliderWithTabs} />
         <RateSlider data={localeData.rateSlider} />
+        <PriceBlock data={localeData.priceBlock} />
         {children}
       </ConnectedThemeProvider>
     </React.Fragment>

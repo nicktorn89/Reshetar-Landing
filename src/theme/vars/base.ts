@@ -52,6 +52,7 @@ const base = {
   $border_radius_sm: 2,
   $border_width_base: 2,
   $border_color: colors.$gray300,
+  $price_item_border: colors.$gray500,
 
   // --- BUTTON -----------------------------------------------------------------------------------
   $btn_success_bg: success,
