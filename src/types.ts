@@ -29,10 +29,7 @@ export interface LocaleDataType {
 
   infoBlock: {
     description: string;
-    link: {
-      text: string;
-      url: string;
-    };
+    link: LinkType;
     advantages: AdvantageObject[];
     images: string[];
   };
@@ -45,6 +42,13 @@ export interface LocaleDataType {
     images: string[][];
     nextButtonText: string;
   };
+
+  rateSlider: {
+    rate: number;
+    rateText: (rate: number) => string;
+    link: LinkType;
+    images: string[];
+  };
 }
 
 type InputTypes = {
@@ -55,9 +59,14 @@ type InputTypes = {
   value?: number | string | boolean;
 };
 
-type AdvantageObject = {
+export type AdvantageObject = {
   title: string;
   text: string;
+};
+
+type LinkType = {
+  text: string;
+  url: string;
 };
 
 type TabType = {

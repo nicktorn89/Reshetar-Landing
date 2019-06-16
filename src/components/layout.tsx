@@ -8,8 +8,9 @@ import ConnectedThemeProvider from 'src/components/modules/ThemeProvider/index';
 
 import Header from 'src/components/modules/Header';
 import Hero from 'src/components/modules/Hero';
-import InfoBlock from './modules/InfoBlock/index';
-import SliderWithTabs from './modules/SliderWithTabs/index';
+import InfoBlock from './modules/InfoBlock';
+import SliderWithTabs from './modules/SliderWithTabs';
+import RateSlider from './modules/RateSlider';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const localeData: LocaleDataType = useContext(LocaleData);
@@ -21,6 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Hero data={localeData.hero} />
         <InfoBlock data={localeData.infoBlock} />
         <SliderWithTabs data={localeData.sliderWithTabs} />
+        <RateSlider data={localeData.rateSlider} />
         {children}
       </ConnectedThemeProvider>
     </React.Fragment>

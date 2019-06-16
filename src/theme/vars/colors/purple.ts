@@ -20,12 +20,18 @@ const purple = {
 
   // --- BORDER -----------------------------------------------------------------------------------
   $border_color_tile: colors.$purple300,
+  $block_border_color: colors.$gray200,
 
   // --- BUTTON -----------------------------------------------------------------------------------
   $btn_base_bg: colors.$green200,
   $btn_primary_bg: colors.$purple400,
   $btn_base_fc: colors.$white,
   $btn_primary_fc: colors.$white,
+  $btn_icon_active: colors.$purple400,
+  $btn_icon_disabled: colors.$gray300,
+
+  // --- HEADER -----------------------------------------------------------------------------------
+  $header_accent_text_color: colors.$purple600,
 
   // --- PAGINATION -------------------------------------------------------------------------------
   $pgn_base_bg: colors.$purple200,
@@ -58,6 +64,9 @@ const purple = {
   $tabs_bg_color: colors.$white,
   $tabs_bg_active_color: colors.$purple400,
   $tabs_text_active_color: colors.$white,
+
+  // --- RATE --------------------------------------------------------------------------------------
+  $rate_block_bg: colors.$purple400,
 
   // --- CALCULATOR LOGO  --------------------------------------------------------------------------
   $calculator_logo_color_0: colors.$purple300,

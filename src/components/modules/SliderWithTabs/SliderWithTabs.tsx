@@ -3,8 +3,8 @@ import { SliderWithTabsProps } from './types';
 import { 
   SliderContainer, SliderHeading, TabsContainer, 
   Tab, ImagesContainer, DescContainer, 
-  HeadingDesc, TextDesc, DescControlsGroup, 
-  DescControl, ImageItem,
+  HeadingDesc, TextDesc, SliderControlsGroup, 
+  SliderControl, ImageItem,
 } from './styled';
 
 import parse from 'html-react-parser';
@@ -48,16 +48,16 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
           <HeadingDesc>{descriptions[activeTab].heading}</HeadingDesc>
           <TextDesc>{parse(descriptions[activeTab].description)}</TextDesc>
 
-          <DescControlsGroup>
-            <DescControl onClick={changeImages(false)}>
+          <SliderControlsGroup>
+            <SliderControl onClick={changeImages(false)}>
               <Icon icon={faLongArrowAltLeft} />
-            </DescControl>
+            </SliderControl>
 
-            <DescControl onClick={changeImages(true)} next={true}>
+            <SliderControl onClick={changeImages(true)} next={true}>
               <span>{nextButtonText}</span>
               <Icon icon={faLongArrowAltRight} />
-            </DescControl>
-          </DescControlsGroup>
+            </SliderControl>
+          </SliderControlsGroup>
         </DescContainer>
         
         {renderSliderImgFrames}

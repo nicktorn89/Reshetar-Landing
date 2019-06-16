@@ -24,7 +24,7 @@ export const BeforeContactsText = styled.span`
     font-size: ${t.$font_size_base * 1.125}px;
     font-family: ${t.$font_family};
     font-weight: ${t.$font_weight_semibold};
-    color: ${t.$text_color_alt};
+    color: ${t.$header_accent_text_color};
     margin: 0 ${t.$rythm * 0.75}px 0 ${t.$rythm * 1.125}px;
   `}
 `;

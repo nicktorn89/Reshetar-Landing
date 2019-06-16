@@ -25,6 +25,7 @@ const base = {
   // --- BACKGROUND -------------------------------------------------------------------------------
   $bg: colors.$white,
   $bg_alt: colors.$gray100,
+  $bg_transparent: colors.$transparent,
   $disabled_bg: colors.$gray200,
   $error_bg: colors.$red100,
   $error_bg_alt: colors.$red200,
@@ -58,6 +59,8 @@ const base = {
   $btn_shadow: `0 ${rythm / 4}px ${rythm}px 0`,
   $btn_font_size_base: font_size * 1.15,
   $btn_font_size_sm: font_size * 0.85,
+  $btn_icon_active: colors.$purple400,
+  $btn_icon_disabled: colors.$gray300,
 
   // --- NAVIGATION -------------------------------------------------------------------------------
   $navigation_width: rythm * 5,
@@ -81,6 +84,9 @@ const base = {
   $tabs_header_bg: colors.$gray100,
   $tabs_item_border_width: 4,
   $tabs_item_border_color_hovered: colors.$gray300,
+
+  // --- RATE --------------------------------------------------------------------------------------
+  $rate_block_bg: colors.$purple400,
 
   // --- SCROLLBAR -----------------------------------------------------------------------------------
   $scrollbar: colors.$gray300,
