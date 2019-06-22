@@ -112,8 +112,8 @@ export const Note = styled.span`
 `;
 
 export const FormBlock = styled.div`
-    width: 48%;
-    height: 100%;
+  width: 48%;
+  height: 100%;
 `;
 
 export const FormContainer = styled.div`
@@ -194,7 +194,4 @@ export const FormNumber = styled(Input)`
   `}
 `;
 
-export const FormCheckbox = styled(Checkbox)`
-  ${({ theme: t }) => css`
-  `}
-`;
+export const FormCheckbox = styled(Checkbox)``;

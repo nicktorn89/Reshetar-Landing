@@ -11,7 +11,7 @@ import {
 import parse from 'html-react-parser';
 import { InputProps } from 'src/components/UI/Input';
 
-const inputs = {
+export const inputs = {
   select: FormSelect,
   text: FormText,
   number: FormNumber,
@@ -57,7 +57,7 @@ const HeroComponent: React.FC<HeroProps> = ({ data }) => {
 
       <FormBlock>
         <FormContainer>
-          <FormHeading>{formBlock.heading}</FormHeading>
+          <FormHeading>{formBlock.heading && formBlock.heading}</FormHeading>
 
           <InputsGroup>
             {renderInputs}

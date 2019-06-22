@@ -20,11 +20,7 @@ export interface LocaleDataType {
       untilDate: string;
       note: string;
     };
-    formBlock: {
-      heading: string;
-      buttonText: string;
-      formInputs: InputTypes[],
-    };
+    formBlock: FormBlock;
   };
 
   infoBlock: {
@@ -61,6 +57,11 @@ export interface LocaleDataType {
   faq: {
     heading: string;
     questions: Question[];
+  };
+
+  orderBlock: {
+    heading: string;
+    form: FormBlock;
   };
 }
 
@@ -104,6 +105,12 @@ type SliderBlock = {
   heading: string;
   images: string[];
   styles?: { [property: string]: string | number; };
+};
+
+type FormBlock = {
+  heading?: string;
+  buttonText: string;
+  formInputs: InputTypes[],
 };
 
 type Question = {
