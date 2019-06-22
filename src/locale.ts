@@ -162,9 +162,39 @@ const LocaleData = createContext({
   },
 
   sliderBlocks: [
-    { title: 'Мои работы', images: [firstWork, firstWork, firstWork], styles: { paddingLeft: 90 } },
-    { title: 'Мои сертификаты', images: [firstWork, firstWork, firstWork] },
+    { heading: 'Мои работы', images: [firstWork, firstWork, firstWork], styles: { paddingLeft: 90 } },
+    { heading: 'Мои сертификаты', images: [firstWork, firstWork, firstWork] },
   ],
+
+  faq: {
+    heading: 'Часто задаваемые вопросы',
+    questions: [
+      {
+        question: 'На какой косметике Вы работаете?', 
+        answer: `Работаю с профессиональной и люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
+         Atelier, Bobbi Brown, Inglot и т.д. В работе с волосами использую лучшие титановые приборы для
+         укладки MakeUpTrend и профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
+      },
+      {
+        question: 'Как забронировать дату?', 
+        answer: `Работаю с профессиональной и люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
+         Atelier, Bobbi Brown, Inglot и т.д. В работе с волосами использую лучшие титановые приборы для
+         укладки MakeUpTrend и профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
+      },
+      {
+        question: 'Как забронировать дату?', 
+        answer: `Работаю с профессиональной и люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
+         Atelier, Bobbi Brown, Inglot и т.д. В работе с волосами использую лучшие титановые приборы для
+         укладки MakeUpTrend и профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
+      },
+      {
+        question: 'Как забронировать дату?', 
+        answer: `Работаю с профессиональной и люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
+         Atelier, Bobbi Brown, Inglot и т.д. В работе с волосами использую лучшие титановые приборы для
+         укладки MakeUpTrend и профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
+      },
+    ],
+  },
 });
 
 export default LocaleData;

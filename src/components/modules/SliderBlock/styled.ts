@@ -7,7 +7,7 @@ export const SliderBlockContainer = styled.section`
   `}
 `;
 
-export const SliderBlockTitle = styled.h3`
+export const SliderBlockHeading = styled.h3`
   ${({ theme: t }) => css`
     margin-top: ${t.$rythm * 9.2}px;
     margin-bottom: ${t.$rythm * 3.8}px;

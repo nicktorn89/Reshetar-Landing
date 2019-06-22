@@ -13,6 +13,7 @@ import SliderWithTabs from './modules/SliderWithTabs';
 import RateSlider from './modules/RateSlider';
 import PriceBlock from './modules/PriceBlock';
 import SliderBlock from './modules/SliderBlock';
+import FAQ from './modules/FAQ';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const localeData: LocaleDataType = useContext(LocaleData);
@@ -29,6 +30,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <PriceBlock data={localeData.priceBlock} />
         
         {renderSliderBlocks}
+        
+        <FAQ data={localeData.faq} />
 
         {children}
       </ConnectedThemeProvider>

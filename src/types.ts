@@ -57,6 +57,11 @@ export interface LocaleDataType {
   };
 
   sliderBlocks: SliderBlock[];
+
+  faq: {
+    heading: string;
+    questions: Question[];
+  };
 }
 
 type InputTypes = {
@@ -96,7 +101,12 @@ type PriceItem = {
 };
 
 type SliderBlock = {
-  title: string;
+  heading: string;
   images: string[];
   styles?: { [property: string]: string | number; };
+};
+
+type Question = {
+  question: string;
+  answer: string;
 };
