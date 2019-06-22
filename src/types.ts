@@ -63,6 +63,12 @@ export interface LocaleDataType {
     heading: string;
     form: FormBlock;
   };
+
+  footer: {
+    headerClone: LocaleDataType['header'];
+    copyright: string;
+    socialLinks: SocialLink[];
+  };
 }
 
 type InputTypes = {
@@ -80,6 +86,11 @@ export type AdvantageObject = {
 
 type LinkType = {
   text: string;
+  url: string;
+};
+
+type SocialLink = {
+  icon: IconDefinition;
   url: string;
 };
 

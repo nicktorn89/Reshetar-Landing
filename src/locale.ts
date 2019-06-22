@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { faInstagram, faVk, faTelegramPlane, faViber } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram, faVk, faTelegramPlane, faViber, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { InputProps } from 'src/components/UI/Input';
 
 const firstImage = require('src/images/description-photo.png');
@@ -230,6 +230,22 @@ const LocaleData = createContext({
         },
       ],
     },
+  },
+
+  footer: {
+    headerClone: {
+      beforeContacts: 'Задайте вопрос:',
+      text: ['Instagram', 'ВКонтакте', 'Telegram', 'Viber'],
+      icons: [faInstagram, faVk, faTelegramPlane, faViber],
+      links: ['#', '#', '#', '#'],
+      phoneNumber: 'г.Москва,\u00a0ул.Полбина, д.14 +7 926 720-82-60',
+    },
+    copyright: '© 2019, reshetar.ru ekaterinareshetar@gmail.com',
+    socialLinks: [
+      { url: '#', icon: faVk },
+      { url: '#', icon: faFacebook },
+      { url: '#', icon: faInstagram },
+    ],
   },
 });
 
