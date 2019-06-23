@@ -15,6 +15,7 @@ import PriceBlock from './modules/PriceBlock';
 import SliderBlock from './modules/SliderBlock';
 import FAQ from './modules/FAQ';
 import OrderBlock from './modules/OrderBlock';
+import Footer from './modules/Footer';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const localeData: LocaleDataType = useContext(LocaleData);
@@ -34,6 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         
         <FAQ data={localeData.faq} />
         <OrderBlock data={localeData.orderBlock} />
+        <Footer data={localeData.footer} />
 
         {children}
       </ConnectedThemeProvider>
