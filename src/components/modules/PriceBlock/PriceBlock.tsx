@@ -7,9 +7,8 @@ import {
  } from './styled';
 import PriceBlockProps from './types';
 
-import Icon from 'src/components/UI/Icon';
+import { Icon, ButtonTypesMap } from 'src/components/UI';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { ButtonTypesMap } from 'src/components/UI/Button';
 
 const PriceBlock: React.FC<PriceBlockProps> = ({ data }) => {
   const { heading, prices, clarifying } = data;

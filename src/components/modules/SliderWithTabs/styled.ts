@@ -148,6 +148,7 @@ export const ImageItem = styled.img`
    ${({ theme: t }) => css`
     height: 100%;
     width: ${t.$rythm * 22}px;
+    cursor: zoom-in;
 
     &:first-of-type {
       margin-right: ${t.$rythm * 2}px;

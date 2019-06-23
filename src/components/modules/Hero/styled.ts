@@ -1,9 +1,5 @@
 import styled, { css } from 'styled-components';
-import Button from 'src/components/UI/Button/Button';
-import Logo from 'src/components/UI/Logo';
-import Select from 'src/components/UI/Select';
-import Input from 'src/components/UI/Input';
-import Checkbox from 'src/components/UI/Checkbox/Checkbox';
+import { Button, Logo, Select, Input, Checkbox } from 'src/components/UI';
 
 export const HeroContainer = styled.section`
   ${({ theme: t }) => css`

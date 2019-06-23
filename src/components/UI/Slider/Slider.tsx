@@ -1,20 +1,27 @@
-import React, { memo } from 'react';
+import React, { memo, useRef } from 'react';
 import { SliderProps } from './types';
 import { 
   SliderContainer, PrevImageButton, NextImageButton,
   ImagesContainer, ImageItem,
 } from './styled';
 
-import Icon from 'src/components/UI/Icon';
 import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import { Icon, ImageViewer } from 'src/components/UI';
 
-import { useSliderHook } from 'src/hooks/useSliderHook';
+import { useSliderHook, useImageViewer } from 'src/hooks';
+import { createSliderItem, emptyFunc } from 'src/utils';
 
-const RateSlider: React.FC<SliderProps> = ({ imageSizes, imagesToShowCount, images, containerStyles }) => {
+import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
+
+const Slider: React.FC<SliderProps> = ({ imageSizes, imagesToShowCount, images, containerStyles }) => {
   const { height, width } = imageSizes;
-
+  
   const { currentImage, nextSlide, prevSlide, disabledButtons } = useSliderHook(images, imagesToShowCount);
   const imageToShowArray = [];
+
+  const sliderContainer = useRef<HTMLDivElement>(null);
+  const { viewerStatus, changeViewerStatus, activeIndex } = useImageViewer(sliderContainer);
+  const sliderImages: ImageDecorator[] = createSliderItem(images);
 
   for (let i = 0; i < imagesToShowCount; i += 1) {
     imageToShowArray.push(i);
@@ -30,10 +37,11 @@ const RateSlider: React.FC<SliderProps> = ({ imageSizes, imagesToShowCount, imag
     key={index} 
     width={width}
     src={images[currentImage + index]} 
+    onClick={!viewerStatus ? changeViewerStatus(currentImage + index) : emptyFunc}
   />);
 
   return (
-      <SliderContainer height={height} style={containerStyles} >
+      <SliderContainer ref={sliderContainer} height={height} style={containerStyles} >
         <PrevImageButton 
           onClick={changeImages(false)}
           disabled={disabledButtons.prev}
@@ -51,8 +59,15 @@ const RateSlider: React.FC<SliderProps> = ({ imageSizes, imagesToShowCount, imag
         >
           <Icon icon={faLongArrowAltRight} size='2x' />
         </NextImageButton>
+
+        <ImageViewer
+          status={viewerStatus}
+          onClose={changeViewerStatus(0)}
+          images={sliderImages}
+          activeIndex={activeIndex}
+        />
       </SliderContainer>
   );
 };
 
-export default memo(RateSlider);
+export default memo(Slider);

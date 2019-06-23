@@ -6,16 +6,10 @@ import LocaleData from 'src/locale';
 import { LocaleDataType } from 'src/types';
 import ConnectedThemeProvider from 'src/components/modules/ThemeProvider/index';
 
-import Header from 'src/components/modules/Header';
-import Hero from 'src/components/modules/Hero';
-import InfoBlock from './modules/InfoBlock';
-import SliderWithTabs from './modules/SliderWithTabs';
-import RateSlider from './modules/RateSlider';
-import PriceBlock from './modules/PriceBlock';
-import SliderBlock from './modules/SliderBlock';
-import FAQ from './modules/FAQ';
-import OrderBlock from './modules/OrderBlock';
-import Footer from './modules/Footer';
+import { 
+  Header, Hero, InfoBlock, SliderWithTabs, RateSlider, 
+  PriceBlock, SliderBlock, FAQ, OrderBlock, Footer,
+} from 'src/components/modules';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const localeData: LocaleDataType = useContext(LocaleData);

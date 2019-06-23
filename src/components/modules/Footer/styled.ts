@@ -59,7 +59,7 @@ export const FooterCopyright = styled.span`
     width: ${t.$rythm * 10.2}px;
     height: ${t.$rythm * 2}px;
     line-height: normal;
-    margin-right: 66.5%;
+    margin-right: 240%;
   `}
 `;
 
