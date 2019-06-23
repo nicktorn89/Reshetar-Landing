@@ -5,10 +5,11 @@ import {
   AdvantageTitle, AdvantageDesc, AdvantageImageContainer, AdvantageImage,
   DescLogoContainer, Link,
 } from './styled';
-import InfoBlockProps from './types';
+
 import parse from 'html-react-parser';
-import { useDescImage } from 'src/hooks/useDescImage';
-import { useAdvantagesImg } from 'src/hooks/useAdvantagesImg';
+import { useDescImage, useAdvantagesImg } from 'src/hooks';
+
+import InfoBlockProps from './types';
 
 const InfoBlock: React.FC<InfoBlockProps> = ({ data }) => {
   const { description, link, advantages, images } = data;

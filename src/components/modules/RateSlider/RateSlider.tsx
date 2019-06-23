@@ -5,7 +5,7 @@ import {
   RateText, RateLink,
 } from './styled';
 
-import Slider from 'src/components/UI/Slider';
+import { Slider } from 'src/components/UI';
 
 const RateSlider: React.FC<RateSliderProps> = ({ data }) => {
   const { rate, rateText, link, images } = data;

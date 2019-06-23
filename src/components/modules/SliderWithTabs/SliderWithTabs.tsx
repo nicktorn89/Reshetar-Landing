@@ -1,5 +1,4 @@
-import React, { memo } from 'react';
-import { SliderWithTabsProps } from './types';
+import React, { memo, useRef } from 'react';
 import { 
   SliderContainer, SliderHeading, TabsContainer, 
   Tab, ImagesContainer, DescContainer, 
@@ -8,15 +7,26 @@ import {
 } from './styled';
 
 import parse from 'html-react-parser';
-import Icon from 'src/components/UI/Icon';
+
 import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
-import { useSliderHook } from 'src/hooks/useSliderHook';
+import { Icon, ImageViewer } from 'src/components/UI';
+
+import { useSliderHook, useImageViewer } from 'src/hooks';
+import { createSliderItem, emptyFunc } from 'src/utils';
+
+import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
+import { SliderWithTabsProps } from './types';
 
 const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
   const { heading, tabs, descriptions, activeTab, images, nextButtonText } = data; // TODO: создать action для изменения табы
+
   const IMAGES_TO_SHOW_COUNT = 2;
   const { currentImage, nextSlide, prevSlide } = useSliderHook(images[activeTab], IMAGES_TO_SHOW_COUNT);
   const imageToShowArray = [];
+
+  const sliderContainer = useRef<HTMLDivElement>(null);
+  const { viewerStatus, changeViewerStatus, activeIndex } = useImageViewer(sliderContainer);
+  const sliderImages: ImageDecorator[] = createSliderItem(images[activeTab]);
 
   for (let i = 0; i < IMAGES_TO_SHOW_COUNT; i += 1) {
     imageToShowArray.push(i);
@@ -28,7 +38,12 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
       : prevSlide();
   };
 
-  const renderSliderImgFrames = imageToShowArray.map((k, index) => <ImageItem key={index} src={images[activeTab][currentImage + index]} />);
+  const renderSliderImgFrames = imageToShowArray.map((k, index) => 
+    <ImageItem 
+      key={index} 
+      src={images[activeTab][currentImage + index]}
+      onClick={!viewerStatus ? changeViewerStatus(currentImage + index) : emptyFunc}
+    />);
 
   const renderTabs = tabs.map((tab, index) => 
     <Tab key={index} active={index === activeTab}>
@@ -36,7 +51,7 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
     </Tab>);
 
   return (
-    <SliderContainer>
+    <SliderContainer ref={sliderContainer}>
       <SliderHeading>{heading}</SliderHeading>
 
       <TabsContainer>
@@ -59,7 +74,14 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
             </SliderControl>
           </SliderControlsGroup>
         </DescContainer>
-        
+
+        <ImageViewer
+          status={viewerStatus}
+          onClose={changeViewerStatus(0)}
+          images={sliderImages}
+          activeIndex={activeIndex}
+        />
+
         {renderSliderImgFrames}
       </ImagesContainer>
     </SliderContainer>
