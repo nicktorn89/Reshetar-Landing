@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Button, Logo, Select, Input, Checkbox } from 'src/components/UI';
+import { Button, Logo, Select, Input, Checkbox, InputMask } from 'src/components/UI';
 
 export const HeroContainer = styled.section`
   ${({ theme: t }) => css`
@@ -181,6 +181,16 @@ export const FormText = styled(Input)`
 `;
 
 export const FormNumber = styled(Input)`
+  ${({ theme: t }) => css`
+    width: ${t.$rythm * 18}px;
+
+    &:not(:last-child) {
+      margin-bottom: ${t.$rythm * 1.5}px;
+    }
+  `}
+`;
+
+export const FormInputMask = styled(InputMask)`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 18}px;
 

@@ -6,8 +6,9 @@ import Input from './Input';
 import Logo from './Logo';
 import Select from './Select';
 import Slider from './Slider';
+import InputMask from './InputMask';
 
 export { 
   Button, ButtonGroup, ButtonTypesMap, Checkbox, 
-  Icon, ImageViewer, Input, Logo, Select, Slider,
+  Icon, ImageViewer, Input, Logo, Select, Slider, InputMask,
 };

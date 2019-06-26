@@ -6,7 +6,7 @@ import {
   PriceBlock, Price, Currency, UntilDate, Note,
   FormBlock, FormContainer, FormHeading,
   InputsGroup, SendButton, LogoContainer, 
-  FormSelect, FormText, FormNumber, FormCheckbox,
+  FormSelect, FormText, FormNumber, FormCheckbox, FormInputMask,
 } from './styled';
 import parse from 'html-react-parser';
 import { InputProps } from 'src/components/UI/Input';
@@ -16,6 +16,7 @@ export const inputs = {
   text: FormText,
   number: FormNumber,
   checkbox: FormCheckbox,
+  maskInput: FormInputMask,
 };
 
 const HeroComponent: React.FC<HeroProps> = ({ data }) => {

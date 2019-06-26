@@ -72,7 +72,7 @@ export interface LocaleDataType {
 }
 
 type InputTypes = {
-  type: InputProps['type'] | 'select' | 'checkbox';
+  type: InputProps['type'] | 'select' | 'checkbox' | 'maskInput';
   name: string; 
   label?: string;
   options?: Options;
