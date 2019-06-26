@@ -1,4 +1,4 @@
-import React, { memo, useRef } from 'react';
+import React, { memo, useRef, useState } from 'react';
 import { 
   SliderContainer, SliderHeading, TabsContainer, 
   Tab, ImagesContainer, DescContainer, 
@@ -18,7 +18,9 @@ import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
 import { SliderWithTabsProps } from './types';
 
 const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
-  const { heading, tabs, descriptions, activeTab, images, nextButtonText } = data; // TODO: создать action для изменения табы
+  const { heading, tabs, descriptions, images, nextButtonText } = data;
+
+  const [activeTab, setActiveTab] = useState(0);
 
   const IMAGES_TO_SHOW_COUNT = 2;
   const { currentImage, nextSlide, prevSlide } = useSliderHook(images[activeTab], IMAGES_TO_SHOW_COUNT);
@@ -38,6 +40,11 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
       : prevSlide();
   };
 
+  const changeTab = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const { tabIndex } = e.currentTarget.dataset;
+    tabIndex && setActiveTab(+tabIndex);
+  };
+
   const renderSliderImgFrames = imageToShowArray.map((k, index) => 
     <ImageItem 
       key={index} 
@@ -46,7 +53,12 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
     />);
 
   const renderTabs = tabs.map((tab, index) => 
-    <Tab key={index} active={index === activeTab}>
+    <Tab 
+      key={index} 
+      active={index === activeTab} 
+      data-tab-index={index}
+      onClick={changeTab}
+    >
       {tab.text}
     </Tab>);
 

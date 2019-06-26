@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useState } from 'react';
 import { faInstagram, faVk, faTelegramPlane, faViber, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { InputProps } from 'src/components/UI/Input';
 
@@ -120,8 +120,9 @@ const LocaleData = createContext({
     ],
     images: [
       [firstImage, secondImage, thirdImage],
+      [firstRate, firstImage, thirdImage],
+      [firstWork, thirdImage, firstRate],
     ],
-    activeTab: 0,
     nextButtonText: 'Следующий образ',
   },
 
