@@ -34,7 +34,6 @@ export interface LocaleDataType {
     heading: string;
     tabs: TabType[];
     descriptions: SliderDescriptionObject[];
-    activeTab: number;
     images: string[][];
     nextButtonText: string;
   };
@@ -72,7 +71,7 @@ export interface LocaleDataType {
 }
 
 type InputTypes = {
-  type: InputProps['type'] | 'select' | 'checkbox' | 'maskInput';
+  type: InputProps['type'] | 'select' | 'checkbox' | 'maskInput' | string;
   name: string; 
   label?: string;
   options?: Options;
