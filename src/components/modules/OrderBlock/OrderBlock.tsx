@@ -32,7 +32,7 @@ const OrderBlock: React.FC<OrderBlockProps> = ({ data }) => {
 
       <OrderBlockFormContainer>
         <OrderBlockFormInputs>
-          {renderInputsByType(['select', 'text', 'number'])}
+          {renderInputsByType(['select', 'text', 'number', 'maskInput'])}
           <OrderBlockFormButton>{form.buttonText}</OrderBlockFormButton>
         </OrderBlockFormInputs>
 

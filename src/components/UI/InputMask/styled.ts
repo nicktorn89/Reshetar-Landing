@@ -1,5 +1,6 @@
 import styled, { css, ifProp } from 'src/theme';
 import { outline } from 'src/theme/mixin';
+import InputMask from 'react-input-mask';
 
 export const Container = styled.div`
   ${({ theme: t }) => css`
@@ -15,7 +16,7 @@ export const Container = styled.div`
   `}
 `;
 
-export const Input = styled.input`
+export const Input = styled(InputMask)`
   ${({ theme: t }) => css`
     padding: 0 ${t.$rythm / 2}px 0 ${t.$rythm * 1.25}px;
     width: calc(100% - ${t.$height_base * 2}px);

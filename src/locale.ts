@@ -39,7 +39,7 @@ const LocaleData = createContext({
           options: [{ label: 'Макияж + прическа', value: 0 }],
         },
         {
-          type: 'text' as InputProps['type'],
+          type: 'maskInput',
           name: 'phoneNumber',
         },
         {
@@ -207,7 +207,7 @@ const LocaleData = createContext({
           options: [{ label: 'Макияж + прическа', value: 0 }],
         },
         {
-          type: 'text' as InputProps['type'],
+          type: 'maskInput',
           name: 'phoneNumber',
         },
         {
