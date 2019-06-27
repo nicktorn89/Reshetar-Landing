@@ -72,26 +72,18 @@ export const PriceItemOptionsContainer = styled.ul`
     margin: ${t.$rythm * 1.4}px 0 ${t.$rythm * 0.75}px ${t.$rythm * 3}px;
 
     list-style: none;
+    line-height: 1.6;
   `}
 `;
 
 export const PriceItemOption = styled.li`
   ${({ theme: t }) => css`
     color: ${t.$text_color_black};
+    margin-bottom: 0;
 
     & > svg {
       color: ${t.$btn_icon_active};
       margin-right: ${t.$rythm}px;
-    }
-
-    margin: ${t.$rythm}px 0;
-
-    &:first-of-type {
-      margin-top: 0;
-    }
-
-    &:last-of-type {
-      margin-bottom: 0;
     }
   `}
 `;
@@ -110,25 +102,29 @@ export const PriceItemText = styled.span`
 
 export const PriceItemNumber = styled.span`
   ${({ theme: t }) => css`
-    color: ${t.$text_color_black};
-
+    margin: 0 ${t.$rythm / 2}px;
+    
     font-size: ${t.$rythm * 3.125}px;
     font-weight: ${t.$font_weight_bold};
     line-height: ${t.$rythm * 3.125}px;
-    margin: 0 ${t.$rythm / 2}px;
+
+    color: ${t.$text_color_black};
   `}
 `;
 
-export const PriceItemOrder = styled(Button)<{ active: boolean }>`
+export const PriceItemOrderButton = styled(Button)<{ active: boolean }>`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 14.68}px;
     margin: 0 auto;
-    color: ${t.$text_color_black};
+
+    border: 1px solid ${t.$block_border_color};
+    border-radius: ${t.$rythm / 2}px;
 
     font-size: ${t.$rythm}px;
     font-weight: ${t.$font_weight_bold};
-    border: 1px solid ${t.$block_border_color};
+
     box-shadow: none;
+    color: ${t.$text_color_black};
 
     outline: none;
 

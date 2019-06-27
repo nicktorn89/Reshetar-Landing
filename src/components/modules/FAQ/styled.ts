@@ -32,13 +32,15 @@ export const QuestionsContainer = styled.div`
     }
 
     .Collapsible__contentInner {
-      padding: ${t.$rythm}px;
-      padding-left: 0;
+      padding: ${t.$rythm}px ${t.$rythm * 27.8125}px ${t.$rythm * 1.75}px 0;  
+      
+      line-height: 1.56;
+      font-size: ${t.$rythm}px;
 
       color: ${t.$text_color_black};
     }
 
-    .ordinar > .Collapsible__contentInner {
+    .ordinar .Collapsible__contentInner {
       border-bottom: 1px solid ${t.$accordion_border};
     }
 
@@ -55,12 +57,15 @@ export const QuestionsContainer = styled.div`
     .Collapsible__trigger {
       display: block;
       position: relative;
-      margin-top: ${t.$rythm * 2}px;
+
       height: ${t.$rythm * 3}px;
+      margin-top: ${t.$rythm * 2}px;
+
       font-size: ${t.$rythm * 1.25}px;
       font-weight: ${t.$font_weight_bold};
-      color: ${t.$text_color_accent};
       text-decoration: none;
+      
+      color: ${t.$text_color_accent};
       cursor: pointer;
     }
 

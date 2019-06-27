@@ -76,9 +76,12 @@ export const HeadingDesc = styled.h3`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 5}px;
     width: ${t.$rythm * 18.75}px;
+
     margin-top: ${t.$rythm * 1.25}px;
+
     font-size: ${t.$rythm * 1.25}px;
     color: ${t.$text_color_black};
+    line-height: normal;
   `}
 `;
 
@@ -86,11 +89,14 @@ export const TextDesc = styled.span`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 8}px;
     width: ${t.$rythm * 13}px;
-    margin: ${t.$rythm * 2}px 0 0 ${t.$rythm}px;
-    font-size: ${t.$rythm * 1.25}px;
-    line-height: ${t.$rythm}px;
+
     display: flex;
     flex-wrap: wrap;
+
+    margin: ${t.$rythm * 2}px 0 0 ${t.$rythm}px;
+
+    font-size: ${t.$rythm * 1.25}px;
+    line-height: 1;
     
     & > span {
       color: ${t.$text_color_black};
@@ -116,9 +122,11 @@ export const SliderControl = styled(Button)<{next?: boolean}>`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 3.125}px;
     width: ${t.$rythm * 3.125}px;
+    
+    margin-right: ${t.$rythm * 0.75}px;
+
     border-radius: ${t.$border_radius_base * 2}px;
     border: ${t.$border_width_base / 2}px solid ${t.$tabs_item_border_color};
-    margin-right: ${t.$rythm * 0.75}px;
 
     color: ${t.$text_color_black};
     background: ${t.$tabs_bg_color};

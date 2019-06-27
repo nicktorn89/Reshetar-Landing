@@ -6,9 +6,12 @@ export const InfoBlockContainer = styled.section`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 57.5}px;
     height: ${t.$rythm * 66}px;
+
     margin: 0 auto;
+
     position: relative;
     bottom: ${t.$rythm * 6}px;
+
     background: ${t.$bg};
     border: ${t.$border_radius_base}px;
     box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.2);
@@ -39,11 +42,15 @@ export const DescriptionText = styled.span`
   ${({ theme: t }) => css`
     height: calc(100% - ${t.$rythm * 2}px);
     width: 55%;
-    color: ${t.$text_color_black};
+
     margin: ${t.$rythm * 2}px 0 0 ${t.$rythm * 2}px;
-    font-size: ${t.$rythm}px;
+
     display: flex;
     flex-direction: column;
+
+    color: ${t.$text_color_black};
+    font-size: ${t.$rythm}px;
+    line-height: 1.25;
     
     span {
       color: ${t.$text_color_black};
@@ -148,8 +155,12 @@ export const AdvantageTitle = styled.h2`
   ${({ theme: t }) => css`
     max-width: ${t.$rythm * 18.75}px;
     height: ${t.$rythm * 3.75}px;
+
     margin: ${t.$rythm * 2}px 0 0 0;
+
     font-size: ${t.$rythm * 1.25}px;
+    line-height: 1.25;
+
     color: ${t.$text_color_black};
   `}
 `;
@@ -158,6 +169,8 @@ export const AdvantageDesc = styled.span`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 2.5}px;
     width: ${t.$rythm * 18}px;
+
+    line-height: 1.25;
     color: ${t.$text_color_black};
   `}
 `;
