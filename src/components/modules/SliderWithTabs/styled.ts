@@ -30,12 +30,16 @@ export const Tab = styled.button<{active: boolean}>`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 22}px;
     height: ${t.$rythm * 3}px;
-    background-color: ${t.$tabs_bg_color};
-    cursor: pointer;
     border-radius: ${t.$border_radius_base * 2}px;
 
-    border: ${t.$border_width_base * 1.5}px solid ${t.$tabs_item_border_color};
+    border: ${t.$border_width_base / 2}px solid ${t.$tabs_item_border_color};
+    
+    background-color: ${t.$form_bg};
+    cursor: pointer;
     outline: none;
+
+    font-size: 20px;
+    font-weight: bold;
 
     &:first-child {
       margin-right: ${t.$rythm * 2}px;
