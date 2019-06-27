@@ -46,7 +46,7 @@ const Slider: React.FC<SliderProps> = ({ imageSizes, imagesToShowCount, images, 
           onClick={changeImages(false)}
           disabled={disabledButtons.prev}
         >
-          <Icon icon={faLongArrowAltLeft} size='2x' />
+          <Icon icon={faLongArrowAltLeft} size='3x' />
         </PrevImageButton>
 
         <ImagesContainer height={height}>     
@@ -57,7 +57,7 @@ const Slider: React.FC<SliderProps> = ({ imageSizes, imagesToShowCount, images, 
           onClick={changeImages(true)}
           disabled={disabledButtons.next}
         >
-          <Icon icon={faLongArrowAltRight} size='2x' />
+          <Icon icon={faLongArrowAltRight} size='3x' />
         </NextImageButton>
 
         <ImageViewer

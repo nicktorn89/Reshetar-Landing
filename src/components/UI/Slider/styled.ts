@@ -15,12 +15,13 @@ export const SliderContainer = styled.div<{ height?: number }>`
 export const PrevImageButton = styled.button<{ disabled?: boolean }>`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 3.375}px;
+    padding: 0;
+    margin-right: ${t.$rythm * 2.5625}px;
+
     outline: none;
     border: 0;
     background: ${t.$bg_transparent};
     color: ${t.$btn_icon_active};
-    padding: 0;
-    margin-right: ${t.$rythm * 5.68}px;
     cursor: pointer;
 
     ${ifProp({
@@ -44,7 +45,7 @@ export const ImagesContainer = styled.div<{ height?: number }>`
     height: ${height ? height : t.$rythm * 33.625}px;
     width: ${t.$rythm * 52}px;
 
-    margin-right: ${t.$rythm * 5.375}px;
+    margin-right: ${t.$rythm * 8.5}px;
 
     display: flex;
   `}

@@ -1,9 +1,22 @@
 import styled, { css } from 'styled-components';
+import { PrevImageButton, ImagesContainer, NextImageButton } from 'src/components/UI/Slider/styled';
 
 export const RateSliderContainer = styled.section`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 67.25}px;
     border-top: 1px solid ${t.$block_border_color};
+
+    ${PrevImageButton} {
+      margin-right: ${t.$rythm * 5.68}px;
+    }
+    
+    ${ImagesContainer} {
+      margin-right: ${t.$rythm * 5.375}px;
+    }
+
+    ${NextImageButton} {
+      margin-right: 0;
+    }
   `}
 `;
 

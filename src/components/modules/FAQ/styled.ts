@@ -65,8 +65,12 @@ export const QuestionsContainer = styled.div`
       font-weight: ${t.$font_weight_bold};
       text-decoration: none;
       
-      color: ${t.$text_color_accent};
+      color: ${t.$text_color_alt};
       cursor: pointer;
+    }
+
+    .Collapsible__trigger.is-closed {      
+      color: ${t.$text_color_black};
     }
 
     .ordinar > .Collapsible__trigger {
@@ -81,10 +85,10 @@ export const QuestionsContainer = styled.div`
     .Collapsible__trigger:after {
       font-family: 'FontAwesome';
       content: '\f107';
-      font-size: ${t.$rythm * 2}px;
+      font-size: ${t.$rythm * 3}px;
       position: absolute;
       right: ${t.$rythm / 2}px;
-      top: 0;
+      bottom: ${t.$rythm / 2}px;
       display: block;
       transition: transform 300ms; 
     }
