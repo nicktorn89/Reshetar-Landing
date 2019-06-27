@@ -51,6 +51,7 @@ export const RateText = styled.span`
 
     font-size: ${t.$rythm * 3.125}px;
     font-weight: ${t.$font_weight_bold};
+    line-height: 1.1;
     color: ${t.$text_color_black};
   `}
 `;

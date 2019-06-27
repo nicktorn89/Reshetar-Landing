@@ -53,16 +53,19 @@ export const Heading = styled.h2`
 export const Description = styled.span`
   ${({ theme: t }) => css`
     margin: ${t.$rythm * 1.5}px 0 0 ${t.$rythm * 10}px;
+
     color: ${t.$text_color_black};
+
     font-size: ${t.$rythm * 2}px;
-    line-height: ${t.$rythm * 2.25}px;
+    line-height: 1.17;
   `}
 `;
 
 export const PriceBlock = styled.div`
   ${({ theme: t }) => css`
-    margin: ${t.$rythm * 1.5}px 0 0 ${t.$rythm * 10}px;
     width: ${t.$rythm * 15}px;
+    margin: ${t.$rythm * 1.5}px 0 0 ${t.$rythm * 10}px;
+    
     background-color: ${t.$text_background_color};
     padding: ${t.$rythm / 2}px 0 0 ${t.$rythm / 2}px;
   `}

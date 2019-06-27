@@ -3,7 +3,7 @@ import {
   PriceBlockContainer, PriceBlockTitle, PriceItemsContainer,
   PriceItem, PriceItemTitle, PriceItemOptionsContainer, 
   PriceItemOption, PriceItemText, PriceItemNumber,
-  PriceItemOrder, ClarifyingText,
+  PriceItemOrderButton, ClarifyingText,
  } from './styled';
 import PriceBlockProps from './types';
 
@@ -35,12 +35,12 @@ const PriceBlock: React.FC<PriceBlockProps> = ({ data }) => {
           руб
         </PriceItemText>
 
-        <PriceItemOrder 
+        <PriceItemOrderButton 
           themeType={index === 1 ? ButtonTypesMap.base : ButtonTypesMap.hollow}
           active={index === 1}
         >
           {buttonText}
-        </PriceItemOrder>
+        </PriceItemOrderButton>
       </PriceItem>
     );
   });
