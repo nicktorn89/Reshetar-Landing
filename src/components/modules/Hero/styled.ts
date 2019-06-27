@@ -121,7 +121,7 @@ export const FormContainer = styled.div`
     width: ${t.$rythm * 25}px;
     height: ${t.$rythm * 30.5}px;
     border-radius: ${t.$rythm * 1.25}px;
-    background-color: ${t.$bg};
+    background: ${t.$form_bg}
   `}
 `;
 
@@ -139,8 +139,10 @@ export const FormHeading = styled.span`
 export const InputsGroup = styled.div`
   ${({ theme: t }) => css`
     width: 100%;
-    height: ${t.$rythm * 17}px;
+    height: ${t.$rythm * 15.75}px;
     padding: 0 ${t.$rythm * 3.5}px;
+
+    margin-bottom: ${t.$rythm * 2}px;
   `}
 `;
 
@@ -149,6 +151,7 @@ export const SendButton = styled(Button)`
     width: ${t.$rythm * 18}px;
     line-height: ${t.$rythm * 1.5}px;
     margin-bottom: ${t.$rythm * 2}px;
+    border-radius: ${t.$rythm * 0.625}px;
 
     display: flex;
     justify-content: center;
@@ -165,7 +168,7 @@ export const FormSelect = styled(Select)`
     width: ${t.$rythm * 18}px;
 
     &:not(:last-child) {
-      margin-bottom: ${t.$rythm * 1.5}px;
+      margin-bottom: ${t.$rythm * 1.3125}px;
     }
   `}
 `;
@@ -175,7 +178,7 @@ export const FormText = styled(Input)`
     width: ${t.$rythm * 18}px;
 
     &:not(:last-child) {
-      margin-bottom: ${t.$rythm * 1.5}px;
+      margin-bottom: ${t.$rythm * 1.3125}px;
     }
   `}
 `;
@@ -185,7 +188,7 @@ export const FormNumber = styled(Input)`
     width: ${t.$rythm * 18}px;
 
     &:not(:last-child) {
-      margin-bottom: ${t.$rythm * 1.5}px;
+      margin-bottom: ${t.$rythm * 1.3125}px;
     }
   `}
 `;
@@ -195,7 +198,7 @@ export const FormInputMask = styled(InputMask)`
     width: ${t.$rythm * 18}px;
 
     &:not(:last-child) {
-      margin-bottom: ${t.$rythm * 1.5}px;
+      margin-bottom: ${t.$rythm * 1.3125}px;
     }
   `}
 `;

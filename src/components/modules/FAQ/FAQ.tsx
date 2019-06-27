@@ -12,6 +12,7 @@ const FAQComponent: React.FC<FAQProps> = ({ data }) => {
     trigger={question.question}
     open={index === 0}
     lazyRender={true}
+    className={index === questions.length - 1 ? 'last-accordion' : 'ordinar'}
   >
     {question.answer}
   </Accordion>);

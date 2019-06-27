@@ -4,15 +4,18 @@ import { boxShadow } from 'src/theme/mixin';
 
 export const Select = styled(ReactSelect)`
   ${({ theme: t }) => css`
-    border-radius: ${t.$border_radius_base}px;
-    height: ${t.$height_base}px;
+    border-radius: ${t.$border_radius_base * 2.5}px;
+    height: ${t.$height_base * 1.25}px;
     font-family: ${t.$font_family};
+
+    font-size: ${t.$rythm * 1.25}px;
     
     box-sizing: border-box;
     
     .select__control {
-      height: ${t.$height_base}px;
-      border: ${t.$border_width_base}px solid ${t.$select_border_color};
+      height: ${t.$height_base * 1.25}px;
+      border: ${t.$border_width_base / 2}px solid ${t.$select_border_color};
+      border-radius: ${t.$border_radius_base * 2.5}px;
       
       cursor: pointer;
       box-shadow: none;
@@ -63,7 +66,7 @@ export const Select = styled(ReactSelect)`
     }
     
     .select__menu {
-      border-radius: ${t.$border_radius_base}px;
+      border-radius: ${t.$border_radius_base * 2.5}px;
       padding: ${t.$rythm}px;
       z-index: 100;
       
