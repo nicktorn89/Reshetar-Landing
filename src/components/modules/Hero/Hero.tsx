@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import HeroProps from './types';
+import HeroProps, { InputTypes } from './types';
 import { 
   HeroContainer, LogoBlock, LogoImg, 
   TextBlock, Heading, Description,
@@ -11,7 +11,7 @@ import {
 import parse from 'html-react-parser';
 import { InputProps } from 'src/components/UI/Input';
 
-export const inputs = {
+export const inputs: InputTypes = {
   select: FormSelect,
   text: FormText,
   number: FormNumber,

@@ -3,13 +3,15 @@ import { outline } from 'src/theme/mixin';
 
 export const Container = styled.div`
   ${({ theme: t }) => css`
-    height: ${t.$height_base}px;
+    height: ${t.$height_base * 1.25}px;
     border: ${t.$border_width_base / 2}px solid ${t.$input_border_color};
     border-radius: ${t.$border_radius_base * 2.5}px;
     
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
+
+    overflow: hidden;
     
     ${outline}
   `}
@@ -32,6 +34,8 @@ export const Input = styled.input`
     box-sizing: border-box;
     flex-grow: 1;
     display: flex;
+
+    font-size: ${t.$rythm * 1.25}px;
     
     &:focus {
       outline: none;

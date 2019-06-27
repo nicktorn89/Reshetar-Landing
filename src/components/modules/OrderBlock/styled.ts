@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
-import { FormText, FormNumber, FormSelect, SendButton, FormInputMask } from '../Hero/styled';
+import { SendButton } from '../Hero/styled';
 import { CheckboxLabel } from 'src/components/UI/Checkbox/styled';
-import { Container } from 'src/components/UI/Input/styled';
-import { Container as AnotherContainer } from 'src/components/UI/InputMask/styled';
 
 export const OrderBlockContainer = styled.section`
   ${({ theme: t }) => css`
@@ -36,29 +34,8 @@ export const OrderBlockFormInputs = styled.div`
   ${({ theme: t }) => css`
     width: 50%;
 
-    ${Container}, ${AnotherContainer} {
-      height: ${t.$rythm * 3.75}px;
-    }
-
     ${SendButton} {
       height: ${t.$rythm * 3.75}px;
-    }
-
-    ${FormNumber}, ${FormText}, ${FormSelect}, ${FormInputMask} {
-      width: ${t.$rythm * 18}px;
-      height: ${t.$rythm * 3.75}px;
-
-      & > div {
-        height: ${t.$rythm * 3.75}px;
-      }
-
-      &:not(:last-child) {
-        margin-bottom: ${t.$rythm * 1.3125}px;
-      }
-    }
-
-    ${FormNumber}, ${FormText}, ${FormInputMask} {
-      height: ${t.$rythm * 3.25}px;
     }
 
     & > div {

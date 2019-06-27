@@ -30,6 +30,7 @@ const base = {
   $error_bg: colors.$red100,
   $error_bg_alt: colors.$red200,
   $header_bg: colors.$purple700,
+  $form_bg: colors.$gray000,
 
   // --- HEIGHT -----------------------------------------------------------------------------------
   $height_base: 48,
