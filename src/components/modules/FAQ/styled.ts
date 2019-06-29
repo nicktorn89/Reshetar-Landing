@@ -7,6 +7,15 @@ export const FAQContainer = styled.section`
     border-top: 1px solid ${t.$block_border_color};
 
     padding-bottom: ${t.$rythm}px;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      width: 100%;
+      min-height: ${t.$rythm * 32}px;
+
+      overflow: hidden;
+
+      margin: 0 auto;
+    }
   `}
 `;
 
@@ -19,6 +28,15 @@ export const FAQHeading = styled.h3`
     color: ${t.$text_color_black};
 
     text-align: center;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      width: ${t.$rythm * 20}px;
+
+      margin: ${t.$rythm * 2.3125}px auto ${t.$rythm * 2.375}px auto;
+
+      font-size: ${t.$rythm * 1.5625}px;
+      line-height: 1.4;
+    }
   `}
 `;
 
@@ -85,16 +103,31 @@ export const QuestionsContainer = styled.div`
     .Collapsible__trigger:after {
       font-family: 'FontAwesome';
       content: '\f107';
-      font-size: ${t.$rythm * 3}px;
+      font-size: ${t.$rythm * 2}px;
       position: absolute;
       right: ${t.$rythm / 2}px;
-      bottom: ${t.$rythm / 2}px;
+      bottom: ${t.$rythm}px;
       display: block;
       transition: transform 300ms; 
     }
 
     .Collapsible__trigger.is-open:after {
       transform: rotateZ(180deg); 
+    }
+
+    @media ${t.$phone}, ${t.$tablet} {
+      width: ${t.$rythm * 20}px;
+
+      margin: 0 auto;
+      padding: 0 ${t.$rythm * 0.75}px;
+
+      .Collapsible__trigger.is-closed {
+        margin-top: ${t.$rythm * 1.375}px;
+      }
+
+      .Collapsible__contentInner {
+        padding: ${t.$rythm}px 0;
+      }
     }
   `}
 `;

@@ -6,20 +6,19 @@ import {
   DescLogoContainer, Link,
 } from './styled';
 
-import parse from 'html-react-parser';
 import { useDescImage, useAdvantagesImg } from 'src/hooks';
 
 import InfoBlockProps from './types';
 
-const InfoBlock: React.FC<InfoBlockProps> = ({ data }) => {
-  const { description, link, advantages, images } = data;
+const InfoBlock: React.FC<InfoBlockProps> = ({ data, isMobile }) => {
+  const { description, link, advantages } = data;
   const file = useDescImage();
   const advantagesImages = useAdvantagesImg();
   
   const renderAdvantages = advantages.map((advantage, index) => (
     <AdvantageItem key={index}>
       <AdvantageTitle>{advantage.title}</AdvantageTitle>
-      <AdvantageDesc>{advantage.text}</AdvantageDesc>
+      {!isMobile && <AdvantageDesc>{advantage.text}</AdvantageDesc>}
       <AdvantageImageContainer>
        <AdvantageImage src={advantagesImages[index].publicURL} />
       </AdvantageImageContainer>
@@ -31,12 +30,15 @@ const InfoBlock: React.FC<InfoBlockProps> = ({ data }) => {
       <DescriptionBlock>
         <DescriptionPhoto>
           <DescImg fixed={file.childImageSharp.fixed} />
+          {isMobile && <DescLogo />}
         </DescriptionPhoto>
         <DescriptionText>
-          {parse(description)}
+          {description.firstPart}
+          <br />
+          {description.secondPart}
 
           <DescLogoContainer>
-            <DescLogo />
+            {!isMobile && <DescLogo />}
 
             <Link href={link.url}>
               {link.text}

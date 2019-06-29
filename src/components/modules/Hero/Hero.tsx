@@ -10,6 +10,7 @@ import {
 } from './styled';
 import parse from 'html-react-parser';
 import { InputProps } from 'src/components/UI/Input';
+import { NumberSpan } from '../Header/styled';
 
 export const inputs: InputTypes = {
   select: FormSelect,
@@ -19,8 +20,8 @@ export const inputs: InputTypes = {
   maskInput: FormInputMask,
 };
 
-const HeroComponent: React.FC<HeroProps> = ({ data }) => {
-  const { textBlock, formBlock } = data;
+const HeroComponent: React.FC<HeroProps> = ({ data, isMobile }) => {
+  const { textBlock, formBlock, phoneNumber } = data;
 
   const renderInputs = formBlock.formInputs.map((input, index) => {
     const InputComponent = inputs[input.type];
@@ -40,6 +41,7 @@ const HeroComponent: React.FC<HeroProps> = ({ data }) => {
       <LogoBlock>
         <LogoContainer>
           <LogoImg />
+          {isMobile && <NumberSpan>{phoneNumber}</NumberSpan>}
         </LogoContainer>
       </LogoBlock>
 
@@ -58,13 +60,13 @@ const HeroComponent: React.FC<HeroProps> = ({ data }) => {
 
       <FormBlock>
         <FormContainer>
-          <FormHeading>{formBlock.heading && formBlock.heading}</FormHeading>
+          {!isMobile && <FormHeading>{formBlock.heading && formBlock.heading}</FormHeading>}
 
           <InputsGroup>
             {renderInputs}
           </InputsGroup>
 
-          <SendButton>{formBlock.buttonText}</SendButton>
+          <SendButton>{isMobile ? formBlock.mobileButtonText : formBlock.buttonText}</SendButton>
         </FormContainer>
       </FormBlock>
     </HeroContainer>

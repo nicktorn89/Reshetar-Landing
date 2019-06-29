@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { 
   Header as HeaderUI, ContactsBlock, NumberBlock,
-  NumberSpan, BeforeContactsText,
+  NumberSpan, BeforeContactsText, IconsBlock, IconContainer,
 } from '../Header/styled';
 
 export const Footer = styled.footer`
@@ -42,6 +42,73 @@ export const Footer = styled.footer`
         width: 100%;
       }
     }
+
+    @media ${t.$phone}, ${t.$tablet} {
+      height: ${t.$rythm * 34.5}px;
+
+      padding: 0;
+
+      overflow: hidden;
+
+      ${HeaderUI} {
+        margin-top: ${t.$rythm * 2}px;
+        height: ${t.$rythm * 20.375}px;
+
+        flex-direction: column;
+      }
+
+      ${ContactsBlock} {
+        width: ${t.$rythm * 20}px;
+        margin: 0 auto;
+        flex-direction: column;
+        flex-wrap: nowrap;
+
+        ${BeforeContactsText} {
+          margin-bottom: ${t.$rythm * 1.5}px;
+        }
+      }
+
+      ${BeforeContactsText} {
+        font-weight: ${t.$font_weight_bold};
+      }
+
+      ${IconsBlock} {
+        flex-direction: column;
+        width: ${t.$rythm * 10}px;
+        
+        margin: 0 auto;
+      }
+
+      ${IconContainer} {
+        width: ${t.$rythm * 10}px;
+
+        padding-left: ${t.$rythm / 2}px;
+        margin: 0 auto;
+
+        &:not(:last-of-type) {
+          margin-bottom: ${t.$rythm * 0.75}px;
+        }
+
+        svg {
+          width: ${t.$rythm * 2.25}px;
+          margin-right: ${t.$rythm * 0.75}px;
+        }
+      }
+
+      ${NumberBlock} {
+        display: flex;
+        flex-direction: column;
+
+        width: ${t.$rythm * 12.5}px;
+        margin: ${t.$rythm * 1.5}px auto 0 auto;
+
+        ${NumberSpan} {
+          height: ${t.$rythm * 3.125}px;
+
+          margin-top: ${t.$rythm}px;
+        }
+      }
+    }
   `}
 `;
 
@@ -50,6 +117,14 @@ export const FooterTextContainer = styled.div`
     margin-top: ${t.$rythm * 3.125}px;
     display: flex;
     align-items: flex-start;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      flex-direction: column-reverse;
+      width: ${t.$rythm * 10}px;
+
+      margin: 0 auto;
+      margin-top: ${t.$rythm * 1.125}px;
+    }
   `}
 `;
 
@@ -60,6 +135,11 @@ export const FooterCopyright = styled.span`
     height: ${t.$rythm * 2}px;
     line-height: normal;
     margin-right: 240%;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      margin: 0;
+      text-align: center;
+    }
   `}
 `;
 
@@ -105,6 +185,18 @@ export const FooterSocialLinks = styled.div`
         left: 3px;
         top: 1px;
       }
+    }
+
+    @media ${t.$phone}, ${t.$tablet} {
+      ${IconContainer} {
+        padding: 0;
+      }
+
+      & > a:nth-child(3) > svg {
+        left: ${t.$rythm / 3}px;
+      }
+
+      margin-bottom: ${t.$rythm * 4.1875}px;
     }
   `}
 `;

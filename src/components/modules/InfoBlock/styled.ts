@@ -15,6 +15,15 @@ export const InfoBlockContainer = styled.section`
     background: ${t.$bg};
     border: ${t.$border_radius_base}px;
     box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.2);
+
+    @media ${t.$phone}, ${t.$tablet} {
+      width: 100%;
+      height: ${t.$rythm * 77.3125}px;
+
+      overflow: hidden;
+
+      bottom: 0;
+    }
   `}
 `;
 
@@ -25,6 +34,14 @@ export const DescriptionBlock = styled.div`
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+
+    @media ${t.$phone}, ${t.$tablet} {      
+      width: ${t.$rythm * 20}px;
+      margin: 0 auto;
+      height: ${t.$rythm * 30.5625}px;
+
+      bottom: 0;
+    }
   `}
 `;
 
@@ -32,10 +49,29 @@ export const DescriptionPhoto = styled.div`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 19.25}px;
     height: ${t.$rythm * 19.25}px;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      height: ${t.$rythm * 7.25}px;
+
+      margin-top: ${t.$rythm}px;
+
+      display: flex;
+      align-items: center;
+    }
   `}
 `;
 
 export const DescImg = styled(Img)`
+  ${({ theme: t }) => css`
+    @media ${t.$phone}, ${t.$tablet} {
+      height: ${t.$rythm * 7.25}px !important;
+      width: ${t.$rythm * 7.25}px !important;
+
+      margin: 0 ${t.$rythm * 0.75}px;
+
+      border-radius: ${t.$rythm * 3.75}px;
+    }
+  `}
 `;
 
 export const DescriptionText = styled.span`
@@ -51,13 +87,17 @@ export const DescriptionText = styled.span`
     color: ${t.$text_color_black};
     font-size: ${t.$rythm}px;
     line-height: 1.25;
-    
-    span {
-      color: ${t.$text_color_black};
-    }
 
-    .with-indent {
+    @media ${t.$phone}, ${t.$tablet} {
+      height: ${t.$rythm * 22.25}px;
+      width: auto;
+
+      padding: 0 ${t.$rythm * 0.75}px;
+      margin: 0;
       margin-top: ${t.$rythm}px;
+      
+      font-size: ${t.$rythm * 1.125}px;
+      line-height: 1.39;
     }
   `}
 `;
@@ -87,6 +127,16 @@ export const AdvantagesBlock = styled.div`
     padding: ${t.$rythm * 6.5}px ${t.$rythm * 5}px ${t.$rythm * 4}px ${t.$rythm * 5.5}px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
+    @media ${t.$phone}, ${t.$tablet} {
+      height: ${t.$rythm * 43}px;      
+      width: ${t.$rythm * 20}px;
+      margin: 0 auto;
+
+      padding: 0 ${t.$rythm * 0.75}px;
+      grid-template-columns: repeat(1, 1fr);
+      margin-top: ${t.$rythm * 2.25}px;
+    }
   `}
 `;
 
@@ -148,6 +198,45 @@ export const AdvantageItem = styled.div`
         text-align: right;
       }
     }
+
+    @media ${t.$phone}, ${t.$tablet} {
+      flex-direction: column-reverse;
+      border: 0 !important;
+
+      &:first-child ${AdvantageImageContainer} {
+        margin-left: ${t.$rythm * 1.625}px;
+      }
+
+      &:nth-child(2) {
+        & ${AdvantageImageContainer} {
+          margin-right: ${t.$rythm * 1.8125}px;
+        }
+
+        ${AdvantageTitle} {
+          width: 100%;
+          align-self: flex-end;
+
+          padding-right: ${t.$rythm * 2}px;     
+        }
+      }
+
+      &:nth-child(3) ${AdvantageImageContainer} {
+        margin-left: ${t.$rythm * 1.625}px;
+      }
+
+      &:last-child {
+        & ${AdvantageImageContainer} {
+          margin-right: ${t.$rythm * 1.8125}px;
+        }
+
+        ${AdvantageTitle} {
+          width: 100%;
+          align-self: flex-end;
+
+          padding-right: ${t.$rythm * 2}px;
+        }
+      }
+    }
   `}
 `;
 
@@ -162,6 +251,17 @@ export const AdvantageTitle = styled.h2`
     line-height: 1.25;
 
     color: ${t.$text_color_black};
+
+    @media ${t.$phone}, ${t.$tablet} {
+      max-height: ${t.$rythm * 4}px;
+      width: 75%;
+
+      margin-top: 0;
+      margin-bottom: ${t.$rythm / 2}px;
+
+      line-height: 1.47;
+      font-size: ${t.$rythm * 1.0625}px;
+    }
   `}
 `;
 
@@ -181,11 +281,21 @@ export const AdvantageImageContainer = styled.div`
     align-items: flex-end;
     width: 100%;
     height: calc(100% - ${t.$rythm * 8.4}px);
+
+    @media ${t.$phone}, ${t.$tablet} {
+      height: ${t.$rythm * 4}px;
+      margin-bottom: ${t.$rythm * 0.8125}px;
+    }
   `}
 `;
 
 export const AdvantageImage = styled.img`
   ${({ theme: t }) => css`
     margin-bottom: ${t.$rythm * 2}px;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      height: ${t.$rythm * 4}px;
+      margin-bottom: 0;
+    }
   `}
 `;

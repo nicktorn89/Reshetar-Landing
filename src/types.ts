@@ -12,6 +12,7 @@ export interface LocaleDataType {
   };
 
   hero: {
+    phoneNumber: string;
     textBlock: {
       heading: string;
       description: string;
@@ -24,7 +25,10 @@ export interface LocaleDataType {
   };
 
   infoBlock: {
-    description: string;
+    description: {
+      firstPart: string;
+      secondPart: string;
+    };
     link: LinkType;
     advantages: AdvantageObject[];
     images: string[];
@@ -60,6 +64,7 @@ export interface LocaleDataType {
 
   orderBlock: {
     heading: string;
+    mobileHeading: string;
     form: FormBlock;
   };
 
@@ -100,7 +105,7 @@ type TabType = {
 
 type SliderDescriptionObject = {
   heading: string;
-  description: string;
+  description: string[];
 };
 
 type PriceItem = {
@@ -120,6 +125,7 @@ type SliderBlock = {
 type FormBlock = {
   heading?: string;
   buttonText: string;
+  mobileButtonText: string;
   formInputs: InputTypes[],
 };
 

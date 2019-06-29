@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import { SliderBlockProps } from './types';
 import { SliderBlockContainer, SliderBlockHeading } from './styled';
-import Slider from 'src/components/UI/Slider';
+import { MobileSlider, Slider } from 'src/components/UI';
 
-const SliderBlock: React.FC<SliderBlockProps> = ({ data }) => {
+const SliderBlock: React.FC<SliderBlockProps> = ({ data, isMobile }) => {
   const { heading, images, styles } = data;
   const IMAGES_TO_SHOW_COUNT = 3;
 
@@ -11,12 +11,18 @@ const SliderBlock: React.FC<SliderBlockProps> = ({ data }) => {
     <SliderBlockContainer>
       <SliderBlockHeading>{heading}</SliderBlockHeading>
 
-      <Slider 
-        imageSizes={{ height: 340, width: 255 }}
-        imagesToShowCount={IMAGES_TO_SHOW_COUNT}
-        images={images}
-        containerStyles={styles}
-      />
+      {
+        isMobile 
+          ? 
+            <MobileSlider images={images} sliderHeight={230} />
+          :
+            <Slider
+              imageSizes={{ height: 340, width: 255 }}
+              imagesToShowCount={IMAGES_TO_SHOW_COUNT}
+              images={images}
+              containerStyles={styles}
+            />
+      }
     </SliderBlockContainer>
   );
 };

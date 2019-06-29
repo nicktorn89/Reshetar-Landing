@@ -32,5 +32,20 @@ export const CheckboxLabel = styled.label`
     &:not(:last-child) {
       margin-bottom: ${t.$rythm / 2}px;
     }
+    
+    @media ${t.$phone}, ${t.$tablet} {
+      font-size: ${t.$rythm * 1.125}px;
+      
+      &:first-of-type {
+        margin-top: ${t.$rythm}px;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: ${t.$rythm / 2}px;
+      }
+      &:last-child {
+        margin-bottom: ${t.$rythm * 1.5}px;
+      }
+    }
   `}
 `;
