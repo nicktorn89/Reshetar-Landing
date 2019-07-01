@@ -1,9 +1,22 @@
 import styled, { css } from 'styled-components';
+import { SliderContainer } from 'src/components/UI/MobileSlider/styled';
 
 export const SliderBlockContainer = styled.section`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 58}px;
     border-top: 1px solid ${t.$block_border_color};
+
+    @media ${t.$phone}, ${t.$tablet} {
+      width: 100%;
+      height: ${t.$rythm * 21.28125}px;
+
+      overflow: hidden;
+
+      ${SliderContainer} {
+        width: ${t.$rythm * 20}px;
+        margin: 0 auto;
+      }
+    }
   `}
 `;
 
@@ -22,5 +35,16 @@ export const SliderBlockHeading = styled.h3`
     color: ${t.$text_color_black};
 
     text-align: center;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      width: ${t.$rythm * 20}px;
+      
+      margin: ${t.$rythm * 1.6875}px auto ${t.$rythm * 0.625}px auto;
+
+      display: block;
+
+      line-height: 1.4;
+      font-size: ${t.$rythm * 1.5625}px;
+    }
   `}
 `;

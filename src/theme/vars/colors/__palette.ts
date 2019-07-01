@@ -53,7 +53,7 @@ export default {
   $gray300: '#d1d5da',
   $gray400: '#959da5',
   $gray500: '#e0e0e0',
-  $gray600: '#586069',
+  $gray600: '#ebebec',
   $gray700: '#e3e3e3',
   $gray800: '#2f363d',
   $gray900: '#24292e',

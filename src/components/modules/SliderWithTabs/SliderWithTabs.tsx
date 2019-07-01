@@ -3,13 +3,13 @@ import {
   SliderContainer, SliderHeading, TabsContainer, 
   Tab, ImagesContainer, DescContainer, 
   HeadingDesc, TextDesc, SliderControlsGroup, 
-  SliderControl, ImageItem,
+  SliderControl, ImageItem, AccordionsContainer,
 } from './styled';
 
-import parse from 'html-react-parser';
+import { default as Accordion } from 'react-collapsible';
 
 import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
-import { Icon, ImageViewer } from 'src/components/UI';
+import { Icon, ImageViewer, MobileSlider } from 'src/components/UI';
 
 import { useSliderHook, useImageViewer } from 'src/hooks';
 import { createSliderItem, emptyFunc } from 'src/utils';
@@ -17,7 +17,7 @@ import { createSliderItem, emptyFunc } from 'src/utils';
 import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
 import { SliderWithTabsProps } from './types';
 
-const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
+const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const { heading, tabs, descriptions, images, nextButtonText } = data;
 
   const [activeTab, setActiveTab] = useState(0);
@@ -45,35 +45,60 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
     tabIndex && setActiveTab(+tabIndex);
   };
 
-  const renderSliderImgFrames = imageToShowArray.map((k, index) => 
-    <ImageItem 
-      key={index} 
+  const accordionChangeTab = (index: number) => () => {
+    setActiveTab(index);
+  };
+
+  const renderSliderImgFrames = imageToShowArray.map((k, index) =>
+    <ImageItem
+      key={index}
       src={images[activeTab][currentImage + index]}
       onClick={!viewerStatus ? changeViewerStatus(currentImage + index) : emptyFunc}
     />);
 
-  const renderTabs = tabs.map((tab, index) => 
-    <Tab 
-      key={index} 
-      active={index === activeTab} 
+  const renderTabs = tabs.map((tab, index) => <Tab
+    key={index}
+    active={index === activeTab}
+    data-tab-index={index}
+    onClick={changeTab}
+  >
+    {tab.text}
+  </Tab>);
+
+  const renderAccordions = isMobile && tabs.map((tab, index) =>
+    <Accordion
+      key={index}
+      trigger={tab.text}
+      open={index === activeTab}
+      lazyRender={true}
+      openedClassName={'opened-accordion'}
+      transitionTime={200}
       data-tab-index={index}
-      onClick={changeTab}
+      handleTriggerClick={accordionChangeTab(index)}
     >
-      {tab.text}
-    </Tab>);
+      <MobileSlider images={images[activeTab]} sliderHeight={218} initialSlide={0} />
+    </Accordion>,
+  );
+  
+  const renderDescription = descriptions[activeTab].description.map((desc, index) => <span key={index}>{desc}</span>);
 
   return (
     <SliderContainer ref={sliderContainer}>
       <SliderHeading>{heading}</SliderHeading>
 
-      <TabsContainer>
+      {!isMobile && <TabsContainer>
         {renderTabs}
       </TabsContainer>
+      }
 
       <ImagesContainer>
         <DescContainer>
           <HeadingDesc>{descriptions[activeTab].heading}</HeadingDesc>
-          <TextDesc>{parse(descriptions[activeTab].description)}</TextDesc>
+          {!isMobile && <TextDesc>{renderDescription}</TextDesc>}
+
+          {isMobile && <AccordionsContainer>
+            {renderAccordions}
+          </AccordionsContainer>}
 
           <SliderControlsGroup>
             <SliderControl onClick={changeImages(false)}>
@@ -94,7 +119,7 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data }) => {
           activeIndex={activeIndex}
         />
 
-        {renderSliderImgFrames}
+        {!isMobile && renderSliderImgFrames}
       </ImagesContainer>
     </SliderContainer>
   );

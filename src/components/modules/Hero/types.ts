@@ -3,6 +3,7 @@ import { FormSelect, FormText, FormNumber, FormCheckbox, FormInputMask } from '.
 
 export default interface HeroProps {
   data: LocaleDataType['hero'];
+  isMobile: boolean;
 }
 
 export type InputTypes = {

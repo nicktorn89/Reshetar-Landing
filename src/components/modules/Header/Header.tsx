@@ -7,7 +7,7 @@ import {
 } from './styled';
 import isNil from 'ramda/es/isNil';
 
-const HeaderComponent: React.FC<HeaderProps> = ({ data }) => {
+const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile }) => {
   if (isNil(data)) return null;
   const { beforeContacts, text, links, icons, phoneNumber } = data;
 
@@ -28,6 +28,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({ data }) => {
       </ContactsBlock>
 
       <NumberBlock>
+        {isMobile && <BeforeContactsText>Контакты</BeforeContactsText>}
         <NumberSpan>{phoneNumber}</NumberSpan>
       </NumberBlock>
     </Header>

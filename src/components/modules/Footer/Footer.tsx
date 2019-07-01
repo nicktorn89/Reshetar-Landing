@@ -5,7 +5,7 @@ import { Footer, FooterTextContainer, FooterCopyright, FooterSocialLinks } from 
 import Header from '../Header';
 import { IconContainer, StyledIcon } from '../Header/styled';
 
-const FooterComponent: React.FC<FooterProps> = ({ data }) => {
+const FooterComponent: React.FC<FooterProps> = ({ data, isMobile }) => {
   const { headerClone: headerData, copyright, socialLinks } = data;
 
   const renderSocialLinks = socialLinks.map((link, index) => (
@@ -16,7 +16,7 @@ const FooterComponent: React.FC<FooterProps> = ({ data }) => {
 
   return (
     <Footer>
-      <Header data={headerData} />
+      <Header data={headerData} isMobile={isMobile} />
 
       <FooterTextContainer>
         <FooterCopyright>{copyright}</FooterCopyright>

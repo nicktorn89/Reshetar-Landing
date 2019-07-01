@@ -10,7 +10,7 @@ import PriceBlockProps from './types';
 import { Icon, ButtonTypesMap } from 'src/components/UI';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-const PriceBlock: React.FC<PriceBlockProps> = ({ data }) => {
+const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
   const { heading, prices, clarifying } = data;
 
   const renderPriceItems = prices.map((item, index) => {
@@ -23,19 +23,29 @@ const PriceBlock: React.FC<PriceBlockProps> = ({ data }) => {
 
     return (
       <PriceItem key={index}>
-        <PriceItemTitle>{title}</PriceItemTitle>
+        <PriceItemTitle>
+          {title}
+          {isMobile &&
+            <PriceItemText>
+              : 
+              {beforePrice && beforePrice}
+              <PriceItemNumber>{price}</PriceItemNumber>
+              руб
+          </PriceItemText>
+          }
+        </PriceItemTitle>
 
         <PriceItemOptionsContainer>{renderOptions}</PriceItemOptionsContainer>
 
-        <PriceItemText>
-          {beforePrice && beforePrice}
-          <PriceItemNumber>
-            {price}
-          </PriceItemNumber>
-          руб
-        </PriceItemText>
+        {!isMobile && 
+          <PriceItemText>
+            {beforePrice && beforePrice}
+            <PriceItemNumber>{price}</PriceItemNumber>
+            руб
+          </PriceItemText>
+        }
 
-        <PriceItemOrderButton 
+        <PriceItemOrderButton
           themeType={index === 1 ? ButtonTypesMap.base : ButtonTypesMap.hollow}
           active={index === 1}
         >

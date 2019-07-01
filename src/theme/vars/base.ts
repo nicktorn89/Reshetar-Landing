@@ -92,6 +92,7 @@ const base = {
 
   // --- ACCORDION -----------------------------------------------------------------------------------
   $accordion_border: colors.$gray700,
+  $accordion_slider_border: colors.$gray600,
 
   // --- ORDERBLOCK -----------------------------------------------------------------------------------
   $order_block_heading: colors.$gray800,

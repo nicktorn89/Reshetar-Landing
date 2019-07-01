@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { PrevImageButton, ImagesContainer, NextImageButton } from 'src/components/UI/Slider/styled';
+import { SliderContainer } from 'src/components/UI/MobileSlider/styled';
 
 export const RateSliderContainer = styled.section`
   ${({ theme: t }) => css`
@@ -17,6 +18,18 @@ export const RateSliderContainer = styled.section`
     ${NextImageButton} {
       margin-right: 0;
     }
+
+    @media ${t.$phone}, ${t.$tablet} {
+      width: 100%;
+      height: ${t.$rythm * 40.875}px;
+
+      overflow: hidden;
+
+      ${SliderContainer} {
+        width: ${t.$rythm * 20}px;
+        margin: 0 auto;
+      }
+    }
   `}
 `;
 
@@ -31,6 +44,15 @@ export const RateContainer = styled.div`
     align-items: center;
 
     margin: ${t.$rythm * 6.8}px 0 ${t.$rythm * 3.875}px 0;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      width: ${t.$rythm * 20}px;
+
+      margin: 0 auto;
+      margin-bottom: ${t.$rythm * 2.125}px;
+      
+      padding: 0;
+    }
   `}
 `;
 
@@ -50,6 +72,11 @@ export const RateNumber = styled.span`
     font-size: ${t.$rythm * 3.125}px;
     font-weight: ${t.$font_weight_bold};
     color: ${t.$text_color};
+    
+    @media ${t.$phone}, ${t.$tablet} {
+      margin-top: ${t.$rythm * 3}px;
+      margin-bottom: ${t.$rythm * 1.3125}px;
+    }
   `}
 `;
 
@@ -66,6 +93,15 @@ export const RateText = styled.span`
     font-weight: ${t.$font_weight_bold};
     line-height: 1.1;
     color: ${t.$text_color_black};
+    
+    @media ${t.$phone}, ${t.$tablet} {
+      width: ${t.$rythm * 17.625}px;
+
+      margin-bottom: ${t.$rythm * 0.6875}px;
+
+      font-size: ${t.$rythm * 1.5625}px;
+      line-height: 1.4;
+    }
   `}
 `;
 
@@ -74,5 +110,9 @@ export const RateLink = styled.a`
     font-size: ${t.$rythm}px;
     color: ${t.$anchor_color};
     margin-left: ${t.$rythm * 2}px;
+    
+    @media ${t.$phone}, ${t.$tablet} {
+      margin-left: 0;
+    }
   `}
 `;

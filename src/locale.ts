@@ -20,6 +20,7 @@ const LocaleData = createContext({
   },
 
   hero: {
+    phoneNumber: '+7 926 720-82-60',
     textBlock: {
       heading: 'Свадебный визажист',
       description: 'Идеальный образ невеcты <br/> по идеальной цене',
@@ -32,6 +33,7 @@ const LocaleData = createContext({
     formBlock: {
       heading: 'Расскажите о желаниях',
       buttonText: 'Рассчитать стоимость',
+      mobileButtonText: 'Оформить заказ со скидкой',
       formInputs: [
         {
           type: 'select' as InputProps['type'],
@@ -65,10 +67,12 @@ const LocaleData = createContext({
   },
 
   infoBlock: {
-    description: `<span>Меня зовут Екатерина Решетар, я профессиональный визажист/стилист по прическам.
-    Подчеркиваю Вашу красоту и создаю незабываемый и индивидуальный образ для любого события.</span>
-    <span class='with-indent'>Работаю с профессиональной и люксовой косметикой: Dior, Mac, MUFE, Urban Decay, Atelier, Bobbi Brown,Lumene, 
-    Inglot, Manly Pro и так далее.</span>`,
+    description: {
+      firstPart: `Меня зовут Екатерина Решетар, я профессиональный визажист/стилист по прическам.
+      Подчеркиваю Вашу красоту и создаю незабываемый и индивидуальный образ для любого события.`,
+      secondPart: `Работаю с профессиональной и люксовой косметикой: Dior, Mac, MUFE, Urban Decay, Atelier, Bobbi Brown,Lumene, 
+      Inglot, Manly Pro и так далее.`,
+    },
     link: {
       text: 'Все услуги',
       url: '#',
@@ -91,7 +95,7 @@ const LocaleData = createContext({
         text: 'Здесь Катерина придумает небольшой текст',
       },
     ],
-    images: ['wedding-cake.svg', 'star.svg', 'interlocking-rings.svg', 'rouble-symbol.svg'], // TODO: добавить возможность вставки в запрос
+    images: ['wedding-cake.svg', 'star.svg', 'interlocking-rings.svg', 'rouble-symbol.svg'],
   },
 
   sliderWithTabs: {
@@ -104,18 +108,30 @@ const LocaleData = createContext({
     descriptions: [
       {
         heading: 'Полноценный супер- пупер макияж, который есть только у меня',
-        description: `<span>Будет сделано вот это</span> <br/> <span>А потом еще сделаю вот так</span>
-        <span>В конце можно сделать вот</span> <br/> <span>А еще не забудь вот это</span>`,
+        description: [
+          `Будет сделано вот это`,
+          `А потом еще сделаю вот так`,
+          `В конце можно сделать вот`,
+          `А еще не забудь вот это`,
+        ],
       },
       {
         heading: 'Полноценный супер- пупер макияж, который есть только у меня',
-        description: `<span>Будет сделано вот это</span> <br/> <span>А потом еще сделаю вот так</span>
-        <span>В конце можно сделать вот</span> <br/> <span>А еще не забудь вот это</span>`,
+        description: [
+          `Будет сделано вот это`,
+          `А потом еще сделаю вот так`,
+          `В конце можно сделать вот`,
+          `А еще не забудь вот это`,
+        ],
       },
       {
         heading: 'Полноценный супер- пупер макияж, который есть только у меня',
-        description: `<span>Будет сделано вот это</span> <br/> <span>А потом еще сделаю вот так</span>
-        <span>В конце можно сделать вот</span> <br/> <span>А еще не забудь вот это</span>`,
+        description: [
+          `Будет сделано вот это`,
+          `А потом еще сделаю вот так`,
+          `В конце можно сделать вот`,
+          `А еще не забудь вот это`,
+        ],
       },
     ],
     images: [
@@ -199,6 +215,7 @@ const LocaleData = createContext({
 
   orderBlock: {
     heading: 'Оформление заказа',
+    mobileHeading: 'Оформление заказа со скидкой 10%',
     form: {
       buttonText: 'Заказать',
       formInputs: [
