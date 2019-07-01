@@ -1,6 +1,5 @@
-import { createContext, useState } from 'react';
+import { createContext } from 'react';
 import { faInstagram, faVk, faTelegramPlane, faViber, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { InputProps } from 'src/components/UI/Input';
 import { orderForm } from './form';
 
 const firstImage = require('src/images/description-photo.png');
@@ -41,10 +40,10 @@ const LocaleData = createContext({
 
   infoBlock: {
     description: {
-      firstPart: `Меня зовут Екатерина Решетар, я профессиональный визажист/стилист по прическам.
-      Подчеркиваю Вашу красоту и создаю незабываемый и индивидуальный образ для любого события.`,
+      firstPart: `Меня зовут Екатерина Решетар, я\u00A0профессиональный визажист/стилист по\u00A0прическам.
+      Подчеркиваю Вашу красоту и\u00A0создаю незабываемый и\u00A0индивидуальный образ для любого события.`,
       secondPart: `Работаю с профессиональной и люксовой косметикой: Dior, Mac, MUFE, Urban Decay, Atelier, Bobbi Brown,Lumene, 
-      Inglot, Manly Pro и так далее.`,
+      Inglot, Manly Pro и\u00A0так\u00A0далее.`,
     },
     link: {
       text: 'Все услуги',
@@ -80,7 +79,7 @@ const LocaleData = createContext({
     ],
     descriptions: [
       {
-        heading: 'Полноценный супер- пупер макияж, который есть только у меня',
+        heading: 'Полноценный супер- пупер макияж, который есть только у\u00A0меня',
         description: [
           `Будет сделано вот это`,
           `А потом еще сделаю вот так`,
@@ -89,7 +88,7 @@ const LocaleData = createContext({
         ],
       },
       {
-        heading: 'Полноценный супер- пупер макияж, который есть только у меня',
+        heading: 'Полноценный супер- пупер макияж, который есть только у\u00A0меня',
         description: [
           `Будет сделано вот это`,
           `А потом еще сделаю вот так`,
@@ -98,7 +97,7 @@ const LocaleData = createContext({
         ],
       },
       {
-        heading: 'Полноценный супер- пупер макияж, который есть только у меня',
+        heading: 'Полноценный супер- пупер макияж, который есть только у\u00A0меня',
         description: [
           `Будет сделано вот это`,
           `А потом еще сделаю вот так`,
@@ -161,34 +160,34 @@ const LocaleData = createContext({
     questions: [
       {
         question: 'На какой косметике Вы работаете?', 
-        answer: `Работаю с профессиональной и люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
-         Atelier, Bobbi Brown, Inglot и т.д. В работе с волосами использую лучшие титановые приборы для
-         укладки MakeUpTrend и профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
+        answer: `Работаю с профессиональной и\u00a0люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
+        Atelier, Bobbi Brown, Inglot и т.д. В\u00a0работе\u00a0с волосами использую лучшие титановые приборы\u00a0для
+        укладки MakeUpTrend и\u00a0профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
       },
       {
         question: 'Как забронировать дату?', 
-        answer: `Работаю с профессиональной и люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
-         Atelier, Bobbi Brown, Inglot и т.д. В работе с волосами использую лучшие титановые приборы для
-         укладки MakeUpTrend и профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
+        answer: `Работаю с профессиональной и\u00a0люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
+        Atelier, Bobbi Brown, Inglot и т.д. В\u00a0работе\u00a0с волосами использую лучшие титановые приборы\u00a0для
+        укладки MakeUpTrend и\u00a0профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
       },
       {
         question: 'Как забронировать дату?', 
-        answer: `Работаю с профессиональной и люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
-         Atelier, Bobbi Brown, Inglot и т.д. В работе с волосами использую лучшие титановые приборы для
-         укладки MakeUpTrend и профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
+        answer: `Работаю с профессиональной и\u00a0люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
+        Atelier, Bobbi Brown, Inglot и т.д. В\u00a0работе\u00a0с волосами использую лучшие титановые приборы\u00a0для
+        укладки MakeUpTrend и\u00a0профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
       },
       {
         question: 'Как забронировать дату?', 
-        answer: `Работаю с профессиональной и люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
-         Atelier, Bobbi Brown, Inglot и т.д. В работе с волосами использую лучшие титановые приборы для
-         укладки MakeUpTrend и профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
+        answer: `Работаю с профессиональной и\u00a0люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
+         Atelier, Bobbi Brown, Inglot и т.д. В\u00a0работе\u00a0с волосами использую лучшие титановые приборы\u00a0для
+         укладки MakeUpTrend и\u00a0профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
       },
     ],
   },
 
   orderBlock: {
     heading: 'Оформление заказа',
-    mobileHeading: 'Оформление заказа со скидкой 10%',
+    mobileHeading: 'Оформление заказа со\u00a0скидкой 10%',
     form: {
       buttonText: 'Заказать',
       formInputs: orderForm,
