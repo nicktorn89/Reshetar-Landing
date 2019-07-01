@@ -48,14 +48,14 @@ export const SliderHeading = styled.h2`
 
 export const TabsContainer = styled.div`
   ${({ theme: t }) => css`
-    padding: 0 ${t.$rythm * 10}px;
+    padding: 0 11%;
     margin-bottom: ${t.$rythm * 5}px;
   `}
 `;
 
 export const Tab = styled.button<{active: boolean}>`
   ${({ theme: t }) => css`
-    width: ${t.$rythm * 22}px;
+    width: 30%;
     height: ${t.$rythm * 3}px;
     border-radius: ${t.$border_radius_base * 2}px;
 
@@ -69,11 +69,11 @@ export const Tab = styled.button<{active: boolean}>`
     font-weight: bold;
 
     &:first-child {
-      margin-right: ${t.$rythm * 2}px;
+      margin-right: 2.7%;
     }
 
     &:nth-child(2) {
-      margin-right: ${t.$rythm * 2}px;
+      margin-right: 2.5%;
     }
 
     ${ifProp(
