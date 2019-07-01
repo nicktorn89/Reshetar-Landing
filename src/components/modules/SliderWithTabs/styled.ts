@@ -10,6 +10,8 @@ export const SliderContainer = styled.section`
       width: 100%;
       height: ${t.$rythm * 45.6875}px;
 
+      background: ${t.$form_bg};
+
       overflow: hidden;
       
       margin: 0 auto;
@@ -191,6 +193,7 @@ export const AccordionsContainer = styled.div`
       font-size: ${t.$rythm}px;
 
       color: ${t.$text_color_black};
+      background: ${t.$bg};
     }
 
     .Collapsible__contentInner p {
