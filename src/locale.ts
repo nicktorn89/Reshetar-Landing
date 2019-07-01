@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import { faInstagram, faVk, faTelegramPlane, faViber, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { InputProps } from 'src/components/UI/Input';
+import { orderForm } from './form';
 
 const firstImage = require('src/images/description-photo.png');
 const secondImage = require('src/images/gatsby-icon.png');
@@ -34,35 +35,7 @@ const LocaleData = createContext({
       heading: 'Расскажите о желаниях',
       buttonText: 'Рассчитать стоимость',
       mobileButtonText: 'Оформить заказ со скидкой',
-      formInputs: [
-        {
-          type: 'select' as InputProps['type'],
-          name: 'serviceType',
-          options: [{ label: 'Макияж + прическа', value: 0 }],
-        },
-        {
-          type: 'maskInput',
-          name: 'phoneNumber',
-        },
-        {
-          type: 'checkbox' as InputProps['type'],
-          name: 'repetition',
-          label: 'Репетиция',
-          value: false,
-        },
-        {
-          type: 'checkbox' as InputProps['type'],
-          name: 'earlyDeparture',
-          label: 'Ранний выезд (до 8:00)',
-          value: false,
-        },
-        {
-          type: 'checkbox' as InputProps['type'],
-          name: 'guestMakeup',
-          label: 'Причёска/макияж для гостей',
-          value: false,
-        },
-      ],
+      formInputs: orderForm,
     },
   },
 
@@ -218,35 +191,7 @@ const LocaleData = createContext({
     mobileHeading: 'Оформление заказа со скидкой 10%',
     form: {
       buttonText: 'Заказать',
-      formInputs: [
-        {
-          type: 'select' as InputProps['type'],
-          name: 'serviceType',
-          options: [{ label: 'Макияж + прическа', value: 0 }],
-        },
-        {
-          type: 'maskInput',
-          name: 'phoneNumber',
-        },
-        {
-          type: 'checkbox' as InputProps['type'],
-          name: 'repetition',
-          label: 'Репетиция',
-          value: false,
-        },
-        {
-          type: 'checkbox' as InputProps['type'],
-          name: 'earlyDeparture',
-          label: 'Ранний выезд (до 8:00)',
-          value: false,
-        },
-        {
-          type: 'checkbox' as InputProps['type'],
-          name: 'guestMakeup',
-          label: 'Причёска/макияж для гостей',
-          value: false,
-        },
-      ],
+      formInputs: orderForm,
     },
   },
 
