@@ -14,6 +14,8 @@ export const PriceBlockContainer = styled.section`
       width: 100%;
       height: ${t.$rythm * 65.5}px;
 
+      background: ${t.$form_bg};
+
       overflow: hidden;
       
       padding: 0;

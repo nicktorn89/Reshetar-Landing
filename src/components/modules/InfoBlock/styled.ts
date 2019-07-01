@@ -20,6 +20,8 @@ export const InfoBlockContainer = styled.section`
       width: 100%;
       height: ${t.$rythm * 77.3125}px;
 
+      box-shadow: none;
+
       overflow: hidden;
 
       bottom: 0;

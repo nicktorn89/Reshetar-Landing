@@ -35,6 +35,7 @@ const InfoBlock: React.FC<InfoBlockProps> = ({ data, isMobile }) => {
         <DescriptionText>
           {description.firstPart}
           <br />
+          <br />
           {description.secondPart}
 
           <DescLogoContainer>
