@@ -190,6 +190,7 @@ const LocaleData = createContext({
     mobileHeading: 'Оформление заказа со\u00a0скидкой 10%',
     form: {
       buttonText: 'Заказать',
+      mobileButtonText: 'Заказать',
       formInputs: orderForm,
     },
   },

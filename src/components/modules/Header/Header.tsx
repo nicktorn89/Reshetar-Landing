@@ -5,10 +5,8 @@ import {
   IconsBlock, IconContainer, StyledIcon, 
   IconText, NumberBlock, NumberSpan,
 } from './styled';
-import isNil from 'ramda/es/isNil';
 
 const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile }) => {
-  if (isNil(data)) return null;
   const { beforeContacts, text, links, icons, phoneNumber } = data;
 
   const renderLinks = text.map((name, index) => (
