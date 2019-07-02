@@ -10,17 +10,18 @@ const FAQComponent: React.FC<FAQProps> = ({ data, isMobile }) => {
     ? questions.filter((k, index) => index < 2)
     : questions;
 
-  const renderQuestions = allQuestions.map((question, index) => 
-  <Accordion 
-    key={index} 
-    trigger={question.question}
-    open={index === 0}
-    lazyRender={true}
-    className={index === allQuestions.length - 1 ? 'last-accordion' : 'ordinar'}
-    openedClassName={index === allQuestions.length - 1 ? 'last-accordion' : 'ordinar'}
-  >
-    {question.answer}
-  </Accordion>);
+  const renderQuestions = allQuestions.map((question, index) =>
+    <Accordion
+      key={index}
+      trigger={question.question}
+      open={index === 0}
+      lazyRender={true}
+      className={index === allQuestions.length - 1 ? 'last-accordion' : 'ordinar'}
+      openedClassName={index === allQuestions.length - 1 ? 'last-accordion' : 'ordinar'}
+    >
+      {question.answer}
+    </Accordion>,
+  );
 
   return (
     <FAQContainer>

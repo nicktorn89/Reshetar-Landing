@@ -23,7 +23,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     setScreenStatus(checkScreen);
   });
 
-  window.addEventListener('resize', throttleMethod);
+  if (typeof window !== 'undefined') window.addEventListener('resize', throttleMethod);
 
   useEffect(() => {
     setScreenStatus(checkScreen);
