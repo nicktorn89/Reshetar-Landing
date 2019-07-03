@@ -18,7 +18,7 @@ const RateSlider: React.FC<RateSliderProps> = ({ data, isMobile }) => {
 
         <RateText>{rateText(rate)}</RateText>
 
-        <RateLink href={link.url}>{link.text}</RateLink>
+        {link && <RateLink href={link.url}>{link.text}</RateLink>}
       </RateContainer>
 
       {isMobile

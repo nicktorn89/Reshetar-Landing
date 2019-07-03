@@ -19,5 +19,9 @@ export const useSliderHook = (imagesArray: string[], imagesToShowCount: number) 
     currentImage + imagesToShowCount < length && setImage(currentImage + 1);
   };
 
-  return { currentImage, nextSlide, prevSlide, disabledButtons };
+  const setDefault = () => {
+    setImage(0);
+  };
+
+  return { currentImage, nextSlide, prevSlide, disabledButtons, setDefault };
 };

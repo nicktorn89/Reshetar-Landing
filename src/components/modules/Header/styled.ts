@@ -34,7 +34,7 @@ export const IconsBlock = styled.div`
     width: ${t.$rythm * 30}px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
   `}
 `;
 
@@ -43,6 +43,8 @@ export const IconContainer = styled.a`
     text-decoration: none;
     display: flex;
     align-items: center;
+
+    margin-right: ${t.$rythm * 0.75}px;
   `}
 `;
 

@@ -26,6 +26,7 @@ export const Select = styled(ReactSelect)`
     }
      
     .select__option {
+      color: ${t.$text_color_black};
       background-color: ${t.$select_base_bg};
       
       cursor: pointer;

@@ -45,7 +45,7 @@ export interface LocaleDataType {
   rateSlider: {
     rate: number;
     rateText: (rate: number) => string;
-    link: LinkType;
+    link?: LinkType;
     images: string[];
   };
 
