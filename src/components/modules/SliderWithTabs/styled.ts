@@ -137,7 +137,7 @@ export const HeadingDesc = styled.h3`
 
 export const TextDesc = styled.span`
   ${({ theme: t }) => css`
-    height: ${t.$rythm * 8}px;
+    min-height: ${t.$rythm * 8}px;
     width: ${t.$rythm * 13}px;
 
     display: flex;
@@ -152,6 +152,7 @@ export const TextDesc = styled.span`
       color: ${t.$text_color_black};
       font-size: ${t.$rythm}px;
       white-space: nowrap
+      width: 100%;
     }
 
     & > span:not(:last-of-type) {

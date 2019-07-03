@@ -25,10 +25,7 @@ export interface LocaleDataType {
   };
 
   infoBlock: {
-    description: {
-      firstPart: string;
-      secondPart: string;
-    };
+    description: string[];
     link: LinkType;
     advantages: AdvantageObject[];
     images: string[];

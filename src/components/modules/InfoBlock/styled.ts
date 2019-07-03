@@ -18,7 +18,7 @@ export const InfoBlockContainer = styled.section`
 
     @media ${t.$phone}, ${t.$tablet} {
       width: 100%;
-      height: ${t.$rythm * 77.3125}px;
+      min-height: ${t.$rythm * 77.3125}px;
 
       box-shadow: none;
 
@@ -31,7 +31,7 @@ export const InfoBlockContainer = styled.section`
 
 export const DescriptionBlock = styled.div`
   ${({ theme: t }) => css`
-    height: ${t.$rythm * 19.25}px;
+    min-height: ${t.$rythm * 19.25}px;
     overflow: hidden;
     display: flex;
     justify-content: flex-start;
@@ -39,8 +39,8 @@ export const DescriptionBlock = styled.div`
 
     @media ${t.$phone}, ${t.$tablet} {      
       width: ${t.$rythm * 20}px;
+      min-height: ${t.$rythm * 30.5625}px;
       margin: 0 auto;
-      height: ${t.$rythm * 30.5625}px;
 
       bottom: 0;
     }
@@ -91,7 +91,7 @@ export const DescriptionText = styled.span`
     line-height: 1.25;
 
     @media ${t.$phone}, ${t.$tablet} {
-      height: ${t.$rythm * 22.25}px;
+      min-height: ${t.$rythm * 22.25}px;
       width: auto;
 
       padding: 0 ${t.$rythm * 0.75}px;
@@ -104,10 +104,23 @@ export const DescriptionText = styled.span`
   `}
 `;
 
+export const DescPart = styled.span`
+  ${({ theme: t }) => css`
+    width: 100%;
+
+    color: ${t.$text_color_black};
+    font-size: ${t.$rythm}px;
+    line-height: 1.25;
+
+    &:not(:last-of-type) {
+      margin-bottom: ${t.$rythm}px;
+    }
+  `}
+`;
+
 export const DescLogoContainer = styled.div`
   ${({ theme: t }) => css`
-    position: relative;
-    top: ${t.$rythm * 5}px;
+    margin-top: ${t.$rythm * 5}px;
     display: flex;
     align-items: center;
   `}
@@ -131,7 +144,7 @@ export const AdvantagesBlock = styled.div`
     grid-template-columns: repeat(2, 1fr);
 
     @media ${t.$phone}, ${t.$tablet} {
-      height: ${t.$rythm * 43}px;      
+      min-height: ${t.$rythm * 43}px;      
       width: ${t.$rythm * 20}px;
       margin: 0 auto;
 
@@ -205,6 +218,7 @@ export const AdvantageItem = styled.div`
     @media ${t.$phone}, ${t.$tablet} {
       flex-direction: column-reverse;
       border: 0 !important;
+      min-height: auto;
 
       &:first-child ${AdvantageImageContainer} {
         margin-left: ${t.$rythm * 1.625}px;
@@ -270,7 +284,7 @@ export const AdvantageTitle = styled.h2`
 
 export const AdvantageDesc = styled.span`
   ${({ theme: t }) => css`
-    min-height: ${t.$rythm * 2.5}px;
+    height: ${t.$rythm * 8.75}px;
     width: ${t.$rythm * 18}px;
 
     line-height: 1.25;
