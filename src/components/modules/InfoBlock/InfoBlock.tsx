@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { 
   InfoBlockContainer, DescriptionBlock, DescriptionPhoto, DescImg,
-  DescriptionText, DescLogo, AdvantagesBlock, AdvantageItem,
+  DescriptionText, DescPart, DescLogo, AdvantagesBlock, AdvantageItem,
   AdvantageTitle, AdvantageDesc, AdvantageImageContainer, AdvantageImage,
   DescLogoContainer, Link,
 } from './styled';
@@ -25,6 +25,8 @@ const InfoBlock: React.FC<InfoBlockProps> = ({ data, isMobile }) => {
     </AdvantageItem>
   ));
 
+  const renderDescription = description.map((desc, index) => <DescPart key={index}>{desc}</DescPart>);
+
   return (
     <InfoBlockContainer>
       <DescriptionBlock>
@@ -33,10 +35,7 @@ const InfoBlock: React.FC<InfoBlockProps> = ({ data, isMobile }) => {
           {isMobile && <DescLogo />}
         </DescriptionPhoto>
         <DescriptionText>
-          {description.firstPart}
-          <br />
-          <br />
-          {description.secondPart}
+          {renderDescription}
 
           <DescLogoContainer>
             {!isMobile && <DescLogo />}

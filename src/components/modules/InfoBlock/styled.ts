@@ -31,7 +31,7 @@ export const InfoBlockContainer = styled.section`
 
 export const DescriptionBlock = styled.div`
   ${({ theme: t }) => css`
-    height: ${t.$rythm * 19.25}px;
+    min-height: ${t.$rythm * 19.25}px;
     overflow: hidden;
     display: flex;
     justify-content: flex-start;
@@ -104,10 +104,23 @@ export const DescriptionText = styled.span`
   `}
 `;
 
+export const DescPart = styled.span`
+  ${({ theme: t }) => css`
+    width: 100%;
+
+    color: ${t.$text_color_black};
+    font-size: ${t.$rythm}px;
+    line-height: 1.25;
+
+    &:not(:last-of-type) {
+      margin-bottom: ${t.$rythm}px;
+    }
+  `}
+`;
+
 export const DescLogoContainer = styled.div`
   ${({ theme: t }) => css`
-    position: relative;
-    top: ${t.$rythm * 5}px;
+    margin-top: ${t.$rythm * 5}px;
     display: flex;
     align-items: center;
   `}
@@ -270,7 +283,7 @@ export const AdvantageTitle = styled.h2`
 
 export const AdvantageDesc = styled.span`
   ${({ theme: t }) => css`
-    min-height: ${t.$rythm * 2.5}px;
+    height: ${t.$rythm * 8.75}px;
     width: ${t.$rythm * 18}px;
 
     line-height: 1.25;

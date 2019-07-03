@@ -40,6 +40,7 @@ export const Footer = styled.footer`
         font-size: ${t.$rythm}px;
         margin-right: 0;
         width: 100%;
+        white-space: pre-line;
       }
     }
 
