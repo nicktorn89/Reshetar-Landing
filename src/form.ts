@@ -4,7 +4,11 @@ export const orderForm = [
   {
     type: 'select' as InputProps['type'],
     name: 'serviceType',
-    options: [{ label: 'Макияж + прическа', value: 0 }],
+    options: [
+      { label: 'Макияж + прическа', value: 0 },
+      { label: 'Макияж', value: 1 },
+      { label: 'Прическа', value: 2 },
+    ],
   },
   {
     type: 'maskInput',

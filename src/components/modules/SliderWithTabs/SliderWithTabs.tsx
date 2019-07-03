@@ -23,7 +23,7 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const IMAGES_TO_SHOW_COUNT = 2;
-  const { currentImage, nextSlide, prevSlide } = useSliderHook(images[activeTab], IMAGES_TO_SHOW_COUNT);
+  const { currentImage, nextSlide, prevSlide, setDefault } = useSliderHook(images[activeTab], IMAGES_TO_SHOW_COUNT);
   const imageToShowArray = [];
 
   const sliderContainer = useRef<HTMLDivElement>(null);
@@ -43,6 +43,8 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const changeTab = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { tabIndex } = e.currentTarget.dataset;
     tabIndex && setActiveTab(+tabIndex);
+
+    setDefault();
   };
 
   const accordionChangeTab = (index: number) => () => {

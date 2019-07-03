@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Reshetar`,
     description: `Reshetar Landing`,
     author: `Vlad Komanchy`,
   },
