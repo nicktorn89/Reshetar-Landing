@@ -175,7 +175,6 @@ export const AccordionsContainer = styled.div`
     margin-left: ${t.$rythm * 0.8125}px;
 
     .Collapsible {
-      background-color: ${t.$bg};
       overflow: hidden;
     }
 
