@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 export const InfoBlockContainer = styled.section`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 57.5}px;
-    height: ${t.$rythm * 66}px;
+    min-height: ${t.$rythm * 66}px;
 
     margin: 0 auto;
 
@@ -125,7 +125,7 @@ export const Link = styled.a`
 
 export const AdvantagesBlock = styled.div`
   ${({ theme: t }) => css`
-    height: ${t.$rythm * 47}px;
+    min-height: ${t.$rythm * 47}px;
     padding: ${t.$rythm * 6.5}px ${t.$rythm * 5}px ${t.$rythm * 4}px ${t.$rythm * 5.5}px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -146,6 +146,7 @@ export const AdvantageItem = styled.div`
   ${({ theme: t }) => css`
     display: flex;
     flex-wrap: wrap;
+    min-height: 365px;
 
     &:first-child {
       border-bottom: ${t.$rythm / 16}px solid ${t.$border_color};
@@ -269,7 +270,7 @@ export const AdvantageTitle = styled.h2`
 
 export const AdvantageDesc = styled.span`
   ${({ theme: t }) => css`
-    height: ${t.$rythm * 2.5}px;
+    min-height: ${t.$rythm * 2.5}px;
     width: ${t.$rythm * 18}px;
 
     line-height: 1.25;
@@ -282,7 +283,7 @@ export const AdvantageImageContainer = styled.div`
     display: flex;
     align-items: flex-end;
     width: 100%;
-    height: calc(100% - ${t.$rythm * 8.4}px);
+    height: ${t.$rythm * 10}px;
 
     @media ${t.$phone}, ${t.$tablet} {
       height: ${t.$rythm * 4}px;
