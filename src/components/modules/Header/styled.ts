@@ -9,6 +9,10 @@ export const Header = styled.header`
     flex-wrap: nowrap;
     background-color: ${t.$header_bg};
     font-family: ${t.$font_family};
+
+    @media ${t.$phone}, ${t.$tablet} {
+      display: none;
+    }
   `}
 `;
 

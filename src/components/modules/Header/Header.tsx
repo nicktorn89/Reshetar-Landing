@@ -6,7 +6,7 @@ import {
   IconText, NumberBlock, NumberSpan,
 } from './styled';
 
-const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile }) => {
+const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile, node = 'header' }) => {
   const { beforeContacts, text, links, icons, phoneNumber } = data;
 
   const renderLinks = text.map((name, index) => (
@@ -17,7 +17,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile }) => {
   ));
 
   return (
-    <Header>
+    <Header as={node}>
       <ContactsBlock>
         <BeforeContactsText>{beforeContacts}</BeforeContactsText>
         <IconsBlock>

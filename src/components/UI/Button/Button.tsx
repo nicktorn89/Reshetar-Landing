@@ -3,8 +3,8 @@ import { ButtonProps, ButtonTypesMap } from './types';
 
 import { Button } from './styled';
 
-const ButtonComponent: React.FC<ButtonProps> = ({ isDisabled, children, onClick, ...restProps }) => (
-  <Button onClick={onClick} disabled={isDisabled} {...restProps}>
+const ButtonComponent: React.FC<ButtonProps> = ({ isDisabled, children, onClick, node = 'button', ...restProps }) => (
+  <Button as={node} onClick={onClick} disabled={isDisabled} {...restProps}>
     {children}
   </Button>
 );

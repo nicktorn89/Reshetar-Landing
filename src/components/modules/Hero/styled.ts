@@ -210,7 +210,7 @@ export const FormBlock = styled.div`
   `}
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 25}px;
     height: ${t.$rythm * 30.5}px;

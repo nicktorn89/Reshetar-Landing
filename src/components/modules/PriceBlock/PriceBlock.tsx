@@ -44,8 +44,11 @@ const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
             руб
           </PriceItemText>
         }
-
+        {/* 
+        //@ts-ignore */}
         <PriceItemOrderButton
+          node={'a'}
+          href={'#order-block'}
           themeType={index === 1 ? ButtonTypesMap.base : ButtonTypesMap.hollow}
           active={index === 1}
         >

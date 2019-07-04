@@ -4,6 +4,7 @@ export interface ButtonProps {
   className?: string;
   themeType?: ButtonTypesMap;
   size?: 'sm' | 'base' | 'lg';
+  node?: 'button' | 'a';
   children: React.ReactNode;
   asSuccess?: boolean;
 

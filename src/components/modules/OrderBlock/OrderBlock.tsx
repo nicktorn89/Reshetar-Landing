@@ -26,7 +26,7 @@ const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile }) => {
   });
 
   return (
-    <OrderBlockContainer>
+    <OrderBlockContainer id='order-block'>
       <OrderBlockHeading>{isMobile ? mobileHeading : heading}</OrderBlockHeading>
 
       <OrderBlockFormContainer>

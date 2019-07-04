@@ -56,6 +56,7 @@ export const Footer = styled.footer`
         height: ${t.$rythm * 20.375}px;
 
         flex-direction: column;
+        display: block;
       }
 
       ${ContactsBlock} {
