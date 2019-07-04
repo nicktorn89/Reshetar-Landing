@@ -39,7 +39,7 @@ export const OrderBlockHeading = styled.h3`
   `}
 `;
 
-export const OrderBlockFormContainer = styled.div`
+export const OrderBlockFormContainer = styled.form`
   ${({ theme: t }) => css`
     padding: 0 ${t.$rythm * 12.25}px 0 ${t.$rythm * 18.8}px;
 
