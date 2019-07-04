@@ -43,7 +43,7 @@ const LocaleData = createContext({
     ],
     link: {
       text: 'Все услуги',
-      url: '#',
+      url: 'http://reshetar.ru/',
     },
     advantages: [
       {
