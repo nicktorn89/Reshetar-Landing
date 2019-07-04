@@ -27,6 +27,7 @@ const RateSlider: React.FC<RateSliderProps> = ({ data, isMobile }) => {
           imageSizes={{ height: 538, width: 256 }}
           imagesToShowCount={IMAGES_TO_SHOW_COUNT}
           images={images}
+          containerStyles={{ justifyContent: 'center', paddingLeft: '11.5%', paddingRight: '11.5%' }}
         />
       }
     </RateSliderContainer>

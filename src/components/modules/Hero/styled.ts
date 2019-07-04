@@ -98,7 +98,7 @@ export const Heading = styled.h2`
     font-size: ${t.$rythm * 3.75}px;
     font-weight: ${t.$font_weight_bold};
     color: ${t.$text_color_black};
-    margin: ${t.$rythm * 4.5}px 0 0 ${t.$rythm * 10}px;
+    margin: ${t.$rythm * 4.5}px 0 0 21.5%;
     height: ${t.$rythm * 9.4}px;
     line-height: ${t.$rythm * 4.5}px;
 
@@ -115,7 +115,7 @@ export const Heading = styled.h2`
 
 export const Description = styled.span`
   ${({ theme: t }) => css`
-    margin: ${t.$rythm * 1.5}px 0 0 ${t.$rythm * 10}px;
+    margin: ${t.$rythm * 1.5}px 0 0 21.5%;
 
     color: ${t.$text_color_black};
 
@@ -135,7 +135,7 @@ export const Description = styled.span`
 export const PriceBlock = styled.div`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 15}px;
-    margin: ${t.$rythm * 1.5}px 0 0 ${t.$rythm * 10}px;
+    margin: ${t.$rythm * 1.5}px 0 0 21.5%;
     
     background-color: ${t.$text_background_color};
     padding: ${t.$rythm / 2}px 0 0 ${t.$rythm / 2}px;
@@ -169,7 +169,7 @@ export const Currency = styled.span`
 export const UntilDate = styled.span`
   ${({ theme: t }) => css`
     min-width: ${t.$rythm * 10}px;
-    margin: ${t.$rythm * 1.5}px 0 0 ${t.$rythm * 10}px;
+    margin: ${t.$rythm * 1.5}px 0 0 21.5%;
     font-size: ${t.$rythm * 1.875}px;
     line-height: ${t.$rythm * 3.125}px;
     color: ${t.$text_color_black};
@@ -186,7 +186,7 @@ export const UntilDate = styled.span`
 
 export const Note = styled.span`
   ${({ theme: t }) => css`
-    margin: ${t.$rythm * 0.75}px 0 0 ${t.$rythm * 10}px;
+    margin: ${t.$rythm * 0.75}px 0 0 21.5%;
     font-size: ${t.$rythm * 0.75}px;
     line-height: ${t.$rythm}px;
     color: ${t.$text_color_black};
