@@ -37,13 +37,13 @@ const InfoBlock: React.FC<InfoBlockProps> = ({ data, isMobile }) => {
         <DescriptionText>
           {renderDescription}
 
-          <DescLogoContainer>
-            {!isMobile && <DescLogo />}
+          {!isMobile && <DescLogoContainer>
+            <DescLogo />
 
             <Link href={link.url}>
               {link.text}
             </Link>
-          </DescLogoContainer>
+          </DescLogoContainer>}
         </DescriptionText>
       </DescriptionBlock>
 
