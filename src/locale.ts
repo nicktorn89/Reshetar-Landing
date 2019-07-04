@@ -19,7 +19,7 @@ const LocaleData = createContext({
       description: 'Идеальный образ <br/> по идеальной цене',
       price: '5 900',
       currency: 'руб',
-      untilDate: 'до 10 мая',
+      untilDate: 'до 10 августа',
       note: '*макияж + прическа + ранний выезд',
     },
 

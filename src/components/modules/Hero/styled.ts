@@ -168,13 +168,13 @@ export const Currency = styled.span`
 
 export const UntilDate = styled.span`
   ${({ theme: t }) => css`
-    width: ${t.$rythm * 10}px;
+    min-width: ${t.$rythm * 10}px;
     margin: ${t.$rythm * 1.5}px 0 0 ${t.$rythm * 10}px;
     font-size: ${t.$rythm * 1.875}px;
     line-height: ${t.$rythm * 3.125}px;
     color: ${t.$text_color_black};
     background-color: ${t.$text_background_color};
-    padding: ${t.$rythm / 2}px 0 0 ${t.$rythm / 2}px;
+    padding: ${t.$rythm / 2}px ${t.$rythm / 2}px 0 ${t.$rythm / 2}px;
 
     @media ${t.$phone}, ${t.$tablet} {
       margin-left: ${t.$rythm * 0.75}px;
