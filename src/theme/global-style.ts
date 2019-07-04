@@ -12,7 +12,6 @@ export default createGlobalStyle`
   html, body, #root {
     width: 100%;
     height: 100%;
-    overflow: auto;
   }
   
   span, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
