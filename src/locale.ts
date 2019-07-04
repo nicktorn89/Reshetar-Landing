@@ -144,8 +144,15 @@ const LocaleData = createContext({
   },
 
   sliderBlocks: [
-    { heading: 'Мои работы', images: images.works, styles: { paddingLeft: 90 } },
-    { heading: 'Мои сертификаты', images: images.certificates },
+    { 
+      heading: 'Мои работы', 
+      images: images.works, 
+      styles: { justifyContent: 'center', paddingLeft: '11.5%', paddingRight: '11.5%' },
+    },
+    { heading: 'Мои сертификаты', 
+      images: images.certificates, 
+      styles: { justifyContent: 'center', paddingLeft: '11.5%', paddingRight: '11.5%' },
+    },
   ],
 
   faq: {

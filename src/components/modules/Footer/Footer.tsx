@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import FooterProps from './types';
-import { Footer, FooterTextContainer, FooterCopyright, FooterSocialLinks } from './styled';
+import { Footer, FooterTextContainer, CopyrightWrapper, FooterCopyright, FooterSocialLinks } from './styled';
 
 import Header from '../Header';
 import { IconContainer, StyledIcon } from '../Header/styled';
@@ -19,7 +19,9 @@ const FooterComponent: React.FC<FooterProps> = ({ data, isMobile }) => {
       <Header data={headerData} isMobile={isMobile} />
 
       <FooterTextContainer>
-        <FooterCopyright>{copyright}</FooterCopyright>
+        <CopyrightWrapper>
+          <FooterCopyright>{copyright}</FooterCopyright>
+        </CopyrightWrapper>
 
         <FooterSocialLinks>{renderSocialLinks}</FooterSocialLinks>
       </FooterTextContainer>      

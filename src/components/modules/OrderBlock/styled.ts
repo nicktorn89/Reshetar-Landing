@@ -6,7 +6,7 @@ export const OrderBlockContainer = styled.section`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 40.625}px;
     border-top: 1px solid ${t.$block_border_color};
-    padding: 0 ${t.$rythm * 9.375}px;
+    padding: 0 10.5%;
 
     @media ${t.$phone}, ${t.$tablet} {
       width: 100%;
@@ -41,7 +41,7 @@ export const OrderBlockHeading = styled.h3`
 
 export const OrderBlockFormContainer = styled.form`
   ${({ theme: t }) => css`
-    padding: 0 ${t.$rythm * 12.25}px 0 ${t.$rythm * 18.8}px;
+    padding: 0 13.61% 0 21%;
 
     display: flex;
 
@@ -59,7 +59,8 @@ export const OrderBlockFormContainer = styled.form`
 
 export const OrderBlockFormInputs = styled.div`
   ${({ theme: t }) => css`
-    width: 50%;
+    width: 45%;
+    margin-right: 5%;
 
     ${SendButton} {
       height: ${t.$rythm * 3.75}px;

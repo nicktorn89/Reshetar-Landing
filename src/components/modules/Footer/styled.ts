@@ -9,7 +9,7 @@ export const Footer = styled.footer`
   ${({ theme: t }) => css`
     width: 100%;
     height: ${t.$rythm * 12.9375}px;
-    padding: 0 ${t.$rythm * 9.8125}px 0 ${t.$rythm * 10.3125}px;
+    padding: 0 11.2% 0 11.2%;
     background-color: ${t.$header_bg};
     display: flex;
     align-content: flex-start;
@@ -22,8 +22,8 @@ export const Footer = styled.footer`
     }
 
     ${ContactsBlock} {
-      width: ${t.$rythm * 42.5}px;
-      margin-right: ${t.$rythm * 14.375}px;
+      width: 59%;
+      margin-right: 20.5%;
 
       ${BeforeContactsText} {
         margin-left: 0;
@@ -116,16 +116,30 @@ export const Footer = styled.footer`
 
 export const FooterTextContainer = styled.div`
   ${({ theme: t }) => css`
+    width: 100%;
     margin-top: ${t.$rythm * 3.125}px;
     display: flex;
     align-items: flex-start;
 
     @media ${t.$phone}, ${t.$tablet} {
       flex-direction: column-reverse;
-      width: ${t.$rythm * 10}px;
+      width: ${t.$rythm * 10.3125}px;
 
       margin: 0 auto;
       margin-top: ${t.$rythm * 1.125}px;
+    }
+  `}
+`;
+
+export const CopyrightWrapper = styled.div`
+  ${({ theme: t }) => css`
+    width: 61%;
+    margin-right: 20.5%;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
     }
   `}
 `;
@@ -136,7 +150,7 @@ export const FooterCopyright = styled.span`
     width: ${t.$rythm * 10.2}px;
     height: ${t.$rythm * 2}px;
     line-height: normal;
-    margin-right: 240%;
+    display: block;
 
     @media ${t.$phone}, ${t.$tablet} {
       margin: 0;

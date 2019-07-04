@@ -37,8 +37,7 @@ export const SliderHeading = styled.h2`
 
       font-size: ${t.$rythm * 1.5625}px;
       line-height: 1.4;
-      margin-top: ${t.$rythm * 1.375}px;
-      margin-bottom: ${t.$rythm * 1.6875}px;
+      margin: ${t.$rythm * 1.375}px auto ${t.$rythm * 1.6875}px auto;
 
       padding-left: ${t.$rythm * 0.875}px;
       text-align: left;
@@ -91,10 +90,13 @@ export const ImagesContainer = styled.div`
   ${({ theme: t }) => css`
     display: flex;    
     height: ${t.$rythm * 25.5}px;
-    padding: 0 ${t.$rythm * 10}px 0 ${t.$rythm * 12}px;
+    padding: 0 11.2% 0 13.35%;
+    justify-content: center;
 
     @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 20}px;
+
+      justify-content: flex-start;
       margin: 0 auto;
       padding: 0;
     }
