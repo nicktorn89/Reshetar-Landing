@@ -1,5 +1,5 @@
-import React, { memo } from 'react';
-import HeroProps, { InputTypes } from './types';
+import React, { memo, useState } from 'react';
+import HeroProps, { InputTypes, FormType } from './types';
 import { 
   HeroContainer, LogoBlock, LogoImg, 
   TextBlock, Heading, Description,
@@ -22,6 +22,34 @@ export const inputs: InputTypes = {
 
 const HeroComponent: React.FC<HeroProps> = ({ data, isMobile }) => {
   const { textBlock, formBlock, phoneNumber } = data;
+  const formObject: FormType = {
+    serviceType: 0,
+    phoneNumber: '',
+    repetition: false,
+    earlyDeparture: false,
+    guestMakeup: false,
+  };
+
+  const [formState, changeFormState] = useState(formObject);
+
+  const handleChange = ({ name, value }: { name: string, value: number | string | boolean }) => {
+    const clonedFormState = { ...formState };
+
+    if (name === 'phoneNumber') {
+      const trimmedValue = (value as string).replace(/\s/g, '');
+
+      clonedFormState[name] = trimmedValue;
+    } else {
+      clonedFormState[name] = value;
+    }
+
+    changeFormState(clonedFormState);
+  };
+
+  const handleSendButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log(formState);
+  };
 
   const renderInputs = formBlock.formInputs.map((input, index) => {
     const InputComponent = inputs[input.type];
@@ -31,8 +59,9 @@ const HeroComponent: React.FC<HeroProps> = ({ data, isMobile }) => {
       type={input.type as InputProps['type']} 
       name={input.name}
       options={input.options!}
-      value={input.value as never}
+      value={formState[input.name] as never || input.value as never}
       label={input.label as never}
+      onChange={handleChange}
     />);
   });
 
@@ -66,7 +95,7 @@ const HeroComponent: React.FC<HeroProps> = ({ data, isMobile }) => {
             {renderInputs}
           </InputsGroup>
 
-          <SendButton>{isMobile ? formBlock.mobileButtonText : formBlock.buttonText}</SendButton>
+          <SendButton onClick={handleSendButton}>{isMobile ? formBlock.mobileButtonText : formBlock.buttonText}</SendButton>
         </FormContainer>
       </FormBlock>
     </HeroContainer>

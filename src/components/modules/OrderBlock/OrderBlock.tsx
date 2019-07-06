@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { OrderBlockProps } from './types';
 import { 
   OrderBlockContainer, OrderBlockHeading, OrderBlockFormContainer,
@@ -6,20 +6,51 @@ import {
 } from './styled';
 import { InputProps } from 'src/components/UI/Input';
 import { inputs } from '../Hero/Hero';
+import { FormType } from '../Hero/types';
 
 const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile }) => {
   const { form, heading, mobileHeading } = data;
+
+  const formObject: FormType = {
+    serviceType: 0,
+    phoneNumber: '',
+    repetition: false,
+    earlyDeparture: false,
+    guestMakeup: false,
+  };
+
+  const [formState, changeFormState] = useState(formObject);
+
+  const handleChange = ({ name, value }: { name: string, value: number | string | boolean }) => {
+    const clonedFormState = { ...formState };
+
+    if (name === 'phoneNumber') {
+      const trimmedValue = (value as string).replace(/\s/g, '');
+      
+      clonedFormState[name] = trimmedValue;
+    } else {
+      clonedFormState[name] = value;
+    }
+
+    changeFormState(clonedFormState);
+  };
+
+  const handleSendButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log(formState);
+  };
 
   const renderInputsByType = (inputTypes: string[]) => form.formInputs.map((input, index) => {
     const InputComponent = inputs[input.type];
 
     if (inputTypes.some((el) => input.type === el)) {
       return (<InputComponent
+        onChange={handleChange}
         key={index}
         type={input.type as InputProps['type']}
         name={input.name}
         options={input.options!}
-        value={input.value as never}
+        value={formState[input.name] as never || input.value as never}
         label={input.label as never}
       />);
     }
@@ -32,13 +63,13 @@ const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile }) => {
       <OrderBlockFormContainer>
         <OrderBlockFormInputs>
           {renderInputsByType(['select', 'text', 'number', 'maskInput'])}
-          {!isMobile && <OrderBlockFormButton>{form.buttonText}</OrderBlockFormButton>}
+          {!isMobile && <OrderBlockFormButton onClick={handleSendButton}>{form.buttonText}</OrderBlockFormButton>}
         </OrderBlockFormInputs>
 
         <OrderBlockFormCheckboxes>{renderInputsByType(['checkbox'])}</OrderBlockFormCheckboxes>
       </OrderBlockFormContainer>
 
-      {isMobile && <OrderBlockFormButton>{form.buttonText}</OrderBlockFormButton>}
+      {isMobile && <OrderBlockFormButton onClick={handleSendButton}>{form.buttonText}</OrderBlockFormButton>}
     </OrderBlockContainer>
   );
 };

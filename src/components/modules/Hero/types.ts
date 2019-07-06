@@ -23,3 +23,12 @@ export interface LogoQueryType {
     };
   };
 }
+
+export type FormType = {
+  serviceType: number;
+  phoneNumber: string | number;
+  repetition: boolean;
+  earlyDeparture: boolean;
+  guestMakeup: boolean;
+  [name: string]: number | string | boolean;
+};
