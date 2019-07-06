@@ -71,7 +71,7 @@
     "gatsby"
   ],
   "scripts": {
-    "build": "gatsby build",
+    "build": "rm -rf public && gatsby build",
     "develop": "gatsby develop --host 0.0.0.0",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",

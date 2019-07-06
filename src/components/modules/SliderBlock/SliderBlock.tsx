@@ -14,7 +14,7 @@ const SliderBlock: React.FC<SliderBlockProps> = ({ data, isMobile }) => {
       {
         isMobile 
           ? 
-            <MobileSlider images={images} sliderHeight={230} />
+            <MobileSlider images={images.low} sliderHeight={230} />
           :
             <Slider
               imageSizes={{ height: 340, width: 255 }}

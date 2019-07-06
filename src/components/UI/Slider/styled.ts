@@ -51,11 +51,15 @@ export const ImagesContainer = styled.div<{ height?: number }>`
   `}
 `;
 
-export const ImageItem = styled.img<{width?: number}>`
+export const ImageItem = styled.picture<{width?: number}>`
    ${({ theme: t, width }) => css`
     height: 100%;
     width: ${width ? width : t.$rythm * 16}px;
     cursor: zoom-in;
+
+    & > img {
+      height: 100%;
+    }
 
     &:not(:last-of-type) {
       margin-right: ${t.$rythm * 2}px;

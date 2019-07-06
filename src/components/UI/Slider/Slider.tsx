@@ -16,12 +16,12 @@ import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
 const Slider: React.FC<SliderProps> = ({ imageSizes, imagesToShowCount, images, containerStyles }) => {
   const { height, width } = imageSizes;
   
-  const { currentImage, nextSlide, prevSlide, disabledButtons } = useSliderHook(images, imagesToShowCount);
+  const { currentImage, nextSlide, prevSlide, disabledButtons } = useSliderHook(images.low, imagesToShowCount);
   const imageToShowArray = [];
 
   const sliderContainer = useRef<HTMLDivElement>(null);
   const { viewerStatus, changeViewerStatus, activeIndex } = useImageViewer(sliderContainer);
-  const sliderImages: ImageDecorator[] = createSliderItem(images);
+  const sliderImages: ImageDecorator[] = createSliderItem(images.high);
 
   for (let i = 0; i < imagesToShowCount; i += 1) {
     imageToShowArray.push(i);
@@ -33,12 +33,15 @@ const Slider: React.FC<SliderProps> = ({ imageSizes, imagesToShowCount, images, 
       : prevSlide();
   };
 
-  const renderSliderImgFrames = imageToShowArray.map((k, index) => <ImageItem 
-    key={index} 
-    width={width}
-    src={images[currentImage + index]} 
-    onClick={!viewerStatus ? changeViewerStatus(currentImage + index) : emptyFunc}
-  />);
+  const renderSliderImgFrames = imageToShowArray.map((k, index) => 
+    <ImageItem key={index} onClick={!viewerStatus ? changeViewerStatus(currentImage + index) : emptyFunc}>
+      <source srcSet={images.webp[currentImage + index]} type='image/webp' />
+      <source media='(max-width: 900px)' srcSet={images.low[currentImage + index]} type='image/jpeg' />
+      <img
+        width={width}
+        src={images.high[currentImage + index]}
+      />
+    </ImageItem>);
 
   return (
       <SliderContainer ref={sliderContainer} height={height} style={containerStyles} >
