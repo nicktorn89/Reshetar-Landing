@@ -285,11 +285,16 @@ export const SliderControl = styled(Button)<{next?: boolean}>`
   `}
 `;
 
-export const ImageItem = styled.img`
+export const ImageItem = styled.picture`
    ${({ theme: t }) => css`
     height: 100%;
     width: ${t.$rythm * 22}px;
     cursor: zoom-in;
+
+    & > img {
+      height: 100%;
+      width: ${t.$rythm * 22}px;
+    }
 
     &:first-of-type {
       margin-right: ${t.$rythm * 2}px;

@@ -23,12 +23,12 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const [activeTab, setActiveTab] = useState(0);
 
   const IMAGES_TO_SHOW_COUNT = 2;
-  const { currentImage, nextSlide, prevSlide, setDefault } = useSliderHook(images[activeTab], IMAGES_TO_SHOW_COUNT);
+  const { currentImage, nextSlide, prevSlide, setDefault } = useSliderHook(images[activeTab].webp, IMAGES_TO_SHOW_COUNT);
   const imageToShowArray = [];
 
   const sliderContainer = useRef<HTMLDivElement>(null);
   const { viewerStatus, changeViewerStatus, activeIndex } = useImageViewer(sliderContainer);
-  const sliderImages: ImageDecorator[] = createSliderItem(images[activeTab]);
+  const sliderImages: ImageDecorator[] = createSliderItem(images[activeTab].high);
 
   for (let i = 0; i < IMAGES_TO_SHOW_COUNT; i += 1) {
     imageToShowArray.push(i);
@@ -52,11 +52,11 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   };
 
   const renderSliderImgFrames = imageToShowArray.map((k, index) =>
-    <ImageItem
-      key={index}
-      src={images[activeTab][currentImage + index]}
-      onClick={!viewerStatus ? changeViewerStatus(currentImage + index) : emptyFunc}
-    />);
+  <ImageItem key={index} onClick={!viewerStatus ? changeViewerStatus(currentImage + index) : emptyFunc}>
+      <source srcSet={images[activeTab].webp[currentImage + index]} type='image/webp' />
+      <source media='(max-width: 900px)' srcSet={images[activeTab].low[currentImage + index]} type='image/jpeg' />
+      <img src={images[activeTab].high[currentImage + index]} />
+  </ImageItem>);
 
   const renderTabs = tabs.map((tab, index) => <Tab
     key={index}
@@ -78,7 +78,7 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
       data-tab-index={index}
       handleTriggerClick={accordionChangeTab(index)}
     >
-      <MobileSlider images={images[activeTab]} sliderHeight={218} initialSlide={0} />
+      <MobileSlider images={images[activeTab].low} sliderHeight={218} initialSlide={0} />
     </Accordion>,
   );
   
