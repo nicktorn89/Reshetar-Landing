@@ -65,6 +65,8 @@ export const DescriptionPhoto = styled.div`
 
 export const DescImg = styled(Img)`
   ${({ theme: t }) => css`
+    top: -${t.$rythm * 0.5}px;
+    
     @media ${t.$phone}, ${t.$tablet} {
       height: ${t.$rythm * 7.25}px !important;
       width: ${t.$rythm * 7.25}px !important;
