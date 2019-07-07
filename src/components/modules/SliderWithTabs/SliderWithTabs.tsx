@@ -3,7 +3,7 @@ import {
   SliderContainer, SliderHeading, TabsContainer, 
   Tab, ImagesContainer, DescContainer, 
   HeadingDesc, TextDesc, SliderControlsGroup, 
-  SliderControl, ImageItem, AccordionsContainer,
+  SliderControl, ImageItem, AccordionsContainer, SliderUI,
 } from './styled';
 
 import { default as Accordion } from 'react-collapsible';
@@ -11,51 +11,73 @@ import { default as Accordion } from 'react-collapsible';
 import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import { Icon, ImageViewer, MobileSlider } from 'src/components/UI';
 
-import { useSliderHook, useImageViewer } from 'src/hooks';
+import { useImageViewer } from 'src/hooks';
 import { createSliderItem, emptyFunc } from 'src/utils';
 
 import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
 import { SliderWithTabsProps } from './types';
+import Slider from 'react-slick';
 
 const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const { heading, tabs, descriptions, images, nextButtonText } = data;
 
-  const [activeTab, setActiveTab] = useState(0);
+  const sliderState = {
+    initialSlide: 0,
+    swipe: true,
+    slidesToShow: 2,
+    slidesToScroll: 2,
+    arrows: true,
+    infinite: false,
+    centerMode: false,
+    centerPadding: '8px',
+    variableWidth: true,
+    lazyLoad: 'progressive' as 'progressive' | 'ondemand' | undefined,
+    beforeChange: (oldIndex: number, newIndex: number) => {
+      console.log(oldIndex, newIndex);
+      if (oldIndex === newIndex) {
+        changeNextButtonStatus(true);
+        changePrevButtonStatus(false);
+      } else if (newIndex === images[activeTab].high.length - 2 && oldIndex === images[activeTab].high.length - 4) {
+        changePrevButtonStatus(true);
+        changeNextButtonStatus(false);
+      } else {
+        changePrevButtonStatus(true);
+        changeNextButtonStatus(true);
+      }
+    },
+  };
 
-  const IMAGES_TO_SHOW_COUNT = 2;
-  const { currentImage, nextSlide, prevSlide, setDefault } = useSliderHook(images[activeTab].webp, IMAGES_TO_SHOW_COUNT);
-  const imageToShowArray = [];
+  const [activeTab, setActiveTab] = useState(0);
 
   const sliderContainer = useRef<HTMLDivElement>(null);
   const { viewerStatus, changeViewerStatus, activeIndex } = useImageViewer(sliderContainer);
-  const sliderImages: ImageDecorator[] = createSliderItem(images[activeTab].high);
-
-  for (let i = 0; i < IMAGES_TO_SHOW_COUNT; i += 1) {
-    imageToShowArray.push(i);
-  }
-
-  const changeImages = (increment: boolean) => (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    increment 
-      ? nextSlide()
-      : prevSlide();
-  };
+  const viewerImages: ImageDecorator[] = createSliderItem(images[activeTab].high);
 
   const changeTab = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { tabIndex } = e.currentTarget.dataset;
     tabIndex && setActiveTab(+tabIndex);
-
-    setDefault();
   };
 
   const accordionChangeTab = (index: number) => () => {
     setActiveTab(index);
   };
+  
+  let sliderObj = {} as unknown as Slider | null;
 
-  const renderSliderImgFrames = imageToShowArray.map((k, index) =>
-  <ImageItem key={index} onClick={!viewerStatus ? changeViewerStatus(currentImage + index) : emptyFunc}>
-      <source srcSet={images[activeTab].webp[currentImage + index]} type='image/webp' />
-      <source media='(max-width: 900px)' srcSet={images[activeTab].low[currentImage + index]} type='image/jpeg' />
-      <img src={images[activeTab].high[currentImage + index]} />
+  const handleChangeImg = (isNext: boolean) => () => {
+    isNext
+      ? sliderObj && sliderObj.slickNext()
+      : sliderObj && sliderObj.slickPrev();
+  };
+
+  const [prevButtonStatus, changePrevButtonStatus] = useState(false);
+  const [nextButtonStatus, changeNextButtonStatus] = useState(true);
+
+  const renderSliderImages = images[activeTab].high.map((k, index) =>
+  <ImageItem key={index} onClick={!viewerStatus ? changeViewerStatus(index) : emptyFunc}>
+      <source srcSet={images[activeTab].webp[index]} type='image/webp' />
+      <source media='(max-width: 900px)' srcSet={images[activeTab].low[index]} type='image/jpeg' />
+      <img src={images[activeTab].high[index]} />
   </ImageItem>);
 
   const renderTabs = tabs.map((tab, index) => <Tab
@@ -78,7 +100,7 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
       data-tab-index={index}
       handleTriggerClick={accordionChangeTab(index)}
     >
-      <MobileSlider images={images[activeTab].low} sliderHeight={218} initialSlide={0} />
+      <MobileSlider images={images[activeTab]} sliderHeight={218} initialSlide={0} />
     </Accordion>,
   );
   
@@ -103,11 +125,11 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
           </AccordionsContainer>}
 
           <SliderControlsGroup>
-            <SliderControl onClick={changeImages(false)}>
+            <SliderControl onClick={!prevButtonStatus ? emptyFunc : handleChangeImg(false)}>
               <Icon icon={faLongArrowAltLeft} />
             </SliderControl>
 
-            <SliderControl onClick={changeImages(true)} next={true}>
+            <SliderControl onClick={!nextButtonStatus ? emptyFunc : handleChangeImg(true)} next={true}>
               <span>{nextButtonText}</span>
               <Icon icon={faLongArrowAltRight} />
             </SliderControl>
@@ -117,11 +139,15 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
         <ImageViewer
           status={viewerStatus}
           onClose={changeViewerStatus(0)}
-          images={sliderImages}
+          images={viewerImages}
           activeIndex={activeIndex}
         />
 
-        {!isMobile && renderSliderImgFrames}
+        {!isMobile && 
+          <SliderUI ref={(slider) => { sliderObj = slider; }} sliderHeight={540} {...sliderState}>     
+            {renderSliderImages}
+          </SliderUI>
+        }
       </ImagesContainer>
     </SliderContainer>
   );

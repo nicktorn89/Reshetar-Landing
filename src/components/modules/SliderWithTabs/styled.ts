@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { ifProp } from 'src/theme';
 import { Button } from 'src/components/UI/Button';
+import Slider from 'react-slick';
 
 export const SliderContainer = styled.section`
   ${({ theme: t }) => css`
@@ -287,8 +288,9 @@ export const SliderControl = styled(Button)<{next?: boolean}>`
 
 export const ImageItem = styled.picture`
    ${({ theme: t }) => css`
-    height: 100%;
+    height: 540px;
     width: ${t.$rythm * 22}px;
+    margin-right: ${t.$rythm * 2}px;
     cursor: zoom-in;
 
     & > img {
@@ -298,6 +300,32 @@ export const ImageItem = styled.picture`
 
     &:first-of-type {
       margin-right: ${t.$rythm * 2}px;
+    }
+  `}
+`;
+
+export const SliderUI = styled(Slider)<{sliderHeight: number}>`
+  ${({ theme: t, sliderHeight }) => css`
+    width: ${t.$rythm * 52}px;
+    height: ${sliderHeight}px;
+
+    overflow: hidden;
+    
+    .slick-slide {
+     padding: 0 ${t.$rythm / 4}px;
+     box-sizing: border-box;
+     border-left: ${t.$rythm / 4}px solid transparent;
+     border-right: ${t.$rythm / 4}px solid transparent;
+    
+     &:first-of-type {
+       margin-left: -16px;
+     }
+  }
+    
+    .slick-prev, .slick-next {
+      &::before {
+        color: ${t.$text_color}
+      }
     }
   `}
 `;

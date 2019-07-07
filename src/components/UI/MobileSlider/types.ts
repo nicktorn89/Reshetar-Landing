@@ -1,5 +1,7 @@
+import { ImageType } from 'src/types';
+
 export interface MobileSliderProps {
-  images: string[];
+  images: ImageType;
   sliderHeight: number;
   initialSlide?: number;
 }
