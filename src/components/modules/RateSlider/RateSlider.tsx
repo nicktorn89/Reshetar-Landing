@@ -22,7 +22,7 @@ const RateSlider: React.FC<RateSliderProps> = ({ data, isMobile }) => {
       </RateContainer>
 
       {isMobile
-        ? <MobileSlider images={images.low} sliderHeight={309} />
+        ? <MobileSlider images={images} sliderHeight={309} />
         : <Slider
           imageSizes={{ height: 538, width: 256 }}
           imagesToShowCount={IMAGES_TO_SHOW_COUNT}

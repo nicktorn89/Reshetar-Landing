@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { ifProp } from 'src/theme';
+import Slider from 'react-slick';
 
 export const SliderContainer = styled.div<{ height?: number }>`
   ${({ theme: t, height }) => css`
@@ -9,6 +10,32 @@ export const SliderContainer = styled.div<{ height?: number }>`
     padding: 0 ${t.$rythm * 10.3}px 0 ${t.$rythm * 10.3}px;
     display: flex;
     align-items: center;
+  `}
+`;
+
+export const ImagesContainer = styled(Slider)<{sliderHeight: number}>`
+  ${({ theme: t, sliderHeight }) => css`
+    width: ${t.$rythm * 52}px;
+    height: ${sliderHeight}px;
+
+    overflow: hidden;
+    
+    .slick-slide {
+     padding: 0 ${t.$rythm / 4}px;
+     box-sizing: border-box;
+     border-left: ${t.$rythm / 4}px solid transparent;
+     border-right: ${t.$rythm / 4}px solid transparent;
+    
+     &:first-of-type {
+       margin-left: -16px;
+     }
+  }
+    
+    .slick-prev, .slick-next {
+      &::before {
+        color: ${t.$text_color}
+      }
+    }
   `}
 `;
 
@@ -40,22 +67,12 @@ export const NextImageButton = styled(PrevImageButton)`
   margin-right: 0;
 `;
 
-export const ImagesContainer = styled.div<{ height?: number }>`
-  ${({ theme: t, height }) => css`
-    height: ${height ? height : t.$rythm * 33.625}px;
-    width: ${t.$rythm * 52}px;
-
-    margin-right: ${t.$rythm * 8.5}px;
-
-    display: flex;
-  `}
-`;
-
 export const ImageItem = styled.picture<{width?: number}>`
    ${({ theme: t, width }) => css`
     height: 100%;
     width: ${width ? width : t.$rythm * 16}px;
     cursor: zoom-in;
+    margin-right:${t.$rythm * 2}px;
 
     & > img {
       height: 100%;
