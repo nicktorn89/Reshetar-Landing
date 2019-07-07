@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+
 import { ButtonGroupProps } from './types';
 
 import { ButtonGroup } from './styled';

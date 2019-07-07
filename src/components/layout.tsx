@@ -1,18 +1,19 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { throttle } from 'throttle-debounce';
-import { LayoutProps } from './types';
-import { Helmet } from 'react-helmet';
-
-import './layout.css';
-import LocaleData from 'src/locale';
-import { LocaleDataType } from 'src/types';
-import ConnectedThemeProvider from 'src/components/modules/ThemeProvider/index';
-
 import { 
   Header, Hero, InfoBlock, SliderWithTabs, RateSlider, 
   PriceBlock, SliderBlock, FAQ, OrderBlock, Footer,
 } from 'src/components/modules';
+import { throttle } from 'throttle-debounce';
+import { Helmet } from 'react-helmet';
+import ConnectedThemeProvider from 'src/components/modules/ThemeProvider/index';
+
+import LocaleData from 'src/locale';
 import { deviceSizes } from 'src/theme/vars/base';
+
+import { LocaleDataType } from 'src/types';
+import { LayoutProps } from './types';
+
+import './layout.css';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const checkScreen = () => document.documentElement.clientWidth < deviceSizes.desktop;

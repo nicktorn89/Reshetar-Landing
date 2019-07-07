@@ -1,5 +1,7 @@
 import React, { memo } from 'react';
+
 import HeaderProps from './types';
+
 import { 
   Header, ContactsBlock, BeforeContactsText,
   IconsBlock, IconContainer, StyledIcon, 

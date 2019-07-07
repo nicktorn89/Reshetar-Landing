@@ -1,15 +1,15 @@
 import React, { memo } from 'react';
+import { Slider, MobileSlider } from 'src/components/UI';
+
 import { RateSliderProps } from './types';
+
 import { 
   RateSliderContainer, RateContainer, RateNumber, 
   RateText, RateLink,
 } from './styled';
 
-import { Slider, MobileSlider } from 'src/components/UI';
-
 const RateSlider: React.FC<RateSliderProps> = ({ data, isMobile }) => {
   const { rate, rateText, link, images } = data;
-  const IMAGES_TO_SHOW_COUNT = 3;
 
   return (
     <RateSliderContainer>
@@ -25,7 +25,6 @@ const RateSlider: React.FC<RateSliderProps> = ({ data, isMobile }) => {
         ? <MobileSlider images={images} sliderHeight={309} />
         : <Slider
           imageSizes={{ height: 538, width: 256 }}
-          imagesToShowCount={IMAGES_TO_SHOW_COUNT}
           images={images}
           containerStyles={{ justifyContent: 'center', paddingLeft: '11.5%', paddingRight: '11.5%' }}
         />

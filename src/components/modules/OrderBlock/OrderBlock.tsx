@@ -1,12 +1,14 @@
 import React, { memo, useState } from 'react';
+import { inputs } from '../Hero/Hero';
+
 import { OrderBlockProps } from './types';
+import { FormType } from '../Hero/types';
+import { InputProps } from 'src/components/UI/Input';
+
 import { 
   OrderBlockContainer, OrderBlockHeading, OrderBlockFormContainer,
   OrderBlockFormInputs, OrderBlockFormCheckboxes, OrderBlockFormButton,
 } from './styled';
-import { InputProps } from 'src/components/UI/Input';
-import { inputs } from '../Hero/Hero';
-import { FormType } from '../Hero/types';
 
 const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile }) => {
   const { form, heading, mobileHeading } = data;

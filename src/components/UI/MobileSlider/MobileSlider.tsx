@@ -1,10 +1,13 @@
 import React, { memo, useRef } from 'react';
-import { MobileSliderProps } from './types';
-import { SliderContainer, SliderItem, ItemImage, SliderBlock } from './styled';
+import ImageViewer from '../ImageViewer';
+
 import { useImageViewer } from 'src/hooks';
-import ImageViewer from '../ImageViewer/index';
-import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
 import { createSliderItem, emptyFunc } from 'src/utils';
+
+import { MobileSliderProps } from './types';
+import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
+
+import { SliderContainer, SliderItem, ItemImage, SliderBlock } from './styled';
 
 const MobileSlider: React.FC<MobileSliderProps> = ({ images, sliderHeight = 230, initialSlide = 1 }) => {
   const sliderState = {

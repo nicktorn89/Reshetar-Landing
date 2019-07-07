@@ -1,13 +1,7 @@
 import React, { memo, useRef, useState } from 'react';
-import { 
-  SliderContainer, SliderHeading, TabsContainer, 
-  Tab, ImagesContainer, DescContainer, 
-  HeadingDesc, TextDesc, SliderControlsGroup, 
-  SliderControl, ImageItem, AccordionsContainer, SliderUI,
-} from './styled';
 
+import Slider from 'react-slick';
 import { default as Accordion } from 'react-collapsible';
-
 import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import { Icon, ImageViewer, MobileSlider } from 'src/components/UI';
 
@@ -16,7 +10,13 @@ import { createSliderItem, emptyFunc } from 'src/utils';
 
 import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
 import { SliderWithTabsProps } from './types';
-import Slider from 'react-slick';
+
+import { 
+  SliderContainer, SliderHeading, TabsContainer, 
+  Tab, ImagesContainer, DescContainer, 
+  HeadingDesc, TextDesc, SliderControlsGroup, 
+  SliderControl, ImageItem, AccordionsContainer, SliderUI,
+} from './styled';
 
 const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const { heading, tabs, descriptions, images, nextButtonText } = data;

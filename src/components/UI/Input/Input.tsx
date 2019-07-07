@@ -1,6 +1,8 @@
 import React, { memo, useRef } from 'react';
 import omit from 'ramda/es/omit';
+
 import { InputProps } from './types';
+
 import { Container, Input } from './styled';
 
 const InputComponent: React.FC<InputProps> = ({ onChange, onBlur, onFocus, ...restProps }) => {

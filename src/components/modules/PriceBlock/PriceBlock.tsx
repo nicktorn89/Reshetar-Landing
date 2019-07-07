@@ -1,14 +1,15 @@
 import React, { memo } from 'react';
+import { Icon, ButtonTypesMap } from 'src/components/UI';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
+import PriceBlockProps from './types';
+
 import { 
   PriceBlockContainer, PriceBlockTitle, PriceItemsContainer,
   PriceItem, PriceItemTitle, PriceItemOptionsContainer, 
   PriceItemOption, PriceItemText, PriceItemNumber,
   PriceItemOrderButton, ClarifyingText,
  } from './styled';
-import PriceBlockProps from './types';
-
-import { Icon, ButtonTypesMap } from 'src/components/UI';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
   const { heading, prices, clarifying } = data;

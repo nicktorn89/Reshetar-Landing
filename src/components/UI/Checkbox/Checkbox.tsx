@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
+
 import { CheckboxProps } from './types';
-import 'rc-checkbox/assets/index.css';
+
 import { StyledCheckbox, CheckboxLabel } from './styled';
 
 const Checkbox: React.FC<CheckboxProps> = ({ label, value, name, onChange }) => {

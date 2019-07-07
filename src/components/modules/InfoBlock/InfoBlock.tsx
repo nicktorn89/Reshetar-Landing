@@ -1,14 +1,14 @@
 import React, { memo } from 'react';
+import { useDescImage, useAdvantagesImg } from 'src/hooks';
+
+import InfoBlockProps from './types';
+
 import { 
   InfoBlockContainer, DescriptionBlock, DescriptionPhoto, DescImg,
   DescriptionText, DescPart, DescLogo, AdvantagesBlock, AdvantageItem,
   AdvantageTitle, AdvantageDesc, AdvantageImageContainer, AdvantageImage,
   DescLogoContainer, Link,
 } from './styled';
-
-import { useDescImage, useAdvantagesImg } from 'src/hooks';
-
-import InfoBlockProps from './types';
 
 const InfoBlock: React.FC<InfoBlockProps> = ({ data, isMobile }) => {
   const { description, link, advantages } = data;

@@ -1,5 +1,9 @@
 import React, { memo, useState } from 'react';
+import parse from 'html-react-parser';
+
 import HeroProps, { InputTypes, FormType } from './types';
+import { InputProps } from 'src/components/UI/Input';
+
 import { 
   HeroContainer, LogoBlock, LogoImg, 
   TextBlock, Heading, Description,
@@ -8,8 +12,6 @@ import {
   InputsGroup, SendButton, LogoContainer, 
   FormSelect, FormText, FormNumber, FormCheckbox, FormInputMask,
 } from './styled';
-import parse from 'html-react-parser';
-import { InputProps } from 'src/components/UI/Input';
 import { NumberSpan } from '../Header/styled';
 
 export const inputs: InputTypes = {
