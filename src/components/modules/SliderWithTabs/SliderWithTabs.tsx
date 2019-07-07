@@ -23,14 +23,12 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
 
   const sliderState = {
     initialSlide: 0,
-    swipe: true,
+    swipe: false,
     slidesToShow: 2,
     slidesToScroll: 2,
-    arrows: true,
+    arrows: false,
     infinite: false,
-    centerMode: false,
-    centerPadding: '8px',
-    variableWidth: true,
+    variableWidth: false,
     lazyLoad: 'progressive' as 'progressive' | 'ondemand' | undefined,
     beforeChange: (oldIndex: number, newIndex: number) => {
       console.log(oldIndex, newIndex);
@@ -56,6 +54,7 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const changeTab = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { tabIndex } = e.currentTarget.dataset;
     tabIndex && setActiveTab(+tabIndex);
+    sliderObj && sliderObj.slickGoTo(0);
   };
 
   const accordionChangeTab = (index: number) => () => {
