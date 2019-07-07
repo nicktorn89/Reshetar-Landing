@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { throttle } from 'throttle-debounce';
 import { LayoutProps } from './types';
+import { Helmet } from 'react-helmet';
 
 import './layout.css';
 import LocaleData from 'src/locale';
@@ -33,6 +34,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <React.Fragment>
+      <Helmet defer={false} title={'Reshetar'}>
+        <html lang='ru' />
+        <meta
+          name='viewport'
+          content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover'
+        />
+      </Helmet>
+
       <ConnectedThemeProvider theme={'purple'}>
         {!isMobile && <Header data={localeData.header} isMobile={isMobile} />}
 
