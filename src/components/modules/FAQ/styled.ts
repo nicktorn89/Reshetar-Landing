@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Heading } from 'src/components/UI';
 
 export const FAQContainer = styled.section`
   ${({ theme: t }) => css`
@@ -19,15 +20,9 @@ export const FAQContainer = styled.section`
   `}
 `;
 
-export const FAQHeading = styled.h3`
+export const FAQHeading = styled(Heading)`
   ${({ theme: t }) => css`
     margin-top: ${t.$rythm * 9}px;
-    font-size: ${t.$rythm * 3.125}px;
-    font-weight: ${t.$font_weight_bold};
-
-    color: ${t.$text_color_black};
-
-    text-align: center;
 
     @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 20}px;

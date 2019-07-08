@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Button } from 'src/components/UI/Button';
 import { ifProp } from 'src/theme';
+import { Heading } from 'src/components/UI';
 
 export const PriceBlockContainer = styled.section`
   ${({ theme: t }) => css`
@@ -23,16 +24,12 @@ export const PriceBlockContainer = styled.section`
   `}
 `;
 
-export const PriceBlockTitle = styled.h3`
+export const PriceBlockHeading = styled(Heading)`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 51.5}px;
     height: ${t.$rythm * 3.4}px;
 
     margin: 0 auto ${t.$rythm * 5.875}px auto;
-    
-    font-size: ${t.$rythm * 3.125}px;
-    font-weight: ${t.$font_weight_bold};
-    color: ${t.$text_color_black};
     
     @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 15.625}px;
@@ -41,7 +38,6 @@ export const PriceBlockTitle = styled.h3`
     
       font-size: ${t.$rythm * 1.5625}px;
       line-height: 1.4;
-      text-align: center;
     }
   `}
 `;

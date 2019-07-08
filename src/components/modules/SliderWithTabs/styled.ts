@@ -312,20 +312,14 @@ export const SliderUI = styled(Slider)<{sliderHeight: number}>`
     overflow: hidden;
     
     .slick-slide {
-     padding: 0 ${t.$rythm / 4}px;
-     box-sizing: border-box;
-     border-left: ${t.$rythm / 4}px solid transparent;
-     border-right: ${t.$rythm / 4}px solid transparent;
+      padding: 0 ${t.$rythm / 4}px;
+      box-sizing: border-box;
+      border-left: ${t.$rythm / 4}px solid transparent;
+      border-right: ${t.$rythm / 4}px solid transparent;
+    }
     
-     &:first-of-type {
-       margin-left: -16px;
-     }
-  }
-    
-    .slick-prev, .slick-next {
-      &::before {
-        color: ${t.$text_color}
-      }
+    .slick-prev::before, .slick-next::before  {
+      color: ${t.$text_color}
     }
   `}
 `;

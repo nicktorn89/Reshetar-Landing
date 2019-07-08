@@ -5,7 +5,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import PriceBlockProps from './types';
 
 import { 
-  PriceBlockContainer, PriceBlockTitle, PriceItemsContainer,
+  PriceBlockContainer, PriceBlockHeading, PriceItemsContainer,
   PriceItem, PriceItemTitle, PriceItemOptionsContainer, 
   PriceItemOption, PriceItemText, PriceItemNumber,
   PriceItemOrderButton, ClarifyingText,
@@ -62,7 +62,7 @@ const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
 
   return (
     <PriceBlockContainer>
-      <PriceBlockTitle>{heading}</PriceBlockTitle>
+      <PriceBlockHeading fontSize={50} node={'h3'}>{heading}</PriceBlockHeading>
 
       <PriceItemsContainer>{renderPriceItems}</PriceItemsContainer>
 
