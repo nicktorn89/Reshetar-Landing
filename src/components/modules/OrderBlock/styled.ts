@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { SendButton } from '../Hero/styled';
 import { CheckboxLabel } from 'src/components/UI/Checkbox/styled';
+import { Heading } from 'src/components/UI';
 
 export const OrderBlockContainer = styled.section`
   ${({ theme: t }) => css`
@@ -19,14 +20,10 @@ export const OrderBlockContainer = styled.section`
   `}
 `;
 
-export const OrderBlockHeading = styled.h3`
+export const OrderBlockHeading = styled(Heading)`
   ${({ theme: t }) => css`
     margin: ${t.$rythm * 9.8125}px 0 ${t.$rythm * 3.75}px 0;
-    font-size: ${t.$rythm * 3.125}px;
-    font-weight: ${t.$font_weight_bold};
     color: ${t.$order_block_heading};
-
-    text-align: center;
 
     @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 20}px;

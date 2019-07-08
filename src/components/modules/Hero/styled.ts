@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Button, Logo, Select, Input, Checkbox, InputMask } from 'src/components/UI';
+import { Button, Logo, Select, Input, Checkbox, InputMask, Heading } from 'src/components/UI';
 import { NumberSpan } from '../Header/styled';
 
 export const HeroContainer = styled.section`
@@ -92,18 +92,19 @@ export const TextBlock = styled.div`
   `}
 `;
 
-export const Heading = styled.h2`
+export const HeroHeading = styled(Heading)`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 26}px;
-    font-size: ${t.$rythm * 3.75}px;
-    font-weight: ${t.$font_weight_bold};
-    color: ${t.$text_color_black};
-    margin: ${t.$rythm * 4.5}px 0 0 21.5%;
     height: ${t.$rythm * 9.4}px;
+
+    margin: ${t.$rythm * 4.5}px 0 0 21.5%;
+
     line-height: ${t.$rythm * 4.5}px;
+    text-align: left;
 
     @media ${t.$phone}, ${t.$tablet} {
       height: ${t.$rythm * 5.625}px;
+      width: ${t.$rythm * 18}px;
       
       margin: ${t.$rythm * 3.8125}px 0 0 ${t.$rythm * 0.75}px;
 

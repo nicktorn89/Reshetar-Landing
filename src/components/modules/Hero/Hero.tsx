@@ -8,7 +8,7 @@ import { InputProps } from 'src/components/UI/Input';
 
 import { 
   HeroContainer, LogoBlock, LogoImg, 
-  TextBlock, Heading, Description,
+  TextBlock, HeroHeading, Description,
   PriceBlock, Price, Currency, UntilDate, Note,
   FormBlock, FormContainer, FormHeading,
   InputsGroup, SendButton, LogoContainer, 
@@ -44,7 +44,7 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
   const renderInputs = formBlock.formInputs.map((input, index) => {
     const InputComponent = inputs[input.type];
 
-    return (<InputComponent 
+    return <InputComponent 
       key={index} 
       type={input.type as InputProps['type']} 
       name={input.name}
@@ -52,7 +52,7 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
       value={formState[input.name] as never || input.value as never}
       label={input.label as never}
       onChange={handleChangeForm}
-    />);
+    />;
   });
 
   return (
@@ -65,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
       </LogoBlock>
 
       <TextBlock>
-        <Heading>{textBlock.heading}</Heading>
+        <HeroHeading fontSize={70} node={'h2'}>{textBlock.heading}</HeroHeading>
         <Description>{parse(textBlock.description)}</Description>
         <PriceBlock>
           <Price>{textBlock.price}</Price>

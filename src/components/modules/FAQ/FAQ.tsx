@@ -27,7 +27,7 @@ const FAQ: React.FC<FAQProps> = ({ data, isMobile }) => {
 
   return (
     <FAQContainer>
-      <FAQHeading>{heading}</FAQHeading>
+      <FAQHeading fontSize={50} node={'h3'}>{heading}</FAQHeading>
 
       <QuestionsContainer>
         {renderQuestions}
