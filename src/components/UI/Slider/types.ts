@@ -5,7 +5,6 @@ export interface SliderProps {
     height: number;
     width: number;
   };
-  imagesToShowCount: number;
   images: ImageType;
   containerStyles?: {
     [property: string]: string | number;

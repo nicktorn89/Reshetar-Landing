@@ -1,13 +1,7 @@
 import React, { memo, useRef, useState } from 'react';
-import { 
-  SliderContainer, SliderHeading, TabsContainer, 
-  Tab, ImagesContainer, DescContainer, 
-  HeadingDesc, TextDesc, SliderControlsGroup, 
-  SliderControl, ImageItem, AccordionsContainer, SliderUI,
-} from './styled';
 
+import Slider from 'react-slick';
 import { default as Accordion } from 'react-collapsible';
-
 import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import { Icon, ImageViewer, MobileSlider } from 'src/components/UI';
 
@@ -16,7 +10,13 @@ import { createSliderItem, emptyFunc } from 'src/utils';
 
 import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
 import { SliderWithTabsProps } from './types';
-import Slider from 'react-slick';
+
+import { 
+  SliderContainer, SliderHeading, TabsContainer, 
+  Tab, ImagesContainer, DescContainer, 
+  HeadingDesc, TextDesc, SliderControlsGroup, 
+  SliderControl, ImageItem, AccordionsContainer, SliderUI,
+} from './styled';
 
 const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const { heading, tabs, descriptions, images, nextButtonText } = data;
@@ -31,7 +31,6 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
     variableWidth: false,
     lazyLoad: 'progressive' as 'progressive' | 'ondemand' | undefined,
     beforeChange: (oldIndex: number, newIndex: number) => {
-      console.log(oldIndex, newIndex);
       if (oldIndex === newIndex) {
         changeNextButtonStatus(true);
         changePrevButtonStatus(false);
@@ -44,6 +43,8 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
       }
     },
   };
+  
+  let sliderObj = {} as unknown as Slider | null;
 
   const [activeTab, setActiveTab] = useState(0);
 
@@ -60,8 +61,6 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const accordionChangeTab = (index: number) => () => {
     setActiveTab(index);
   };
-  
-  let sliderObj = {} as unknown as Slider | null;
 
   const handleChangeImg = (isNext: boolean) => () => {
     isNext
@@ -73,20 +72,18 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const [nextButtonStatus, changeNextButtonStatus] = useState(true);
 
   const renderSliderImages = images[activeTab].high.map((k, index) =>
-  <ImageItem key={index} onClick={!viewerStatus ? changeViewerStatus(index) : emptyFunc}>
-      <source srcSet={images[activeTab].webp[index]} type='image/webp' />
-      <source media='(max-width: 900px)' srcSet={images[activeTab].low[index]} type='image/jpeg' />
-      <img src={images[activeTab].high[index]} />
-  </ImageItem>);
+    <ImageItem key={index} onClick={!viewerStatus ? changeViewerStatus(index) : emptyFunc}>
+        <source srcSet={images[activeTab].webp[index]} type='image/webp' />
+        <source media='(max-width: 900px)' srcSet={images[activeTab].low[index]} type='image/jpeg' />
+        <img src={images[activeTab].high[index]} />
+    </ImageItem>,
+  );
 
-  const renderTabs = tabs.map((tab, index) => <Tab
-    key={index}
-    active={index === activeTab}
-    data-tab-index={index}
-    onClick={changeTab}
-  >
-    {tab.text}
-  </Tab>);
+  const renderTabs = tabs.map((tab, index) => 
+    <Tab key={index} active={index === activeTab} data-tab-index={index} onClick={changeTab}>
+      {tab.text}
+    </Tab>,
+  );
 
   const renderAccordions = isMobile && tabs.map((tab, index) =>
     <Accordion

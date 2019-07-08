@@ -1,4 +1,8 @@
 import React, { memo } from 'react';
+import { useDescImage, useAdvantagesImg } from 'src/hooks';
+
+import InfoBlockProps from './types';
+
 import { 
   InfoBlockContainer, DescriptionBlock, DescriptionPhoto, DescImg,
   DescriptionText, DescPart, DescLogo, AdvantagesBlock, AdvantageItem,
@@ -6,24 +10,20 @@ import {
   DescLogoContainer, Link,
 } from './styled';
 
-import { useDescImage, useAdvantagesImg } from 'src/hooks';
-
-import InfoBlockProps from './types';
-
 const InfoBlock: React.FC<InfoBlockProps> = ({ data, isMobile }) => {
   const { description, link, advantages } = data;
   const file = useDescImage();
   const advantagesImages = useAdvantagesImg();
   
-  const renderAdvantages = advantages.map((advantage, index) => (
+  const renderAdvantages = advantages.map((advantage, index) => 
     <AdvantageItem key={index}>
       <AdvantageTitle>{advantage.title}</AdvantageTitle>
       {!isMobile && <AdvantageDesc>{advantage.text}</AdvantageDesc>}
       <AdvantageImageContainer>
        <AdvantageImage src={advantagesImages[index].publicURL} />
       </AdvantageImageContainer>
-    </AdvantageItem>
-  ));
+    </AdvantageItem>,
+  );
 
   const renderDescription = description.map((desc, index) => <DescPart key={index}>{desc}</DescPart>);
 

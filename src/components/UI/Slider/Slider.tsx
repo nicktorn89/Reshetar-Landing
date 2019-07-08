@@ -1,18 +1,18 @@
 import React, { memo, useRef, useState } from 'react';
-import { SliderProps } from './types';
-import { 
-  SliderContainer, PrevImageButton, NextImageButton,
-  ImagesContainer, ImageItem,
-} from './styled';
-
+import Slider from 'react-slick';
 import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
 import { Icon, ImageViewer } from 'src/components/UI';
 
 import { useImageViewer } from 'src/hooks';
 import { createSliderItem, emptyFunc } from 'src/utils';
 
+import { SliderProps } from './types';
 import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
-import Slider from 'react-slick';
+
+import { 
+  SliderContainer, PrevImageButton, NextImageButton,
+  ImagesContainer, ImageItem,
+} from './styled';
 
 const SliderComponent: React.FC<SliderProps> = ({ imageSizes, images, containerStyles }) => {
   const { height, width } = imageSizes;

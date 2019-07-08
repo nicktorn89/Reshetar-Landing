@@ -1,5 +1,7 @@
 import React, { memo, useRef } from 'react';
+
 import { InputProps } from './types';
+
 import { Container, Input } from './styled';
 
 const InputMask: React.FC<InputProps> = ({ onChange, onBlur, onFocus, ...restProps }) => {

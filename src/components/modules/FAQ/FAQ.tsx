@@ -1,9 +1,11 @@
 import React, { memo } from 'react';
-import FAQProps from './types';
-import { FAQContainer, FAQHeading, QuestionsContainer } from './styled';
 import { default as Accordion } from 'react-collapsible';
 
-const FAQComponent: React.FC<FAQProps> = ({ data, isMobile }) => {
+import FAQProps from './types';
+
+import { FAQContainer, FAQHeading, QuestionsContainer } from './styled';
+
+const FAQ: React.FC<FAQProps> = ({ data, isMobile }) => {
   const { heading, questions } = data;
 
   const allQuestions = isMobile 
@@ -34,6 +36,4 @@ const FAQComponent: React.FC<FAQProps> = ({ data, isMobile }) => {
   );
 };
 
-FAQComponent.displayName = 'FAQ';
-
-export default memo(FAQComponent);
+export default memo(FAQ);

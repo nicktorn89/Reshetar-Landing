@@ -1,12 +1,13 @@
 import React from 'react';
 import find from 'ramda/es/find';
 import propEq from 'ramda/es/propEq';
-import { ValueType } from 'react-select/lib/types';
-import { Option, SelectProps } from './types';
-
-import { Select } from './styled';
 import DropdownIndicator from './DropdownIndicator';
 import { SelectComponents } from 'react-select/lib/components';
+
+import { Option, SelectProps } from './types';
+import { ValueType } from 'react-select/lib/types';
+
+import { Select } from './styled';
 
 const components: Partial<SelectComponents<{}>> = { DropdownIndicator };
 
