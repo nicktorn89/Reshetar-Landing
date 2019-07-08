@@ -22,12 +22,16 @@ export const FAQContainer = styled.section`
 
 export const FAQHeading = styled(Heading)`
   ${({ theme: t }) => css`
-    margin-top: ${t.$rythm * 9}px;
+    width: 80%;
+    padding-left: 66px;
+    margin: ${t.$rythm * 9}px auto 0 auto;
+    text-align: center;
 
     @media ${t.$phone}, ${t.$tablet} {
-      width: ${t.$rythm * 20}px;
+      width: 306px;
 
       margin: ${t.$rythm * 2.3125}px auto ${t.$rythm * 2.375}px auto;
+      padding-left: 14px;
 
       font-size: ${t.$rythm * 1.5625}px;
       line-height: 1.4;
@@ -41,11 +45,11 @@ export const QuestionsContainer = styled.div`
     padding: 0 ${t.$rythm * 11}px 0 ${t.$rythm * 10}px;
 
     .Collapsible {
-      background-color: ${t.$bg}; 
+      background-color: ${t.$bg};
     }
 
     .Collapsible__contentInner {
-      padding: ${t.$rythm}px ${t.$rythm * 27.8125}px ${t.$rythm * 1.75}px 0;  
+      padding: ${t.$rythm / 2}px ${t.$rythm * 27.8125}px ${t.$rythm * 1.75}px 3px;  
       
       line-height: 1.56;
       font-size: ${t.$rythm}px;
@@ -115,13 +119,19 @@ export const QuestionsContainer = styled.div`
 
       margin: 0 auto;
       padding: 0 ${t.$rythm * 0.75}px;
+      
+      .Collapsible {
+        margin-left: 8px;
+      }
 
       .Collapsible__trigger.is-closed {
         margin-top: ${t.$rythm * 1.375}px;
+        height: 60px;
       }
 
       .Collapsible__contentInner {
         padding: ${t.$rythm}px 0;
+        margin-top: 10px;
       }
     }
   `}

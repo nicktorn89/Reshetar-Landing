@@ -13,5 +13,11 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Avenir Next Cyr Demi';
+  src: url('../assets/fonts/AvenirNext/AvenirNextCyr-Demi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 @import 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';

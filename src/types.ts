@@ -24,7 +24,7 @@ export interface LocaleDataType {
     formBlock: FormBlock;
   };
 
-  infoBlock: {
+  info: {
     description: string[];
     link: LinkType;
     advantages: AdvantageObject[];

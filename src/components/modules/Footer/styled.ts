@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 import { 
-  Header as HeaderUI, ContactsBlock, NumberBlock,
-  NumberSpan, BeforeContactsText, IconsBlock, IconContainer,
+  Header as HeaderUI, HeaderContactsBlock, HeaderNumberBlock,
+  HeaderNumberSpan, HeaderContactsText, HeaderIconsBlock, HeaderIconContainer,
 } from '../Header/styled';
 
 export const Footer = styled.footer`
@@ -21,22 +21,25 @@ export const Footer = styled.footer`
       height: ${t.$rythm * 1.5625}px;
     }
 
-    ${ContactsBlock} {
+    ${HeaderContactsBlock} {
       width: 59%;
-      margin-right: 20.5%;
+      margin-right: 23.5%;
 
-      ${BeforeContactsText} {
+      position: relative;
+      bottom: 4px;
+
+      ${HeaderContactsText} {
         margin-left: 0;
       }
     }
 
-    ${NumberBlock} {
+    ${HeaderNumberBlock} {
       width: ${t.$rythm * 13}px;
       line-height: 1.56;
       font-style: normal;
       font-stretch: normal;
 
-      ${NumberSpan} {
+      ${HeaderNumberSpan} {
         font-size: ${t.$rythm}px;
         margin-right: 0;
         width: 100%;
@@ -59,29 +62,31 @@ export const Footer = styled.footer`
         display: block;
       }
 
-      ${ContactsBlock} {
+      ${HeaderContactsBlock} {
         width: ${t.$rythm * 20}px;
         margin: 0 auto;
         flex-direction: column;
         flex-wrap: nowrap;
 
-        ${BeforeContactsText} {
+        ${HeaderContactsText} {
           margin-bottom: ${t.$rythm * 1.5}px;
         }
       }
 
-      ${BeforeContactsText} {
+      ${HeaderContactsText} {
         font-weight: ${t.$font_weight_bold};
+        margin-top: 0;
+        margin-left: 17px;
       }
 
-      ${IconsBlock} {
+      ${HeaderIconsBlock} {
         flex-direction: column;
         width: ${t.$rythm * 10}px;
         
         margin: 0 auto;
       }
 
-      ${IconContainer} {
+      ${HeaderIconContainer} {
         width: ${t.$rythm * 10}px;
 
         padding-left: ${t.$rythm / 2}px;
@@ -97,14 +102,14 @@ export const Footer = styled.footer`
         }
       }
 
-      ${NumberBlock} {
+      ${HeaderNumberBlock} {
         display: flex;
         flex-direction: column;
 
         width: ${t.$rythm * 12.5}px;
-        margin: ${t.$rythm * 1.5}px auto 0 auto;
+        margin: 80px auto 0 auto;
 
-        ${NumberSpan} {
+        ${HeaderNumberSpan} {
           height: ${t.$rythm * 3.125}px;
 
           margin-top: ${t.$rythm}px;
@@ -165,6 +170,10 @@ export const FooterSocialLinks = styled.div`
     width: ${t.$rythm * 10}px;
     display: flex;
 
+    position: relative;
+    bottom: ${t.$rythm * 0.75}px;
+    left: ${t.$rythm * 1.875}px;
+
     & > a:not(:nth-child(2)) {
       color: ${t.$header_bg};
       background: ${t.$bg};
@@ -198,13 +207,16 @@ export const FooterSocialLinks = styled.div`
       margin-right: ${t.$rythm * 0.625}px;
       svg {
         position: relative;
-        left: 3px;
+        left: 4px;
         top: 1px;
       }
     }
 
     @media ${t.$phone}, ${t.$tablet} {
-      ${IconContainer} {
+      left: 9px;
+      top: 11px;
+
+      ${HeaderIconContainer} {
         padding: 0;
       }
 

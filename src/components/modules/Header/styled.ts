@@ -8,7 +8,6 @@ export const Header = styled.header`
     display: flex;
     flex-wrap: nowrap;
     background-color: ${t.$header_bg};
-    font-family: ${t.$font_family};
 
     @media ${t.$phone}, ${t.$tablet} {
       display: none;
@@ -16,33 +15,37 @@ export const Header = styled.header`
   `}
 `;
 
-export const ContactsBlock = styled.div`
+export const HeaderContactsBlock = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 `;
 
-export const BeforeContactsText = styled.span`
+export const HeaderContactsText = styled.span`
   ${({ theme: t }) => css`
+    margin: 3px ${t.$rythm * 0.75}px 0 ${t.$rythm * 1.125}px;
+
     font-size: ${t.$font_size_base * 1.125}px;
-    font-family: ${t.$font_family};
-    font-weight: ${t.$font_weight_semibold};
+    font-weight: ${t.$font_weight_bold};
+    font-family: ${t.$font_family_demibold};
+
     color: ${t.$header_accent_text_color};
-    margin: 0 ${t.$rythm * 0.75}px 0 ${t.$rythm * 1.125}px;
   `}
 `;
 
-export const IconsBlock = styled.div`
+export const HeaderIconsBlock = styled.div`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 30}px;
+    margin: 3px 0 0 ${t.$rythm / 2}px;
+
     display: flex;
     align-items: center;
     justify-content: flex-start;
   `}
 `;
 
-export const IconContainer = styled.a`
+export const HeaderIconContainer = styled.a`
   ${({ theme: t }) => css`
     text-decoration: none;
     display: flex;
@@ -52,39 +55,37 @@ export const IconContainer = styled.a`
   `}
 `;
 
-export const StyledIcon = styled(Icon)`
+export const HeaderStyledIcon = styled(Icon)`
   ${({ theme: t }) => css`
     font-size: ${t.$rythm * 2}px;
     margin-right: ${t.$rythm / 2}px;
   `}
 `;
 
-export const IconText = styled.span`
+export const HeaderIconText = styled.span`
   ${({ theme: t }) => css`
     font-size: ${t.$font_size_base * 1.125}px;
-    font-family: ${t.$font_family};
-    font-weight: ${t.$font_weight_semibold};
+    font-family: ${t.$font_family_demibold};
+
     text-align: center;
     color: ${t.$text_color};
   `}
 `;
 
-export const NumberBlock = styled.div`
+export const HeaderNumberBlock = styled.div`
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 `;
 
-export const NumberSpan = styled.span`
+export const HeaderNumberSpan = styled.span`
   ${({ theme: t }) => css`
-    width: ${t.$rythm * 12}px;
     height: ${t.$rythm * 1.5}px;
-    margin-right: ${t.$rythm * 2}px;
+    margin-right: ${t.$rythm * 2.125}px;
 
     font-size: ${t.$font_size_base * 1.125}px;
-    font-family: ${t.$font_family};
-    font-weight: ${t.$font_weight_semibold};
+    font-family: ${t.$font_family_demibold};
     text-align: center;
     color: ${t.$text_color};
   `}

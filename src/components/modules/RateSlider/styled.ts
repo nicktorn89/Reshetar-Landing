@@ -7,6 +7,8 @@ export const RateSliderContainer = styled.section`
     height: ${t.$rythm * 67.25}px;
     border-top: 1px solid ${t.$block_border_color};
 
+    background: #fafbfc;
+
     ${PrevImageButton} {
       margin-right: ${t.$rythm * 5.68}px;
     }
@@ -76,6 +78,7 @@ export const RateNumber = styled.span`
     @media ${t.$phone}, ${t.$tablet} {
       margin-top: ${t.$rythm * 3}px;
       margin-bottom: ${t.$rythm * 1.3125}px;
+      height: 84px;
     }
   `}
 `;
@@ -98,6 +101,7 @@ export const RateText = styled.span`
       width: ${t.$rythm * 17.625}px;
 
       margin-bottom: ${t.$rythm * 0.6875}px;
+      margin-left: 10px;
 
       font-size: ${t.$rythm * 1.5625}px;
       line-height: 1.4;

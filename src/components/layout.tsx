@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { 
-  Header, Hero, InfoBlock, SliderWithTabs, RateSlider, 
+  Header, Hero, Info, SliderWithTabs, RateSlider, 
   PriceBlock, SliderBlock, FAQ, OrderBlock, Footer,
 } from 'src/components/modules';
 import { throttle } from 'throttle-debounce';
@@ -44,7 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {!isMobile && <Header data={localeData.header} isMobile={isMobile} />}
 
         <Hero data={localeData.hero} isMobile={isMobile} />
-        <InfoBlock data={localeData.infoBlock} isMobile={isMobile} />
+        <Info data={localeData.info} isMobile={isMobile} />
         <SliderWithTabs data={localeData.sliderWithTabs} isMobile={isMobile} />
         <RateSlider data={localeData.rateSlider} isMobile={isMobile} />
         <PriceBlock data={localeData.priceBlock} isMobile={isMobile} />

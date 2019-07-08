@@ -140,7 +140,7 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
         />
 
         {!isMobile && 
-          <SliderUI ref={(slider) => { sliderObj = slider; }} sliderHeight={540} {...sliderState}>     
+          <SliderUI ref={(slider) => { sliderObj = slider; }} sliderHeight={461} {...sliderState}>     
             {renderSliderImages}
           </SliderUI>
         }

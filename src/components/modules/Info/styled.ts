@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import Logo from 'src/components/UI/Logo';
 import Img from 'gatsby-image';
 
-export const InfoBlockContainer = styled.section`
+export const InfoContainer = styled.section`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 57.5}px;
     min-height: ${t.$rythm * 66}px;
@@ -10,7 +10,7 @@ export const InfoBlockContainer = styled.section`
     margin: 0 auto;
 
     position: relative;
-    bottom: ${t.$rythm * 6}px;
+    bottom: ${t.$rythm * 6.5}px;
 
     background: ${t.$bg};
     border: ${t.$border_radius_base}px;
@@ -29,7 +29,7 @@ export const InfoBlockContainer = styled.section`
   `}
 `;
 
-export const DescriptionBlock = styled.div`
+export const InfoDescriptionBlock = styled.div`
   ${({ theme: t }) => css`
     min-height: ${t.$rythm * 19.25}px;
     overflow: hidden;
@@ -47,7 +47,7 @@ export const DescriptionBlock = styled.div`
   `}
 `;
 
-export const DescriptionPhoto = styled.div`
+export const InfoDescriptionPhoto = styled.div`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 19.25}px;
     height: ${t.$rythm * 19.25}px;
@@ -63,7 +63,7 @@ export const DescriptionPhoto = styled.div`
   `}
 `;
 
-export const DescImg = styled(Img)`
+export const InfoDescImg = styled(Img)`
   ${({ theme: t }) => css`
     top: -${t.$rythm * 0.5}px;
     
@@ -78,7 +78,7 @@ export const DescImg = styled(Img)`
   `}
 `;
 
-export const DescriptionText = styled.span`
+export const InfoDescriptionText = styled.span`
   ${({ theme: t }) => css`
     height: calc(100% - ${t.$rythm * 2}px);
     width: 55%;
@@ -106,7 +106,7 @@ export const DescriptionText = styled.span`
   `}
 `;
 
-export const DescPart = styled.span`
+export const InfoDescPart = styled.span`
   ${({ theme: t }) => css`
     width: 100%;
 
@@ -120,7 +120,7 @@ export const DescPart = styled.span`
   `}
 `;
 
-export const DescLogoContainer = styled.div`
+export const InfoDescLogoContainer = styled.div`
   ${({ theme: t }) => css`
     margin-top: ${t.$rythm * 5}px;
     display: flex;
@@ -128,9 +128,9 @@ export const DescLogoContainer = styled.div`
   `}
 `;
 
-export const DescLogo = styled(Logo)``;
+export const InfoDescLogo = styled(Logo)``;
 
-export const Link = styled.a`
+export const InfoDescLink = styled.a`
   ${({ theme: t }) => css`
     font-size: ${t.$rythm};
     color: ${t.$anchor_color};
@@ -138,7 +138,7 @@ export const Link = styled.a`
   `}
 `;
 
-export const AdvantagesBlock = styled.div`
+export const InfoAdvantagesBlock = styled.div`
   ${({ theme: t }) => css`
     min-height: ${t.$rythm * 47}px;
     padding: ${t.$rythm * 6.5}px ${t.$rythm * 5}px ${t.$rythm * 4}px ${t.$rythm * 5.5}px;
@@ -157,7 +157,7 @@ export const AdvantagesBlock = styled.div`
   `}
 `;
 
-export const AdvantageItem = styled.div`
+export const InfoAdvantageItem = styled.div`
   ${({ theme: t }) => css`
     display: flex;
     flex-wrap: wrap;
@@ -167,11 +167,11 @@ export const AdvantageItem = styled.div`
       border-bottom: ${t.$rythm / 16}px solid ${t.$border_color};
       border-right: ${t.$rythm / 16}px solid ${t.$border_color};
 
-      & > ${AdvantageImageContainer} {
+      & > ${InfoAdvantageImageContainer} {
         justify-content: flex-start;
       }
 
-      & > ${AdvantageTitle}, ${AdvantageDesc} {
+      & > ${InfoAdvantageTitle}, ${InfoAdvantageDesc} {
         text-align: left;
       }
     }
@@ -181,11 +181,11 @@ export const AdvantageItem = styled.div`
       border-left: ${t.$rythm / 16}px solid ${t.$border_color};
       justify-content: flex-end;
 
-      & > ${AdvantageImageContainer} {
+      & > ${InfoAdvantageImageContainer} {
         justify-content: flex-end;
       }
 
-      & > ${AdvantageTitle}, ${AdvantageDesc} {
+      & > ${InfoAdvantageTitle}, ${InfoAdvantageDesc} {
         text-align: right;
       }
     }
@@ -194,11 +194,11 @@ export const AdvantageItem = styled.div`
       border-top: ${t.$rythm / 16}px solid ${t.$border_color};
       border-right: ${t.$rythm / 16}px solid ${t.$border_color};
 
-      & > ${AdvantageImageContainer} {
+      & > ${InfoAdvantageImageContainer} {
         justify-content: flex-start;
       }
 
-      & > ${AdvantageTitle}, ${AdvantageDesc} {
+      & > ${InfoAdvantageTitle}, ${InfoAdvantageDesc} {
         text-align: left;
       }
     }
@@ -208,11 +208,11 @@ export const AdvantageItem = styled.div`
       border-left: ${t.$rythm / 16}px solid ${t.$border_color};
       justify-content: flex-end;
 
-      & > ${AdvantageImageContainer} {
+      & > ${InfoAdvantageImageContainer} {
         justify-content: flex-end;
       }
 
-      & > ${AdvantageTitle}, ${AdvantageDesc} {
+      & > ${InfoAdvantageTitle}, ${InfoAdvantageDesc} {
         text-align: right;
       }
     }
@@ -222,16 +222,16 @@ export const AdvantageItem = styled.div`
       border: 0 !important;
       min-height: auto;
 
-      &:first-child ${AdvantageImageContainer} {
+      &:first-child ${InfoAdvantageImageContainer} {
         margin-left: ${t.$rythm * 1.625}px;
       }
 
       &:nth-child(2) {
-        & ${AdvantageImageContainer} {
+        & ${InfoAdvantageImageContainer} {
           margin-right: ${t.$rythm * 1.8125}px;
         }
 
-        ${AdvantageTitle} {
+        ${InfoAdvantageTitle} {
           width: 100%;
           align-self: flex-end;
 
@@ -239,16 +239,16 @@ export const AdvantageItem = styled.div`
         }
       }
 
-      &:nth-child(3) ${AdvantageImageContainer} {
+      &:nth-child(3) ${InfoAdvantageImageContainer} {
         margin-left: ${t.$rythm * 1.625}px;
       }
 
       &:last-child {
-        & ${AdvantageImageContainer} {
+        & ${InfoAdvantageImageContainer} {
           margin-right: ${t.$rythm * 1.8125}px;
         }
 
-        ${AdvantageTitle} {
+        ${InfoAdvantageTitle} {
           width: 100%;
           align-self: flex-end;
 
@@ -259,7 +259,7 @@ export const AdvantageItem = styled.div`
   `}
 `;
 
-export const AdvantageTitle = styled.h2`
+export const InfoAdvantageTitle = styled.h2`
   ${({ theme: t }) => css`
     max-width: ${t.$rythm * 18.75}px;
     height: ${t.$rythm * 3.75}px;
@@ -284,7 +284,7 @@ export const AdvantageTitle = styled.h2`
   `}
 `;
 
-export const AdvantageDesc = styled.span`
+export const InfoAdvantageDesc = styled.span`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 8.75}px;
     width: ${t.$rythm * 18}px;
@@ -294,7 +294,7 @@ export const AdvantageDesc = styled.span`
   `}
 `;
 
-export const AdvantageImageContainer = styled.div`
+export const InfoAdvantageImageContainer = styled.div`
   ${({ theme: t }) => css`
     display: flex;
     align-items: flex-end;
@@ -308,7 +308,7 @@ export const AdvantageImageContainer = styled.div`
   `}
 `;
 
-export const AdvantageImage = styled.img`
+export const InfoAdvantageImage = styled.img`
   ${({ theme: t }) => css`
     margin-bottom: ${t.$rythm * 2}px;
 

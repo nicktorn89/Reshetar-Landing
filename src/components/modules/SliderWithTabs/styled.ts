@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { ifProp } from 'src/theme';
 import { Button } from 'src/components/UI/Button';
 import Slider from 'react-slick';
+import { SliderBlock } from 'src/components/UI/MobileSlider/styled';
 
 export const SliderContainer = styled.section`
   ${({ theme: t }) => css`
@@ -22,10 +23,15 @@ export const SliderContainer = styled.section`
 
 export const SliderHeading = styled.h2`
   ${({ theme: t }) => css`
-    width: 100%;
     max-height: ${t.$rythm * 3.5}px;
+    width: 60%;
 
-    margin-bottom: ${t.$rythm * 5.75}px;
+    position: relative;
+    bottom: 6px;
+    left: 7px;
+
+    margin: 0 auto ${t.$rythm * 5.5625}px auto;
+    
 
     font-size: ${t.$rythm * 3.125}px;
 
@@ -33,7 +39,7 @@ export const SliderHeading = styled.h2`
     color: ${t.$text_color_black};
 
     @media ${t.$phone}, ${t.$tablet} {      
-      width: ${t.$rythm * 20}px;
+      width: ${t.$rythm * 19.6875}px;
       margin: 0 auto;
 
       font-size: ${t.$rythm * 1.5625}px;
@@ -48,15 +54,18 @@ export const SliderHeading = styled.h2`
 
 export const TabsContainer = styled.div`
   ${({ theme: t }) => css`
-    padding: 0 11%;
+    max-width: ${t.$rythm * 69.0625}px;
+    margin: 0 auto;
     margin-bottom: ${t.$rythm * 5}px;
+
+    display: flex;
   `}
 `;
 
 export const Tab = styled.button<{active: boolean}>`
   ${({ theme: t }) => css`
-    width: 30%;
-    height: ${t.$rythm * 3}px;
+    width: 31.5%;
+    height: ${t.$rythm * 3.1875}px;
     border-radius: ${t.$border_radius_base * 2}px;
 
     border: ${t.$border_width_base / 2}px solid ${t.$tabs_item_border_color};
@@ -89,9 +98,10 @@ export const Tab = styled.button<{active: boolean}>`
 
 export const ImagesContainer = styled.div`
   ${({ theme: t }) => css`
-    display: flex;    
-    height: ${t.$rythm * 25.5}px;
+    height: ${t.$rythm * 28.8125}px;
     padding: 0 11.2% 0 13.35%;
+
+    display: flex;
     justify-content: center;
 
     @media ${t.$phone}, ${t.$tablet} {
@@ -108,7 +118,7 @@ export const DescContainer = styled.div`
   ${({ theme: t }) => css`
     height: 100%;
     width: ${t.$rythm * 18.75}px;
-    margin-right: ${t.$rythm * 3.5}px;
+    margin-right: ${t.$rythm * 2.8125}px;
 
     @media ${t.$phone}, ${t.$tablet} {
       margin-right: 0;
@@ -129,7 +139,10 @@ export const HeadingDesc = styled.h3`
     line-height: normal;
 
     @media ${t.$phone}, ${t.$tablet} {
-      margin: 0 0 ${t.$rythm * 0.6875}px ${t.$rythm / 2}px;
+      margin: 0 0 ${t.$rythm * 0.6875}px ${t.$rythm}px;
+
+      position: relative;
+      top: 10px;
       
       line-height: 1.28;
       font-size: ${t.$rythm * 1.125}px;
@@ -169,6 +182,11 @@ export const SliderControlsGroup = styled.div`
     display: flex;
     margin-top: ${t.$rythm * 2.5}px;
     padding-left: ${t.$rythm / 2}px;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      margin-top: ${t.$rythm * 1.625}px;
+      padding-left: ${t.$rythm * 1.25}px;
+    }
   `}
 `;
 
@@ -176,7 +194,7 @@ export const AccordionsContainer = styled.div`
   ${({ theme: t }) => css`
     min-height: ${t.$rythm * 25.8125}px;
 
-    margin-left: ${t.$rythm * 0.8125}px;
+    margin-left: ${t.$rythm * 1.1875}px;
 
     .Collapsible {
       overflow: hidden;
@@ -249,6 +267,16 @@ export const AccordionsContainer = styled.div`
       transform: rotateZ(180deg); 
       color: ${t.$text_color_alt};
     }
+
+    ${SliderBlock} {
+      position: relative;
+      right: 83px;
+      bottom: 2px;
+
+      .slick-slider {
+        width: 350px;
+      }
+    }
   `}
 `;
 
@@ -256,6 +284,8 @@ export const SliderControl = styled(Button)<{next?: boolean}>`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 3.125}px;
     width: ${t.$rythm * 3.125}px;
+
+    padding: 0 ${t.$rythm / 2}px;
     
     margin-right: ${t.$rythm * 0.75}px;
 
@@ -316,6 +346,10 @@ export const SliderUI = styled(Slider)<{sliderHeight: number}>`
       box-sizing: border-box;
       border-left: ${t.$rythm / 4}px solid transparent;
       border-right: ${t.$rythm / 4}px solid transparent;
+    }
+
+    .slick-current {
+      margin-right: ${t.$rythm / 2}px;
     }
     
     .slick-prev::before, .slick-next::before  {
