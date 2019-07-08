@@ -1,5 +1,6 @@
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 import { inputs } from '../Hero/Hero';
+import { useFormState } from 'src/hooks';
 
 import { OrderBlockProps } from './types';
 import { FormType } from '../Hero/types';
@@ -21,21 +22,7 @@ const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile }) => {
     guestMakeup: false,
   };
 
-  const [formState, changeFormState] = useState(formObject);
-
-  const handleChange = ({ name, value }: { name: string, value: number | string | boolean }) => {
-    const clonedFormState = { ...formState };
-
-    if (name === 'phoneNumber') {
-      const trimmedValue = (value as string).replace(/\s/g, '');
-      
-      clonedFormState[name] = trimmedValue;
-    } else {
-      clonedFormState[name] = value;
-    }
-
-    changeFormState(clonedFormState);
-  };
+  const { formState, handleChangeForm } = useFormState(formObject);
 
   const handleSendButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -47,13 +34,13 @@ const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile }) => {
 
     if (inputTypes.some((el) => input.type === el)) {
       return (<InputComponent
-        onChange={handleChange}
         key={index}
         type={input.type as InputProps['type']}
         name={input.name}
         options={input.options!}
         value={formState[input.name] as never || input.value as never}
         label={input.label as never}
+        onChange={handleChangeForm}
       />);
     }
   });

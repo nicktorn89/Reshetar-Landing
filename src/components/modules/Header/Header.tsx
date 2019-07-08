@@ -11,12 +11,12 @@ import {
 const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile, node = 'header' }) => {
   const { beforeContacts, text, links, icons, phoneNumber } = data;
 
-  const renderLinks = text.map((name, index) => (
+  const renderLinks = text.map((name, index) => 
     <IconContainer key={index} href={links[index]}>
       <StyledIcon size='lg' icon={icons[index]} />
       <IconText>{name}</IconText>
-    </IconContainer>
-  ));
+    </IconContainer>,
+  );
 
   return (
     <Header as={node}>

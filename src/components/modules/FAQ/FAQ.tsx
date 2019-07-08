@@ -5,7 +5,7 @@ import FAQProps from './types';
 
 import { FAQContainer, FAQHeading, QuestionsContainer } from './styled';
 
-const FAQComponent: React.FC<FAQProps> = ({ data, isMobile }) => {
+const FAQ: React.FC<FAQProps> = ({ data, isMobile }) => {
   const { heading, questions } = data;
 
   const allQuestions = isMobile 
@@ -36,6 +36,4 @@ const FAQComponent: React.FC<FAQProps> = ({ data, isMobile }) => {
   );
 };
 
-FAQComponent.displayName = 'FAQ';
-
-export default memo(FAQComponent);
+export default memo(FAQ);

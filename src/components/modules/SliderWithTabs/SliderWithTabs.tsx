@@ -31,7 +31,6 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
     variableWidth: false,
     lazyLoad: 'progressive' as 'progressive' | 'ondemand' | undefined,
     beforeChange: (oldIndex: number, newIndex: number) => {
-      console.log(oldIndex, newIndex);
       if (oldIndex === newIndex) {
         changeNextButtonStatus(true);
         changePrevButtonStatus(false);
@@ -44,6 +43,8 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
       }
     },
   };
+  
+  let sliderObj = {} as unknown as Slider | null;
 
   const [activeTab, setActiveTab] = useState(0);
 
@@ -60,8 +61,6 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const accordionChangeTab = (index: number) => () => {
     setActiveTab(index);
   };
-  
-  let sliderObj = {} as unknown as Slider | null;
 
   const handleChangeImg = (isNext: boolean) => () => {
     isNext
@@ -73,20 +72,18 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const [nextButtonStatus, changeNextButtonStatus] = useState(true);
 
   const renderSliderImages = images[activeTab].high.map((k, index) =>
-  <ImageItem key={index} onClick={!viewerStatus ? changeViewerStatus(index) : emptyFunc}>
-      <source srcSet={images[activeTab].webp[index]} type='image/webp' />
-      <source media='(max-width: 900px)' srcSet={images[activeTab].low[index]} type='image/jpeg' />
-      <img src={images[activeTab].high[index]} />
-  </ImageItem>);
+    <ImageItem key={index} onClick={!viewerStatus ? changeViewerStatus(index) : emptyFunc}>
+        <source srcSet={images[activeTab].webp[index]} type='image/webp' />
+        <source media='(max-width: 900px)' srcSet={images[activeTab].low[index]} type='image/jpeg' />
+        <img src={images[activeTab].high[index]} />
+    </ImageItem>,
+  );
 
-  const renderTabs = tabs.map((tab, index) => <Tab
-    key={index}
-    active={index === activeTab}
-    data-tab-index={index}
-    onClick={changeTab}
-  >
-    {tab.text}
-  </Tab>);
+  const renderTabs = tabs.map((tab, index) => 
+    <Tab key={index} active={index === activeTab} data-tab-index={index} onClick={changeTab}>
+      {tab.text}
+    </Tab>,
+  );
 
   const renderAccordions = isMobile && tabs.map((tab, index) =>
     <Accordion

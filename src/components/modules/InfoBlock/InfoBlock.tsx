@@ -15,15 +15,15 @@ const InfoBlock: React.FC<InfoBlockProps> = ({ data, isMobile }) => {
   const file = useDescImage();
   const advantagesImages = useAdvantagesImg();
   
-  const renderAdvantages = advantages.map((advantage, index) => (
+  const renderAdvantages = advantages.map((advantage, index) => 
     <AdvantageItem key={index}>
       <AdvantageTitle>{advantage.title}</AdvantageTitle>
       {!isMobile && <AdvantageDesc>{advantage.text}</AdvantageDesc>}
       <AdvantageImageContainer>
        <AdvantageImage src={advantagesImages[index].publicURL} />
       </AdvantageImageContainer>
-    </AdvantageItem>
-  ));
+    </AdvantageItem>,
+  );
 
   const renderDescription = description.map((desc, index) => <DescPart key={index}>{desc}</DescPart>);
 

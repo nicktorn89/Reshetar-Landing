@@ -17,10 +17,11 @@ const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
   const renderPriceItems = prices.map((item, index) => {
     const { title, beforePrice, price, options, buttonText } = item;
 
-    const renderOptions = options.map((option, index) => <PriceItemOption key={index}>
-      <Icon icon={faCheck} size='lg' />
-      {option}
-    </PriceItemOption>);
+    const renderOptions = options.map((option, index) =>
+      <PriceItemOption key={index}>
+        <Icon icon={faCheck} size='lg' />
+        {option}
+      </PriceItemOption>);
 
     return (
       <PriceItem key={index}>

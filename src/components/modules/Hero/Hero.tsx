@@ -1,5 +1,7 @@
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 import parse from 'html-react-parser';
+
+import { useFormState } from 'src/hooks';
 
 import HeroProps, { InputTypes, FormType } from './types';
 import { InputProps } from 'src/components/UI/Input';
@@ -22,7 +24,7 @@ export const inputs: InputTypes = {
   maskInput: FormInputMask,
 };
 
-const HeroComponent: React.FC<HeroProps> = ({ data, isMobile }) => {
+const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
   const { textBlock, formBlock, phoneNumber } = data;
   const formObject: FormType = {
     serviceType: 0,
@@ -32,21 +34,7 @@ const HeroComponent: React.FC<HeroProps> = ({ data, isMobile }) => {
     guestMakeup: false,
   };
 
-  const [formState, changeFormState] = useState(formObject);
-
-  const handleChange = ({ name, value }: { name: string, value: number | string | boolean }) => {
-    const clonedFormState = { ...formState };
-
-    if (name === 'phoneNumber') {
-      const trimmedValue = (value as string).replace(/\s/g, '');
-
-      clonedFormState[name] = trimmedValue;
-    } else {
-      clonedFormState[name] = value;
-    }
-
-    changeFormState(clonedFormState);
-  };
+  const { formState, handleChangeForm } = useFormState(formObject);
 
   const handleSendButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -63,7 +51,7 @@ const HeroComponent: React.FC<HeroProps> = ({ data, isMobile }) => {
       options={input.options!}
       value={formState[input.name] as never || input.value as never}
       label={input.label as never}
-      onChange={handleChange}
+      onChange={handleChangeForm}
     />);
   });
 
@@ -104,6 +92,4 @@ const HeroComponent: React.FC<HeroProps> = ({ data, isMobile }) => {
   );
 };
 
-HeroComponent.displayName = 'Hero';
-
-export default memo(HeroComponent);
+export default memo(Hero);

@@ -25,9 +25,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     setScreenStatus(checkScreen);
   });
 
-  if (typeof window !== 'undefined') window.addEventListener('resize', throttleMethod);
-
   useEffect(() => {
+    if (typeof window !== 'undefined') window.addEventListener('resize', throttleMethod);
+    
     setScreenStatus(checkScreen);
   });
   
@@ -37,10 +37,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <React.Fragment>
       <Helmet defer={false} title={'Reshetar'}>
         <html lang='ru' />
-        <meta
-          name='viewport'
-          content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover'
-        />
+        <meta name='viewport' content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover' />
       </Helmet>
 
       <ConnectedThemeProvider theme={'purple'}>
