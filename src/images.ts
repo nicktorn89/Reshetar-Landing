@@ -36,7 +36,6 @@ const highHairstyle6 = require('src/images/high/hairstyle/hairstyle6.jpg');
 const highHairstyle7 = require('src/images/high/hairstyle/hairstyle7.jpg');
 const highHairstyle8 = require('src/images/high/hairstyle/hairstyle8.jpg');
 const highHairstyle9 = require('src/images/high/hairstyle/hairstyle9.jpg');
-const highHairstyle10 = require('src/images/high/hairstyle/hairstyle10.jpg');
 
 const highAccessories1 = require('src/images/high/accessories/accessories1.jpg');
 const highAccessories2 = require('src/images/high/accessories/accessories2.jpg');
@@ -92,7 +91,6 @@ const lowHairstyle6 = require('src/images/low/hairstyle/hairstyle6.jpg');
 const lowHairstyle7 = require('src/images/low/hairstyle/hairstyle7.jpg');
 const lowHairstyle8 = require('src/images/low/hairstyle/hairstyle8.jpg');
 const lowHairstyle9 = require('src/images/low/hairstyle/hairstyle9.jpg');
-const lowHairstyle10 = require('src/images/low/hairstyle/hairstyle10.jpg');
 
 const lowAccessories1 = require('src/images/low/accessories/accessories1.jpg');
 const lowAccessories2 = require('src/images/low/accessories/accessories2.jpg');
@@ -148,7 +146,6 @@ const webpHairstyle6 = require('src/images/webp/hairstyle/hairstyle6.webp');
 const webpHairstyle7 = require('src/images/webp/hairstyle/hairstyle7.webp');
 const webpHairstyle8 = require('src/images/webp/hairstyle/hairstyle8.webp');
 const webpHairstyle9 = require('src/images/webp/hairstyle/hairstyle9.webp');
-const webpHairstyle10 = require('src/images/webp/hairstyle/hairstyle10.webp');
 
 const webpAccessories1 = require('src/images/webp/accessories/accessories1.webp');
 const webpAccessories2 = require('src/images/webp/accessories/accessories2.webp');
@@ -213,15 +210,15 @@ const images = {
     hairstyle: {
       high: [
         highHairstyle1, highHairstyle2, highHairstyle3, highHairstyle4, highHairstyle5,
-        highHairstyle6, highHairstyle7, highHairstyle8, highHairstyle9, highHairstyle10,
+        highHairstyle6, highHairstyle7, highHairstyle8, highHairstyle9,
       ],
       low: [
         lowHairstyle1, lowHairstyle2, lowHairstyle3, lowHairstyle4, lowHairstyle5,
-        lowHairstyle6, lowHairstyle7, lowHairstyle8, lowHairstyle9, lowHairstyle10,
+        lowHairstyle6, lowHairstyle7, lowHairstyle8, lowHairstyle9,
       ],
       webp: [
         webpHairstyle1, webpHairstyle2, webpHairstyle3, webpHairstyle4, webpHairstyle5,
-        webpHairstyle6, webpHairstyle7, webpHairstyle8, webpHairstyle9, webpHairstyle10,
+        webpHairstyle6, webpHairstyle7, webpHairstyle8, webpHairstyle9,
       ],
     },
     accessories: {
