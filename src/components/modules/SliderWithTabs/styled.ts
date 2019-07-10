@@ -318,8 +318,8 @@ export const SliderControl = styled(Button)<{next?: boolean}>`
 
 export const ImageItem = styled.picture`
    ${({ theme: t }) => css`
-    height: 540px;
-    width: ${t.$rythm * 22}px;
+    height: 461px;
+    width: 350x;
     margin-right: ${t.$rythm * 2}px;
     cursor: zoom-in;
 
@@ -342,6 +342,8 @@ export const SliderUI = styled(Slider)<{sliderHeight: number}>`
     overflow: hidden;
     
     .slick-slide {
+      width: 350px;
+      height: 461px;
       padding: 0 ${t.$rythm / 4}px;
       box-sizing: border-box;
       border-left: ${t.$rythm / 4}px solid transparent;

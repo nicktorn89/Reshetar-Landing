@@ -98,13 +98,11 @@ export const PriceBlockItem = styled.div`
       height: 265px;
 
       &:not(:last-of-type) {
-        margin: 0 auto ${t.$rythm * 0.75}px 19px;
+        margin: 0 auto ${t.$rythm * 0.75}px auto;
       }
 
       &:last-of-type {
         margin: 0 auto;
-
-        margin-left: 19px;
       }
     }
   `}
