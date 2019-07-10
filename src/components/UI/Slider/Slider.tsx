@@ -18,30 +18,15 @@ const SliderComponent: React.FC<SliderProps> = ({ imageSizes, images, containerS
   const { height, width } = imageSizes;
   const sliderState = {
     initialSlide: 0,
-    swipe: true,
+    swipe: false,
     slidesToShow: 3,
-    arrows: true,
-    infinite: false,
+    arrows: false,
+    infinite: true,
     centerMode: false,
     centerPadding: '8px',
     variableWidth: true,
     lazyLoad: 'progressive' as 'progressive' | 'ondemand' | undefined,
-    beforeChange: (oldIndex: number, newIndex: number) => {
-      if (oldIndex === newIndex) {
-        changeNextButtonStatus(false);
-        changePrevButtonStatus(true);
-      } else if (oldIndex === 0 && newIndex === images.high.length - 1) {
-        changePrevButtonStatus(false);
-        changeNextButtonStatus(true);
-      } else {
-        changePrevButtonStatus(true);
-        changeNextButtonStatus(true);
-      }
-    },
   };
-
-  const [prevButtonStatus, changePrevButtonStatus] = useState(false);
-  const [nextButtonStatus, changeNextButtonStatus] = useState(true);
 
   const sliderContainer = useRef<HTMLDivElement>(null);
   const { viewerStatus, changeViewerStatus, activeIndex } = useImageViewer(sliderContainer);
@@ -68,8 +53,8 @@ const SliderComponent: React.FC<SliderProps> = ({ imageSizes, images, containerS
   return (
       <SliderContainer ref={sliderContainer} height={height} style={containerStyles} >
         <PrevImageButton 
-          onClick={!prevButtonStatus ? emptyFunc : handleChangeImg(false)}
-          disabled={!prevButtonStatus}
+          onClick={handleChangeImg(false)}
+          disabled={false}
         >
           <Icon icon={faLongArrowAltLeft} size='3x' />
         </PrevImageButton>
@@ -79,8 +64,8 @@ const SliderComponent: React.FC<SliderProps> = ({ imageSizes, images, containerS
         </ImagesContainer>
 
         <NextImageButton 
-          onClick={!nextButtonStatus ? emptyFunc : handleChangeImg(true)}
-          disabled={!nextButtonStatus}
+          onClick={handleChangeImg(true)}
+          disabled={false}
         >
           <Icon icon={faLongArrowAltRight} size='3x' />
         </NextImageButton>

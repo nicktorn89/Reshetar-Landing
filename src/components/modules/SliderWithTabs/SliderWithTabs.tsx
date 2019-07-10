@@ -27,21 +27,9 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
     slidesToShow: 2,
     slidesToScroll: 2,
     arrows: false,
-    infinite: false,
+    infinite: true,
     variableWidth: false,
     lazyLoad: 'progressive' as 'progressive' | 'ondemand' | undefined,
-    beforeChange: (oldIndex: number, newIndex: number) => {
-      if (oldIndex === newIndex) {
-        changeNextButtonStatus(true);
-        changePrevButtonStatus(false);
-      } else if (newIndex === images[activeTab].high.length - 2 && oldIndex === images[activeTab].high.length - 4) {
-        changePrevButtonStatus(true);
-        changeNextButtonStatus(false);
-      } else {
-        changePrevButtonStatus(true);
-        changeNextButtonStatus(true);
-      }
-    },
   };
   
   let sliderObj = {} as unknown as Slider | null;
