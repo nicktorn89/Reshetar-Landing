@@ -11,7 +11,11 @@ export const PriceBlockContainer = styled.section`
     border-top: 1px solid ${t.$block_border_color};
     padding-top: ${t.$rythm * 7.2}px;
 
-    @media ${t.$phone}, ${t.$tablet} {
+    @media (max-width: 1134px) {
+      height: 1200px;
+    }
+
+    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
       width: 100%;
       height: ${t.$rythm * 65.5}px;
 
@@ -31,8 +35,9 @@ export const PriceBlockHeading = styled(Heading)`
 
     margin: 0 auto ${t.$rythm * 5.875}px auto;
     
-    @media ${t.$phone}, ${t.$tablet} {
+    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
       width: ${t.$rythm * 15.625}px;
+      height: 69px;
 
       margin: ${t.$rythm * 1.3125}px auto ${t.$rythm * 2.6875}px auto;
     
@@ -42,18 +47,22 @@ export const PriceBlockHeading = styled(Heading)`
   `}
 `;
 
-export const PriceItemsContainer = styled.div`
+export const PriceBlockItemsContainer = styled.div`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 27}px;
-    width: ${t.$rythm * 69.375}px;
+    width: 77%;
 
     display: flex;
 
     margin: 0 auto ${t.$rythm * 2.85}px auto;
 
-    @media ${t.$phone}, ${t.$tablet} {
+    @media (max-width: 1134px) {
+      height: 990px;
+    }
+
+    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
       width: ${t.$rythm * 20}px;
-      height: ${t.$rythm * 51}px;
+      height: 814px;
 
       margin: 0 auto;
       margin-bottom: ${t.$rythm * 1.5}px;
@@ -63,10 +72,10 @@ export const PriceItemsContainer = styled.div`
   `}
 `;
 
-export const PriceItem = styled.div`
+export const PriceBlockItem = styled.div`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 27}px;
-    width: ${t.$rythm * 21.875}px;
+    width: 31.5%;
 
     display: flex;
     flex-direction: column;
@@ -77,26 +86,31 @@ export const PriceItem = styled.div`
     background: ${t.$price_item_bg};
     
     &:not(:last-of-type) {
-      margin-right: ${t.$rythm * 2}px;
+      margin-right: 2.9%;
     }
 
-    @media ${t.$phone}, ${t.$tablet} {
+    @media (max-width: 1134px) {
+      height: 320px;
+    }
+
+    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
       width: ${t.$rythm * 18.4375}px;
-      height: ${t.$rythm * 16.5}px;
+      height: 265px;
 
       &:not(:last-of-type) {
-        margin: 0 auto;
-        margin-bottom: ${t.$rythm * 0.75}px;
+        margin: 0 auto ${t.$rythm * 0.75}px 19px;
       }
 
       &:last-of-type {
         margin: 0 auto;
+
+        margin-left: 19px;
       }
     }
   `}
 `;
 
-export const PriceItemTitle = styled.h4`
+export const PriceBlockItemTitle = styled.h4`
   ${({ theme: t }) => css`
     color: ${t.$text_color_black};
     font-size: ${t.$rythm * 2}px;
@@ -104,7 +118,7 @@ export const PriceItemTitle = styled.h4`
     margin: 0 auto;
     margin-top: ${t.$rythm * 2}px;
 
-    @media ${t.$phone}, ${t.$tablet} {
+    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
       height: ${t.$rythm * 2}px;
 
       margin: ${t.$rythm}px auto;
@@ -120,19 +134,19 @@ export const PriceItemOptionsContainer = styled.ul`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 10}px;
 
-    margin: ${t.$rythm * 1.4}px 0 ${t.$rythm * 0.75}px ${t.$rythm * 3}px;
+    margin: ${t.$rythm * 1.5}px 0 ${t.$rythm * 0.75}px ${t.$rythm * 2.8375}px;
 
     list-style: none;
     line-height: 1.6;
 
-    @media ${t.$phone}, ${t.$tablet} {
-      height: ${t.$rythm * 8}px;
+    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
+      height: 130px;
       margin: 0 auto;
     }
   `}
 `;
 
-export const PriceItemOption = styled.li`
+export const PriceBlockItemOption = styled.li`
   ${({ theme: t }) => css`
     color: ${t.$text_color_black};
     margin-bottom: 0;
@@ -140,14 +154,23 @@ export const PriceItemOption = styled.li`
 
     & > svg {
       color: ${t.$btn_icon_active};
-      margin-right: ${t.$rythm}px;
+      margin-right: ${t.$rythm / 2}px;
     }
   `}
 `;
 
-export const PriceItemText = styled.span`
+export const ItemOptionText = styled.span`
   ${({ theme: t }) => css`
-    margin-bottom: ${t.$rythm * 1.4}px;
+    color: ${t.$text_color_black};
+
+    font-size: ${t.$rythm * 1.25}px;
+    margin-bottom: 0;
+  `}
+`;
+
+export const PriceBlockItemText = styled.span`
+  ${({ theme: t }) => css`
+    margin-bottom: ${t.$rythm * 1.5625}px;
 
     color: ${t.$text_color_black};
     font-weight: ${t.$font_weight_base};
@@ -155,13 +178,13 @@ export const PriceItemText = styled.span`
 
     text-align: center;
 
-    @media ${t.$phone}, ${t.$tablet} {
+    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
       font-size: ${t.$rythm * 1.25}px;
     }
   `}
 `;
 
-export const PriceItemNumber = styled.span`
+export const PriceBlockItemNumber = styled.span`
   ${({ theme: t }) => css`
     margin: 0 ${t.$rythm / 2}px;
     
@@ -171,14 +194,14 @@ export const PriceItemNumber = styled.span`
 
     color: ${t.$text_color_black};
 
-    @media ${t.$phone}, ${t.$tablet} {
+    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
       font-size: ${t.$rythm * 1.875}px;
       line-height: 1.5;
     }
   `}
 `;
 
-export const PriceItemOrderButton = styled(Button)<{ active: boolean }>`
+export const PriceBlockItemOrderButton = styled(Button)<{ active: boolean }>`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 14.68}px;
     margin: 0 auto;
@@ -211,14 +234,14 @@ export const PriceItemOrderButton = styled(Button)<{ active: boolean }>`
   `}
 `;
 
-export const ClarifyingText = styled.span`
+export const PriceBlockClarifyingText = styled.span`
   ${({ theme: t }) => css`
     display: block;
     color: ${t.$text_color_black};
     font-size: ${t.$rythm}px;
     text-align: center;
 
-    @media ${t.$phone}, ${t.$tablet} {
+    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
       width: ${t.$rythm * 20}px;
       padding: 0 ${t.$rythm * 3.25}px 0 ${t.$rythm * 1.25}px;
       margin: 0 auto;

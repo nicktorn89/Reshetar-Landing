@@ -14,6 +14,7 @@ const failure = colors.$red500;
 
 const base = {
   $font_family: 'Avenir Next Cyr, sans-serif',
+  $font_family_demibold: 'Avenir Next Cyr Demi, sans-serif',
   $font_size_base: font_size,
   $font_size_sm: font_size * 0.75,
   $font_weight_base: 400,

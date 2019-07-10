@@ -27,7 +27,7 @@ export const ImagesContainer = styled(Slider)<{sliderHeight: number}>`
      border-right: ${t.$rythm / 4}px solid transparent;
     
      &:first-of-type {
-       margin-left: -16px;
+       margin-left: -21px;
      }
   }
     
@@ -51,6 +51,12 @@ export const PrevImageButton = styled.button<{ disabled?: boolean }>`
     color: ${t.$btn_icon_active};
     cursor: pointer;
 
+    & > svg {
+      font-size: ${t.$rythm * 3.75}px !important;
+      position: relative;
+      bottom: ${t.$rythm / 2}px;
+    }
+
     ${ifProp({
       disabled: true,
     }, css`
@@ -64,7 +70,10 @@ export const PrevImageButton = styled.button<{ disabled?: boolean }>`
 `;
 
 export const NextImageButton = styled(PrevImageButton)`
-  margin-right: 0;
+  ${({ theme: t }) => css`
+    margin-left: ${t.$rythm * 2.5625}px;
+    margin-right: 0;
+  `}
 `;
 
 export const ImageItem = styled.picture<{width?: number}>`
@@ -72,7 +81,7 @@ export const ImageItem = styled.picture<{width?: number}>`
     height: 100%;
     width: ${width ? width : t.$rythm * 16}px;
     cursor: zoom-in;
-    margin-right:${t.$rythm * 2}px;
+    margin-right:${t.$rythm * 0.625}px;
 
     & > img {
       height: 100%;

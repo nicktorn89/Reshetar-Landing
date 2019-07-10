@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 
 import { CheckboxProps } from './types';
 
-import { StyledCheckbox, CheckboxLabel } from './styled';
+import { StyledCheckbox, CheckboxLabel, LabelSpan } from './styled';
 
 const Checkbox: React.FC<CheckboxProps> = ({ label, value, name, onChange }) => {
   const handleChange = ({ currentTarget }: React.MouseEvent<HTMLInputElement>): void => {
@@ -19,7 +19,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ label, value, name, onChange }) => 
       { /* 
       // @ts-ignore */}
       <StyledCheckbox name={name} value={value} onClick={handleChange} />
-      {label}
+      <LabelSpan>{label}</LabelSpan>
     </CheckboxLabel>
   );
 };

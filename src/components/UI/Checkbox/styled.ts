@@ -16,14 +16,31 @@ export const StyledCheckbox = styled(VendorCheckbox)`
     }
 
     margin-right: ${t.$rythm / 2}px;
+    
+    @media ${t.$phone}, ${t.$tablet} {
+      & > .rc-checkbox-inner {
+        width: 30px !important;
+        height: 30px !important;
+      }
+
+      .rc-checkbox-inner:after {
+        left: 10px !important;
+        top: 6px !important;
+        width: ${t.$rythm / 2}px !important;
+        height: ${t.$rythm * 0.75}px !important;
+      }
+    }
   `}
 `;
 
 export const CheckboxLabel = styled.label`
   ${({ theme: t }) => css`
     width: 100%;
+    height: ${t.$rythm * 1.25}px;
+    
     display: flex;
-    color: ${t.$text_color_black};
+
+    font-size: ${t.$rythm}px;
 
     &:first-of-type {
       margin-top: ${t.$rythm * 2}px;
@@ -35,17 +52,30 @@ export const CheckboxLabel = styled.label`
     
     @media ${t.$phone}, ${t.$tablet} {
       font-size: ${t.$rythm * 1.125}px;
+      height: 30px;
       
       &:first-of-type {
-        margin-top: ${t.$rythm}px;
+        margin-top: 13px;
       }
 
       &:not(:last-child) {
-        margin-bottom: ${t.$rythm / 2}px;
+        margin-bottom:9px;
       }
       &:last-child {
         margin-bottom: ${t.$rythm * 1.5}px;
       }
     }
   `}
+`;
+
+export const LabelSpan = styled.span`
+  ${({ theme: t }) => css`
+    position: relative;
+    bottom: ${t.$rythm / 8}px;
+    left: ${t.$rythm * 0.1875}px;
+    color: ${t.$text_color_black};
+
+    @media ${t.$phone}, ${t.$tablet} {
+      bottom: -3px;
+    `}
 `;

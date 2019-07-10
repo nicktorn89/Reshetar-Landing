@@ -2,7 +2,7 @@ import FAQ from './FAQ';
 import Footer from './Footer';
 import Header from './Header';
 import Hero from './Hero';
-import InfoBlock from './InfoBlock';
+import Info from './Info';
 import OrderBlock from './OrderBlock';
 import PriceBlock from './PriceBlock';
 import RateSlider from './RateSlider';
@@ -11,6 +11,6 @@ import SliderWithTabs from './SliderWithTabs';
 import ThemeProvider from './ThemeProvider';
 
 export { 
-  FAQ, Footer, Header, Hero, InfoBlock, OrderBlock, PriceBlock,
+  FAQ, Footer, Header, Hero, Info, OrderBlock, PriceBlock,
   RateSlider, SliderBlock, SliderWithTabs, ThemeProvider,
 };

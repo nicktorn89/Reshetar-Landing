@@ -5,10 +5,10 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import PriceBlockProps from './types';
 
 import { 
-  PriceBlockContainer, PriceBlockHeading, PriceItemsContainer,
-  PriceItem, PriceItemTitle, PriceItemOptionsContainer, 
-  PriceItemOption, PriceItemText, PriceItemNumber,
-  PriceItemOrderButton, ClarifyingText,
+  PriceBlockContainer, PriceBlockHeading, PriceBlockItemsContainer,
+  PriceBlockItem, PriceBlockItemTitle, PriceItemOptionsContainer, 
+  PriceBlockItemOption, ItemOptionText, PriceBlockItemText, PriceBlockItemNumber,
+  PriceBlockItemOrderButton, PriceBlockClarifyingText,
  } from './styled';
 
 const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
@@ -18,45 +18,47 @@ const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
     const { title, beforePrice, price, options, buttonText } = item;
 
     const renderOptions = options.map((option, index) =>
-      <PriceItemOption key={index}>
+      <PriceBlockItemOption key={index}>
         <Icon icon={faCheck} size='lg' />
-        {option}
-      </PriceItemOption>);
+        <ItemOptionText>
+          {option}
+        </ItemOptionText>
+      </PriceBlockItemOption>);
 
     return (
-      <PriceItem key={index}>
-        <PriceItemTitle>
+      <PriceBlockItem key={index}>
+        <PriceBlockItemTitle>
           {title}
           {isMobile &&
-            <PriceItemText>
+            <PriceBlockItemText>
               : 
               {beforePrice && beforePrice}
-              <PriceItemNumber>{price}</PriceItemNumber>
+              <PriceBlockItemNumber>{price}</PriceBlockItemNumber>
               руб
-          </PriceItemText>
+          </PriceBlockItemText>
           }
-        </PriceItemTitle>
+        </PriceBlockItemTitle>
 
         <PriceItemOptionsContainer>{renderOptions}</PriceItemOptionsContainer>
 
         {!isMobile && 
-          <PriceItemText>
+          <PriceBlockItemText>
             {beforePrice && beforePrice}
-            <PriceItemNumber>{price}</PriceItemNumber>
+            <PriceBlockItemNumber>{price}</PriceBlockItemNumber>
             руб
-          </PriceItemText>
+          </PriceBlockItemText>
         }
         {/* 
         //@ts-ignore */}
-        <PriceItemOrderButton
+        <PriceBlockItemOrderButton
           node={'a'}
           href={'#order-block'}
           themeType={index === 1 ? ButtonTypesMap.base : ButtonTypesMap.hollow}
           active={index === 1}
         >
           {buttonText}
-        </PriceItemOrderButton>
-      </PriceItem>
+        </PriceBlockItemOrderButton>
+      </PriceBlockItem>
     );
   });
 
@@ -64,9 +66,9 @@ const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
     <PriceBlockContainer>
       <PriceBlockHeading fontSize={50} node={'h3'}>{heading}</PriceBlockHeading>
 
-      <PriceItemsContainer>{renderPriceItems}</PriceItemsContainer>
+      <PriceBlockItemsContainer>{renderPriceItems}</PriceBlockItemsContainer>
 
-      <ClarifyingText>{clarifying}</ClarifyingText>
+      <PriceBlockClarifyingText>{clarifying}</PriceBlockClarifyingText>
     </PriceBlockContainer>
   );
 };

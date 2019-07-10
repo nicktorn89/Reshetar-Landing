@@ -3,8 +3,12 @@ import { SliderContainer } from 'src/components/UI/MobileSlider/styled';
 
 export const SliderBlockContainer = styled.section`
   ${({ theme: t }) => css`
-    height: ${t.$rythm * 58}px;
+    height: ${t.$rythm * 47.8125}px;
     border-top: 1px solid ${t.$block_border_color};
+
+    &:first-of-type {
+      background: #fafbfc;
+    }
 
     @media ${t.$phone}, ${t.$tablet} {
       width: 100%;

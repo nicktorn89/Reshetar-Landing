@@ -5,15 +5,15 @@ import Header from '../Header';
 import FooterProps from './types';
 
 import { Footer, FooterTextContainer, CopyrightWrapper, FooterCopyright, FooterSocialLinks } from './styled';
-import { IconContainer, StyledIcon } from '../Header/styled';
+import { HeaderIconContainer, HeaderStyledIcon } from '../Header/styled';
 
 const FooterComponent: React.FC<FooterProps> = ({ data, isMobile }) => {
   const { headerClone, copyright, socialLinks } = data;
 
   const renderSocialLinks = socialLinks.map((link, index) => 
-    <IconContainer key={index} href={link.url}>
-      <StyledIcon size='lg' icon={link.icon} />
-    </IconContainer>,
+    <HeaderIconContainer key={index} href={link.url}>
+      <HeaderStyledIcon size='lg' icon={link.icon} />
+    </HeaderIconContainer>,
   );
 
   return (

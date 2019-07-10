@@ -7,21 +7,22 @@ import HeroProps, { InputTypes, FormType } from './types';
 import { InputProps } from 'src/components/UI/Input';
 
 import { 
-  HeroContainer, LogoBlock, LogoImg, 
-  TextBlock, HeroHeading, Description,
-  PriceBlock, Price, Currency, UntilDate, Note,
-  FormBlock, FormContainer, FormHeading,
-  InputsGroup, SendButton, LogoContainer, 
-  FormSelect, FormText, FormNumber, FormCheckbox, FormInputMask,
+  HeroContainer, HeroLogoBlock, HeroLogoContainer, HeroLogoImg, 
+  HeroTextBlock, HeroHeading, HeroDescription,
+  HeroPriceBlock, HeroPrice, HeroPriceCurrency, 
+  HeroUntilDate, HeroPriceNote, HeroFormBlock, 
+  HeroFormContainer, HeroFormHeading, HeroInputsGroup,
+  HeroFormSendButton, HeroFormSelect, HeroFormText,
+  HeroFormNumber, HeroFormCheckbox, HeroFormInputMask,
 } from './styled';
-import { NumberSpan } from '../Header/styled';
+import { HeaderNumberSpan } from '../Header/styled';
 
 export const inputs: InputTypes = {
-  select: FormSelect,
-  text: FormText,
-  number: FormNumber,
-  checkbox: FormCheckbox,
-  maskInput: FormInputMask,
+  select: HeroFormSelect,
+  text: HeroFormText,
+  number: HeroFormNumber,
+  checkbox: HeroFormCheckbox,
+  maskInput: HeroFormInputMask,
 };
 
 const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
@@ -57,37 +58,37 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
 
   return (
     <HeroContainer>
-      <LogoBlock>
-        <LogoContainer>
-          <LogoImg />
-          {isMobile && <NumberSpan>{phoneNumber}</NumberSpan>}
-        </LogoContainer>
-      </LogoBlock>
+      <HeroLogoBlock>
+        <HeroLogoContainer>
+          <HeroLogoImg />
+          {isMobile && <HeaderNumberSpan>{phoneNumber}</HeaderNumberSpan>}
+        </HeroLogoContainer>
+      </HeroLogoBlock>
 
-      <TextBlock>
+      <HeroTextBlock>
         <HeroHeading fontSize={70} node={'h2'}>{textBlock.heading}</HeroHeading>
-        <Description>{parse(textBlock.description)}</Description>
-        <PriceBlock>
-          <Price>{textBlock.price}</Price>
-          <Currency>{textBlock.currency}</Currency>
-        </PriceBlock>
+        <HeroDescription>{parse(textBlock.description)}</HeroDescription>
+        <HeroPriceBlock>
+          <HeroPrice>{textBlock.price}</HeroPrice>
+          <HeroPriceCurrency>{textBlock.currency}</HeroPriceCurrency>
+        </HeroPriceBlock>
         
-        <UntilDate>{textBlock.untilDate}</UntilDate>
+        <HeroUntilDate>{textBlock.untilDate}</HeroUntilDate>
 
-        <Note>{textBlock.note}</Note>
-      </TextBlock>
+        <HeroPriceNote>{textBlock.note}</HeroPriceNote>
+      </HeroTextBlock>
 
-      <FormBlock>
-        <FormContainer>
-          {!isMobile && <FormHeading>{formBlock.heading && formBlock.heading}</FormHeading>}
+      <HeroFormBlock>
+        <HeroFormContainer>
+          {!isMobile && <HeroFormHeading>{formBlock.heading && formBlock.heading}</HeroFormHeading>}
 
-          <InputsGroup>
+          <HeroInputsGroup>
             {renderInputs}
-          </InputsGroup>
+          </HeroInputsGroup>
 
-          <SendButton onClick={handleSendButton}>{isMobile ? formBlock.mobileButtonText : formBlock.buttonText}</SendButton>
-        </FormContainer>
-      </FormBlock>
+          <HeroFormSendButton onClick={handleSendButton}>{isMobile ? formBlock.mobileButtonText : formBlock.buttonText}</HeroFormSendButton>
+        </HeroFormContainer>
+      </HeroFormBlock>
     </HeroContainer>
   );
 };
