@@ -178,7 +178,6 @@ export const InfoAdvantageItem = styled.div`
 
     &:nth-child(2) {
       border-bottom: ${t.$rythm / 16}px solid ${t.$border_color};
-      border-left: ${t.$rythm / 16}px solid ${t.$border_color};
       justify-content: flex-end;
 
       & > ${InfoAdvantageImageContainer} {
@@ -191,7 +190,6 @@ export const InfoAdvantageItem = styled.div`
     }
     
     &:nth-child(3) {
-      border-top: ${t.$rythm / 16}px solid ${t.$border_color};
       border-right: ${t.$rythm / 16}px solid ${t.$border_color};
 
       & > ${InfoAdvantageImageContainer} {
@@ -204,8 +202,6 @@ export const InfoAdvantageItem = styled.div`
     }
 
     &:last-child {
-      border-top: ${t.$rythm / 16}px solid ${t.$border_color};
-      border-left: ${t.$rythm / 16}px solid ${t.$border_color};
       justify-content: flex-end;
 
       & > ${InfoAdvantageImageContainer} {
