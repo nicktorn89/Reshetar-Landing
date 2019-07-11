@@ -60,6 +60,10 @@ export const Select = styled(ReactSelect)`
     
     .select__dropdown-indicator {
       color: ${t.$text_color_accent};
+
+      & > svg {
+        font-size: ${t.$rythm}px;
+      }
       
       &:hover {
         color: ${t.$text_color_accent};
