@@ -103,6 +103,10 @@ export const HeroHeading = styled(Heading)`
     line-height: ${t.$rythm * 4.5}px;
     text-align: left;
 
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+      margin-left: 19.5%;
+    }
+
     @media ${t.$phone}, ${t.$tablet} {
       height: ${t.$rythm * 5.625}px;
       width: ${t.$rythm * 18}px;

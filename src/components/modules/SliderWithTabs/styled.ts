@@ -55,6 +55,7 @@ export const SliderHeading = styled.h2`
 export const TabsContainer = styled.div`
   ${({ theme: t }) => css`
     max-width: ${t.$rythm * 69.0625}px;
+    width: 76.3%;
     margin: 0 auto;
     margin-bottom: ${t.$rythm * 5}px;
 
@@ -103,6 +104,10 @@ export const ImagesContainer = styled.div`
 
     display: flex;
     justify-content: center;
+
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+      padding: 0 2% 0 7%;
+    }
 
     @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 20}px;

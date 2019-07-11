@@ -114,6 +114,17 @@ export const QuestionsContainer = styled.div`
       transform: rotateZ(180deg); 
     }
 
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+      .Collapsible__contentInner {
+        padding-right: ${t.$rythm * 15.3125}px;
+      }
+
+      .Collapsible__trigger.is-closed {      
+        padding-right: ${t.$rythm}px;
+        min-height: 60px;
+      }
+    }
+
     @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 20}px;
 

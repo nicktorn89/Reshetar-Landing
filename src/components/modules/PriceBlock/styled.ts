@@ -11,8 +11,8 @@ export const PriceBlockContainer = styled.section`
     border-top: 1px solid ${t.$block_border_color};
     padding-top: ${t.$rythm * 7.2}px;
 
-    @media (max-width: 1134px) {
-      height: 1200px;
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+      min-height: 1200px;
     }
 
     @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
@@ -54,10 +54,10 @@ export const PriceBlockItemsContainer = styled.div`
 
     display: flex;
 
-    margin: 0 auto ${t.$rythm * 2.85}px auto;
+    margin: 0 auto ${t.$rythm * 2.85}px auto;   
 
-    @media (max-width: 1134px) {
-      height: 990px;
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+      min-height: 990px;
     }
 
     @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
@@ -89,8 +89,8 @@ export const PriceBlockItem = styled.div`
       margin-right: 2.9%;
     }
 
-    @media (max-width: 1134px) {
-      height: 320px;
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+      min-height: 320px;
     }
 
     @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
@@ -132,7 +132,7 @@ export const PriceItemOptionsContainer = styled.ul`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 10}px;
 
-    margin: ${t.$rythm * 1.5}px 0 ${t.$rythm * 0.75}px ${t.$rythm * 2.8375}px;
+    margin: ${t.$rythm * 1.5}px 0 ${t.$rythm * 0.75}px 13%;
 
     list-style: none;
     line-height: 1.6;
@@ -176,7 +176,7 @@ export const PriceBlockItemText = styled.span`
 
     text-align: center;
 
-    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
+    @media ${t.$phone}, ${t.$tablet}, (max-width: 1200px) {
       font-size: ${t.$rythm * 1.25}px;
     }
   `}
