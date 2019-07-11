@@ -121,12 +121,18 @@ export const QuestionsContainer = styled.div`
       padding: 0 ${t.$rythm * 0.75}px;
       
       .Collapsible {
+        display: inline-block;
+        min-height: 60px;
         margin-left: 8px;
+      }
+      
+      .Collapsible__trigger {
+        display: inline-table;
       }
 
       .Collapsible__trigger.is-closed {
         margin-top: ${t.$rythm * 1.375}px;
-        height: 60px;
+        min-height: 60px;
       }
 
       .Collapsible__contentInner {
