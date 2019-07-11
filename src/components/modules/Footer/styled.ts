@@ -47,6 +47,12 @@ export const Footer = styled.footer`
       }
     }
 
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+      ${HeaderNumberSpan} {
+        width: 150px !important;
+      }
+    }
+
     @media ${t.$phone}, ${t.$tablet} {
       height: ${t.$rythm * 34.5}px;
 
@@ -140,6 +146,14 @@ export const CopyrightWrapper = styled.div`
   ${({ theme: t }) => css`
     width: 61%;
     margin-right: 20.5%;
+
+    @media screen and (min-width: 992px) and (max-width: 1130px) {
+      margin-right: 17%;
+    }
+
+    @media screen and (min-width: 1130px) and (max-width: 1200px) {
+      margin-right: 18%;
+    }
 
     @media ${t.$phone}, ${t.$tablet} {
       width: 100%;

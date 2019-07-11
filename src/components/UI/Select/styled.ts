@@ -62,7 +62,7 @@ export const Select = styled(ReactSelect)`
       color: ${t.$text_color_accent};
 
       & > svg {
-        font-size: ${t.$rythm}px;
+        font-size: ${t.$rythm}px !important;
       }
       
       &:hover {
