@@ -6,7 +6,7 @@ export const SliderBlockContainer = styled.section`
     height: ${t.$rythm * 47.8125}px;
     border-top: 1px solid ${t.$block_border_color};
 
-    &:first-of-type {
+    &:nth-child(odd) {
       background: #fafbfc;
     }
 

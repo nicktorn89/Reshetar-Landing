@@ -36,6 +36,7 @@ export const InfoDescriptionBlock = styled.div`
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    background: #fafbfc;
 
     @media ${t.$phone}, ${t.$tablet} {      
       width: ${t.$rythm * 20}px;
