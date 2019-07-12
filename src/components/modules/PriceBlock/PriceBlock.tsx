@@ -1,14 +1,15 @@
 import React, { memo } from 'react';
-import { 
-  PriceBlockContainer, PriceBlockTitle, PriceItemsContainer,
-  PriceItem, PriceItemTitle, PriceItemOptionsContainer, 
-  PriceItemOption, PriceItemText, PriceItemNumber,
-  PriceItemOrderButton, ClarifyingText,
- } from './styled';
-import PriceBlockProps from './types';
-
 import { Icon, ButtonTypesMap } from 'src/components/UI';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
+import PriceBlockProps from './types';
+
+import { 
+  PriceBlockContainer, PriceBlockHeading, PriceBlockItemsContainer,
+  PriceBlockItem, PriceBlockItemTitle, PriceItemOptionsContainer, 
+  PriceBlockItemOption, ItemOptionText, PriceBlockItemText, PriceBlockItemNumber,
+  PriceBlockItemOrderButton, PriceBlockClarifyingText,
+ } from './styled';
 
 const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
   const { heading, prices, clarifying } = data;
@@ -16,52 +17,58 @@ const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
   const renderPriceItems = prices.map((item, index) => {
     const { title, beforePrice, price, options, buttonText } = item;
 
-    const renderOptions = options.map((option, index) => <PriceItemOption key={index}>
-      <Icon icon={faCheck} size='lg' />
-      {option}
-    </PriceItemOption>);
+    const renderOptions = options.map((option, index) =>
+      <PriceBlockItemOption key={index}>
+        <Icon icon={faCheck} size='lg' />
+        <ItemOptionText>
+          {option}
+        </ItemOptionText>
+      </PriceBlockItemOption>);
 
     return (
-      <PriceItem key={index}>
-        <PriceItemTitle>
+      <PriceBlockItem key={index}>
+        <PriceBlockItemTitle>
           {title}
           {isMobile &&
-            <PriceItemText>
+            <PriceBlockItemText>
               : 
               {beforePrice && beforePrice}
-              <PriceItemNumber>{price}</PriceItemNumber>
+              <PriceBlockItemNumber>{price}</PriceBlockItemNumber>
               руб
-          </PriceItemText>
+          </PriceBlockItemText>
           }
-        </PriceItemTitle>
+        </PriceBlockItemTitle>
 
         <PriceItemOptionsContainer>{renderOptions}</PriceItemOptionsContainer>
 
         {!isMobile && 
-          <PriceItemText>
+          <PriceBlockItemText>
             {beforePrice && beforePrice}
-            <PriceItemNumber>{price}</PriceItemNumber>
+            <PriceBlockItemNumber>{price}</PriceBlockItemNumber>
             руб
-          </PriceItemText>
+          </PriceBlockItemText>
         }
-
-        <PriceItemOrderButton
+        {/* 
+        //@ts-ignore */}
+        <PriceBlockItemOrderButton
+          node={'a'}
+          href={'#order-block'}
           themeType={index === 1 ? ButtonTypesMap.base : ButtonTypesMap.hollow}
           active={index === 1}
         >
           {buttonText}
-        </PriceItemOrderButton>
-      </PriceItem>
+        </PriceBlockItemOrderButton>
+      </PriceBlockItem>
     );
   });
 
   return (
     <PriceBlockContainer>
-      <PriceBlockTitle>{heading}</PriceBlockTitle>
+      <PriceBlockHeading fontSize={50} node={'h3'}>{heading}</PriceBlockHeading>
 
-      <PriceItemsContainer>{renderPriceItems}</PriceItemsContainer>
+      <PriceBlockItemsContainer>{renderPriceItems}</PriceBlockItemsContainer>
 
-      <ClarifyingText>{clarifying}</ClarifyingText>
+      <PriceBlockClarifyingText>{clarifying}</PriceBlockClarifyingText>
     </PriceBlockContainer>
   );
 };

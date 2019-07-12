@@ -1,5 +1,5 @@
 import { LocaleDataType } from 'src/types';
-import { FormSelect, FormText, FormNumber, FormCheckbox, FormInputMask } from './styled';
+import { HeroFormSelect, HeroFormText, HeroFormNumber, HeroFormCheckbox, HeroFormInputMask } from './styled';
 
 export default interface HeroProps {
   data: LocaleDataType['hero'];
@@ -7,7 +7,7 @@ export default interface HeroProps {
 }
 
 export type InputTypes = {
-  [prop: string]: typeof FormSelect | typeof FormText | typeof FormNumber | typeof FormCheckbox | typeof FormInputMask;
+  [prop: string]: typeof HeroFormSelect | typeof HeroFormText | typeof HeroFormNumber | typeof HeroFormCheckbox | typeof HeroFormInputMask;
 };
 
 export interface LogoQueryType {
@@ -23,3 +23,12 @@ export interface LogoQueryType {
     };
   };
 }
+
+export type FormType = {
+  serviceType: number;
+  phoneNumber: string | number;
+  repetition: boolean;
+  earlyDeparture: boolean;
+  guestMakeup: boolean;
+  [name: string]: number | string | boolean;
+};

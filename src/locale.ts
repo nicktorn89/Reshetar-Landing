@@ -19,7 +19,7 @@ const LocaleData = createContext({
       description: 'Идеальный образ <br/> по идеальной цене',
       price: '5 900',
       currency: 'руб',
-      untilDate: 'до 10 мая',
+      untilDate: 'до 10 августа',
       note: '*макияж + прическа + ранний выезд',
     },
 
@@ -31,19 +31,16 @@ const LocaleData = createContext({
     },
   },
 
-  infoBlock: {
-    description: {
-      firstPart: `Меня зовут Екатерина Решетар, я\u00A0профессиональный визажист/стилист по\u00A0прическам.
-      Подчеркиваю красоту и\u00A0создаю незабываемый и\u00A0индивидуальный образ для Вашего торжества. 
-      Развиваюсь в профессии с 2016 года, постоянно повышаю квалификацию,
+  info: {
+    description: [
+      `Меня зовут Екатерина Решетар, я\u00A0профессиональный визажист/стилист по\u00A0прическам.
+      Подчеркиваю красоту и\u00A0создаю незабываемый и\u00A0индивидуальный образ для Вашего торжества.`,
+      `Развиваюсь в профессии с 2016 года, постоянно повышаю квалификацию,
       создаю современные и востребованные образы. Помогаю невестам на всех этапах подготовки к торжеству.`,
-      secondPart: `Работаю с профессиональной и люксовой косметикой: Dior, Tom Ford, Mac, MUFE, Urban Decay,
-      Bobbi Brown, Inglot и т.д. В работе с волосами использую лучшие титановые приборы для укладки
-      MakeUpTrend и профессиональный стайлинг (URBAN TRIBE, Schwarzkopf, OSIS, REDKEN)`,
-    },
+    ],
     link: {
       text: 'Все услуги',
-      url: '#',
+      url: 'http://reshetar.ru/',
     },
     advantages: [
       {
@@ -144,8 +141,15 @@ const LocaleData = createContext({
   },
 
   sliderBlocks: [
-    { heading: 'Мои работы', images: images.works, styles: { paddingLeft: 90 } },
-    { heading: 'Мои сертификаты', images: images.certificates },
+    { 
+      heading: 'Мои работы', 
+      images: images.works, 
+      styles: { justifyContent: 'center', paddingLeft: '11.5%', paddingRight: '11.5%' },
+    },
+    { heading: 'Мои сертификаты', 
+      images: images.certificates, 
+      styles: { justifyContent: 'center', paddingLeft: '11.5%', paddingRight: '11.5%' },
+    },
   ],
 
   faq: {
@@ -194,7 +198,7 @@ const LocaleData = createContext({
 
   orderBlock: {
     heading: 'Оформление заказа',
-    mobileHeading: 'Оформление заказа со\u00a0скидкой 10%',
+    mobileHeading: 'Оформление заказа',
     form: {
       buttonText: 'Заказать',
       mobileButtonText: 'Заказать',
@@ -208,7 +212,7 @@ const LocaleData = createContext({
       text: ['ВКонтакте', 'Telegram', 'Whatsapp'],
       icons: [faVk, faTelegramPlane, faWhatsapp],
       links: ['https://vk.me/reshetarmuaa', 'https://t.me/reshetarmua', 'https://api.whatsapp.com/send?phone=79267208260'],
-      phoneNumber: 'г.Москва, +7 926 720-82-60',
+      phoneNumber: 'г.Москва \n +7 926 720-82-60',
     },
     copyright: '© 2019, reshetar.ru Ekaterinareshetar@gmail.com',
     socialLinks: [

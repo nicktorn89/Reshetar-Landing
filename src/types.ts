@@ -24,11 +24,8 @@ export interface LocaleDataType {
     formBlock: FormBlock;
   };
 
-  infoBlock: {
-    description: {
-      firstPart: string;
-      secondPart: string;
-    };
+  info: {
+    description: string[];
     link: LinkType;
     advantages: AdvantageObject[];
     images: string[];
@@ -38,7 +35,7 @@ export interface LocaleDataType {
     heading: string;
     tabs: TabType[];
     descriptions: SliderDescriptionObject[];
-    images: string[][];
+    images: ImageType[];
     nextButtonText: string;
   };
 
@@ -46,7 +43,7 @@ export interface LocaleDataType {
     rate: number;
     rateText: (rate: number) => string;
     link?: LinkType;
-    images: string[];
+    images: ImageType;
   };
 
   priceBlock: {
@@ -118,7 +115,7 @@ type PriceItem = {
 
 type SliderBlock = {
   heading: string;
-  images: string[];
+  images: ImageType;
   styles?: { [property: string]: string | number; };
 };
 
@@ -132,4 +129,10 @@ type FormBlock = {
 type Question = {
   question: string;
   answer: string;
+};
+
+export type ImageType = {
+  high: string[];
+  low: string[];
+  webp: string[];
 };

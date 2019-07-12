@@ -11,7 +11,7 @@ branches:
 
 script:
   - rm -rf public
-  - npm run build
+  - gatsby build
 
 deploy:
   provider: pages

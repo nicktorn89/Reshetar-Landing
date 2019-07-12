@@ -1,78 +1,96 @@
 import React, { memo } from 'react';
-import HeroProps, { InputTypes } from './types';
-import { 
-  HeroContainer, LogoBlock, LogoImg, 
-  TextBlock, Heading, Description,
-  PriceBlock, Price, Currency, UntilDate, Note,
-  FormBlock, FormContainer, FormHeading,
-  InputsGroup, SendButton, LogoContainer, 
-  FormSelect, FormText, FormNumber, FormCheckbox, FormInputMask,
-} from './styled';
 import parse from 'html-react-parser';
+
+import { useFormState } from 'src/hooks';
+
+import HeroProps, { InputTypes, FormType } from './types';
 import { InputProps } from 'src/components/UI/Input';
-import { NumberSpan } from '../Header/styled';
+
+import { 
+  HeroContainer, HeroLogoBlock, HeroLogoContainer, HeroLogoImg, 
+  HeroTextBlock, HeroHeading, HeroDescription,
+  HeroPriceBlock, HeroPrice, HeroPriceCurrency, 
+  HeroUntilDate, HeroPriceNote, HeroFormBlock, 
+  HeroFormContainer, HeroFormHeading, HeroInputsGroup,
+  HeroFormSendButton, HeroFormSelect, HeroFormText,
+  HeroFormNumber, HeroFormCheckbox, HeroFormInputMask,
+} from './styled';
+import { HeaderNumberSpan } from '../Header/styled';
 
 export const inputs: InputTypes = {
-  select: FormSelect,
-  text: FormText,
-  number: FormNumber,
-  checkbox: FormCheckbox,
-  maskInput: FormInputMask,
+  select: HeroFormSelect,
+  text: HeroFormText,
+  number: HeroFormNumber,
+  checkbox: HeroFormCheckbox,
+  maskInput: HeroFormInputMask,
 };
 
-const HeroComponent: React.FC<HeroProps> = ({ data, isMobile }) => {
+const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
   const { textBlock, formBlock, phoneNumber } = data;
+  const formObject: FormType = {
+    serviceType: 0,
+    phoneNumber: '',
+    repetition: false,
+    earlyDeparture: false,
+    guestMakeup: false,
+  };
+
+  const { formState, handleChangeForm } = useFormState(formObject);
+
+  const handleSendButton = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log(formState);
+  };
 
   const renderInputs = formBlock.formInputs.map((input, index) => {
     const InputComponent = inputs[input.type];
 
-    return (<InputComponent 
+    return <InputComponent 
       key={index} 
       type={input.type as InputProps['type']} 
       name={input.name}
       options={input.options!}
-      value={input.value as never}
+      value={formState[input.name] as never || input.value as never}
       label={input.label as never}
-    />);
+      onChange={handleChangeForm}
+    />;
   });
 
   return (
     <HeroContainer>
-      <LogoBlock>
-        <LogoContainer>
-          <LogoImg />
-          {isMobile && <NumberSpan>{phoneNumber}</NumberSpan>}
-        </LogoContainer>
-      </LogoBlock>
+      <HeroLogoBlock>
+        <HeroLogoContainer>
+          <HeroLogoImg />
+          {isMobile && <HeaderNumberSpan>{phoneNumber}</HeaderNumberSpan>}
+        </HeroLogoContainer>
+      </HeroLogoBlock>
 
-      <TextBlock>
-        <Heading>{textBlock.heading}</Heading>
-        <Description>{parse(textBlock.description)}</Description>
-        <PriceBlock>
-          <Price>{textBlock.price}</Price>
-          <Currency>{textBlock.currency}</Currency>
-        </PriceBlock>
+      <HeroTextBlock>
+        <HeroHeading fontSize={70} node={'h2'}>{textBlock.heading}</HeroHeading>
+        <HeroDescription>{parse(textBlock.description)}</HeroDescription>
+        <HeroPriceBlock>
+          <HeroPrice>{textBlock.price}</HeroPrice>
+          <HeroPriceCurrency>{textBlock.currency}</HeroPriceCurrency>
+        </HeroPriceBlock>
         
-        <UntilDate>{textBlock.untilDate}</UntilDate>
+        <HeroUntilDate>{textBlock.untilDate}</HeroUntilDate>
 
-        <Note>{textBlock.note}</Note>
-      </TextBlock>
+        <HeroPriceNote>{textBlock.note}</HeroPriceNote>
+      </HeroTextBlock>
 
-      <FormBlock>
-        <FormContainer>
-          {!isMobile && <FormHeading>{formBlock.heading && formBlock.heading}</FormHeading>}
+      <HeroFormBlock>
+        <HeroFormContainer>
+          {!isMobile && <HeroFormHeading>{formBlock.heading && formBlock.heading}</HeroFormHeading>}
 
-          <InputsGroup>
+          <HeroInputsGroup>
             {renderInputs}
-          </InputsGroup>
+          </HeroInputsGroup>
 
-          <SendButton>{isMobile ? formBlock.mobileButtonText : formBlock.buttonText}</SendButton>
-        </FormContainer>
-      </FormBlock>
+          <HeroFormSendButton onClick={handleSendButton}>{isMobile ? formBlock.mobileButtonText : formBlock.buttonText}</HeroFormSendButton>
+        </HeroFormContainer>
+      </HeroFormBlock>
     </HeroContainer>
   );
 };
 
-HeroComponent.displayName = 'Hero';
-
-export default memo(HeroComponent);
+export default memo(Hero);

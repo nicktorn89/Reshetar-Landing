@@ -1,61 +1,71 @@
-import React, { memo, useRef } from 'react';
+import React, { memo, useRef, useState } from 'react';
+import Slider from 'react-slick';
+import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import { Icon, ImageViewer } from 'src/components/UI';
+
+import { useImageViewer } from 'src/hooks';
+import { createSliderItem, emptyFunc } from 'src/utils';
+
 import { SliderProps } from './types';
+import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
+
 import { 
   SliderContainer, PrevImageButton, NextImageButton,
   ImagesContainer, ImageItem,
 } from './styled';
 
-import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
-import { Icon, ImageViewer } from 'src/components/UI';
-
-import { useSliderHook, useImageViewer } from 'src/hooks';
-import { createSliderItem, emptyFunc } from 'src/utils';
-
-import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
-
-const Slider: React.FC<SliderProps> = ({ imageSizes, imagesToShowCount, images, containerStyles }) => {
+const SliderComponent: React.FC<SliderProps> = ({ imageSizes, images, containerStyles }) => {
   const { height, width } = imageSizes;
-  
-  const { currentImage, nextSlide, prevSlide, disabledButtons } = useSliderHook(images, imagesToShowCount);
-  const imageToShowArray = [];
+  const sliderState = {
+    initialSlide: 0,
+    swipe: false,
+    slidesToShow: 3,
+    arrows: false,
+    infinite: true,
+    centerMode: false,
+    centerPadding: '8px',
+    variableWidth: true,
+    lazyLoad: 'progressive' as 'progressive' | 'ondemand' | undefined,
+  };
 
   const sliderContainer = useRef<HTMLDivElement>(null);
   const { viewerStatus, changeViewerStatus, activeIndex } = useImageViewer(sliderContainer);
-  const sliderImages: ImageDecorator[] = createSliderItem(images);
+  const viewerImages: ImageDecorator[] = createSliderItem(images.high);
 
-  for (let i = 0; i < imagesToShowCount; i += 1) {
-    imageToShowArray.push(i);
-  }
+  let sliderObj = {} as unknown as Slider | null;
 
-  const changeImages = (increment: boolean) => (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    increment 
-      ? nextSlide()
-      : prevSlide();
+  const handleChangeImg = (isNext: boolean) => () => {
+    isNext
+      ? sliderObj && sliderObj.slickNext()
+      : sliderObj && sliderObj.slickPrev();
   };
 
-  const renderSliderImgFrames = imageToShowArray.map((k, index) => <ImageItem 
-    key={index} 
-    width={width}
-    src={images[currentImage + index]} 
-    onClick={!viewerStatus ? changeViewerStatus(currentImage + index) : emptyFunc}
-  />);
+  const renderSliderImg = images.high.map((k, index) => 
+    <ImageItem key={index} onClick={!viewerStatus ? changeViewerStatus(index) : emptyFunc}>
+      <source srcSet={images.webp[index]} type='image/webp' />
+      <source media='(max-width: 900px)' srcSet={images.low[index]} type='image/jpeg' />
+      <img
+        width={width}
+        src={images.high[index]}
+      />
+    </ImageItem>);
 
   return (
       <SliderContainer ref={sliderContainer} height={height} style={containerStyles} >
         <PrevImageButton 
-          onClick={changeImages(false)}
-          disabled={disabledButtons.prev}
+          onClick={handleChangeImg(false)}
+          disabled={false}
         >
           <Icon icon={faLongArrowAltLeft} size='3x' />
         </PrevImageButton>
 
-        <ImagesContainer height={height}>     
-          {renderSliderImgFrames}
+        <ImagesContainer ref={(slider) => { sliderObj = slider; }} sliderHeight={height} {...sliderState}>     
+          {renderSliderImg}
         </ImagesContainer>
 
         <NextImageButton 
-          onClick={changeImages(true)}
-          disabled={disabledButtons.next}
+          onClick={handleChangeImg(true)}
+          disabled={false}
         >
           <Icon icon={faLongArrowAltRight} size='3x' />
         </NextImageButton>
@@ -63,11 +73,11 @@ const Slider: React.FC<SliderProps> = ({ imageSizes, imagesToShowCount, images, 
         <ImageViewer
           status={viewerStatus}
           onClose={changeViewerStatus(0)}
-          images={sliderImages}
+          images={viewerImages}
           activeIndex={activeIndex}
         />
       </SliderContainer>
   );
 };
 
-export default memo(Slider);
+export default memo(SliderComponent);

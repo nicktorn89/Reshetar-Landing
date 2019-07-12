@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
-import { Button, Logo, Select, Input, Checkbox, InputMask } from 'src/components/UI';
-import { NumberSpan } from '../Header/styled';
+import { Button, Logo, Select, Input, Checkbox, InputMask, Heading } from 'src/components/UI';
+import { HeaderNumberSpan } from '../Header/styled';
 
 export const HeroContainer = styled.section`
   ${({ theme: t }) => css`
     width: 100%;
-    height: ${t.$rythm * 57}px;
+    height: ${t.$rythm * 56.4375}px;
+
     display: flex;
     flex-wrap: wrap;
 
@@ -23,7 +24,7 @@ export const HeroContainer = styled.section`
   `}
 `;
 
-export const LogoBlock = styled.div`
+export const HeroLogoBlock = styled.div`
   ${({ theme: t }) => css`
     width: 100%;
     height: ${t.$rythm * 5.5}px;
@@ -36,9 +37,9 @@ export const LogoBlock = styled.div`
   `}
 `;
 
-export const LogoContainer = styled.div`
+export const HeroLogoContainer = styled.div`
   ${({ theme: t }) => css`
-    margin: ${t.$rythm * 2}px 0 0 ${t.$rythm * 1.25}px;
+    margin: ${t.$rythm * 1.875}px 0 0 1.4%;
 
     @media ${t.$phone}, ${t.$tablet} {
       height: ${t.$rythm * 3.9375}px;
@@ -56,8 +57,8 @@ export const LogoContainer = styled.div`
         margin-top: ${t.$rythm * 0.8125}px;
       }
 
-      ${NumberSpan} {
-        width: ${t.$rythm * 9}px;
+      ${HeaderNumberSpan} {
+        min-width: ${t.$rythm * 9}px;
         height: ${t.$rythm * 1.375}px;
         
         font-size: ${t.$rythm}px;
@@ -72,12 +73,12 @@ export const LogoContainer = styled.div`
   `}
 `;
 
-export const LogoImg = styled(Logo)`
+export const HeroLogoImg = styled(Logo)`
 `;
 
-export const TextBlock = styled.div`
+export const HeroTextBlock = styled.div`
   ${({ theme: t }) => css`
-    width: 52%;
+    width: 51.4%;
     height: 100%;    
     display: flex;
     flex-wrap: wrap;
@@ -92,20 +93,25 @@ export const TextBlock = styled.div`
   `}
 `;
 
-export const Heading = styled.h2`
+export const HeroHeading = styled(Heading)`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 26}px;
-    font-size: ${t.$rythm * 3.75}px;
-    font-weight: ${t.$font_weight_bold};
-    color: ${t.$text_color_black};
-    margin: ${t.$rythm * 4.5}px 0 0 ${t.$rythm * 10}px;
     height: ${t.$rythm * 9.4}px;
+
+    margin: ${t.$rythm * 4}px 0 0 22.7%;
+
     line-height: ${t.$rythm * 4.5}px;
+    text-align: left;
+
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+      margin-left: 19.5%;
+    }
 
     @media ${t.$phone}, ${t.$tablet} {
       height: ${t.$rythm * 5.625}px;
+      width: ${t.$rythm * 18}px;
       
-      margin: ${t.$rythm * 3.8125}px 0 0 ${t.$rythm * 0.75}px;
+      margin: ${t.$rythm * 3.8125}px 0 0 ${t.$rythm * 1.3125}px;
 
       font-size: ${t.$rythm * 2.5}px;
       line-height: 1.13;
@@ -113,18 +119,18 @@ export const Heading = styled.h2`
   `}
 `;
 
-export const Description = styled.span`
+export const HeroDescription = styled.span`
   ${({ theme: t }) => css`
-    margin: ${t.$rythm * 1.5}px 0 0 ${t.$rythm * 10}px;
+    margin: ${t.$rythm * 1.625}px 0 0 22%;
+    height: ${t.$rythm * 4.375}px;
 
     color: ${t.$text_color_black};
 
-    font-size: ${t.$rythm * 2}px;
+    font-size: ${t.$rythm * 1.875}px;
     line-height: 1.17;
 
     @media ${t.$phone}, ${t.$tablet} {
-      margin-left: ${t.$rythm * 0.75}px;
-      margin-bottom: ${t.$rythm * 2.1875}px;
+      margin: ${t.$rythm / 2}px 0 ${t.$rythm * 0.8125}px ${t.$rythm * 1.25}px;
 
       font-size: ${t.$rythm * 1.125}px;
       line-height: 1.39;
@@ -132,33 +138,35 @@ export const Description = styled.span`
   `}
 `;
 
-export const PriceBlock = styled.div`
+export const HeroPriceBlock = styled.div`
   ${({ theme: t }) => css`
-    width: ${t.$rythm * 15}px;
-    margin: ${t.$rythm * 1.5}px 0 0 ${t.$rythm * 10}px;
+    width: ${t.$rythm * 14.5}px;
+    height: ${t.$rythm * 3.125}px;
+
+    margin: ${t.$rythm}px 0 0 22.3%;
     
     background-color: ${t.$text_background_color};
-    padding: ${t.$rythm / 2}px 0 0 ${t.$rythm / 2}px;
+    padding-left: ${t.$rythm / 2}px;
 
     @media ${t.$phone}, ${t.$tablet} {
-      margin-left: ${t.$rythm * 0.75}px;
+      margin-left: ${t.$rythm * 1.1875}px;
       margin-top: 0;
-      height: ${t.$rythm * 3.625}px;
     }
   `}
 `;
 
-export const Price = styled.span`
+export const HeroPrice = styled.span`
   ${({ theme: t }) => css`
+    margin: 0 ${t.$rythm * 0.75}px 0 ${t.$rythm / 4}px;
+
     color: ${t.$text_color_black};
     font-size: ${t.$rythm * 3.125}px;
     font-weight: ${t.$font_weight_bold};
     line-height: ${t.$rythm * 3.125}px;
-    margin-right: ${t.$rythm / 2}px;
   `}
 `;
 
-export const Currency = styled.span`
+export const HeroPriceCurrency = styled.span`
   ${({ theme: t }) => css`
     color: ${t.$text_color_black};
     font-size: ${t.$rythm * 1.875}px;
@@ -166,39 +174,41 @@ export const Currency = styled.span`
   `}
 `;
 
-export const UntilDate = styled.span`
+export const HeroUntilDate = styled.span`
   ${({ theme: t }) => css`
-    width: ${t.$rythm * 10}px;
-    margin: ${t.$rythm * 1.5}px 0 0 ${t.$rythm * 10}px;
+    min-width: ${t.$rythm * 10}px;
+    height: ${t.$rythm * 3}px;
+    
+    padding: 0 ${t.$rythm * 0.75}px;
+
+    margin: ${t.$rythm * 0.75}px 0 0 22.6%;
+
     font-size: ${t.$rythm * 1.875}px;
     line-height: ${t.$rythm * 3.125}px;
     color: ${t.$text_color_black};
     background-color: ${t.$text_background_color};
-    padding: ${t.$rythm / 2}px 0 0 ${t.$rythm / 2}px;
 
     @media ${t.$phone}, ${t.$tablet} {
-      margin-left: ${t.$rythm * 0.75}px;
-      margin-top: ${t.$rythm / 2}px;
-      height: ${t.$rythm * 3.125}px;
+      margin: 11px 0 0 19px;
     }
   `}
 `;
 
-export const Note = styled.span`
+export const HeroPriceNote = styled.span`
   ${({ theme: t }) => css`
-    margin: ${t.$rythm * 0.75}px 0 0 ${t.$rythm * 10}px;
+    margin: ${t.$rythm * 0.75}px 0 0 22%;
     font-size: ${t.$rythm * 0.75}px;
     line-height: ${t.$rythm}px;
     color: ${t.$text_color_black};
 
     @media ${t.$phone}, ${t.$tablet} {
-      margin-left: ${t.$rythm * 0.75}px;
+      margin-left: ${t.$rythm * 1.25}px;
       line-height: 1.25;
     }
   `}
 `;
 
-export const FormBlock = styled.div`
+export const HeroFormBlock = styled.div`
   ${({ theme: t }) => css`
     width: 48%;
     height: 100%;
@@ -210,16 +220,16 @@ export const FormBlock = styled.div`
   `}
 `;
 
-export const FormContainer = styled.div`
+export const HeroFormContainer = styled.form`
   ${({ theme: t }) => css`
-    width: ${t.$rythm * 25}px;
+    width: ${t.$rythm * 24.8125}px;
     height: ${t.$rythm * 30.5}px;
+    margin-top: ${t.$rythm * 4}px;
 
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 
-    margin-top: ${t.$rythm * 4.25}px;
     border-radius: ${t.$rythm * 1.25}px;
     background: ${t.$form_bg};
 
@@ -227,42 +237,62 @@ export const FormContainer = styled.div`
       height: ${t.$rythm * 19.375}px;
       width: ${t.$rythm * 20}px;
 
-      margin-top: ${t.$rythm * 2.1}px;
+      margin-top: ${t.$rythm * 1.125}px;
       background: none;
     }
   `}
 `;
 
-export const FormHeading = styled.span`
+export const HeroFormHeading = styled.span`
   ${({ theme: t }) => css`
-    margin-top: ${t.$rythm * 2}px;
-    text-align: center;
     width: 100%;
-    height: ${t.$rythm * 5}px;
+    height: ${t.$rythm * 4.8125}px;
+
+    margin: ${t.$rythm * 2.0625}px 0 0 ${t.$rythm * 1.625}px;
+
+    text-align: left;
+    font-stretch: normal;
+    line-height: 1.17;
+
     color: ${t.$text_color_black};
     font-size: ${t.$font_size_base * 1.875}px;
+
+    opacity: 0.9;
   `}
 `;
 
-export const InputsGroup = styled.div`
+export const HeroInputsGroup = styled.div`
   ${({ theme: t }) => css`
     width: 100%;
     height: ${t.$rythm * 15.75}px;
-    padding: 0 ${t.$rythm * 3.5}px;
+    padding: 0 ${t.$rythm * 3.5}px 0 ${t.$rythm * 3.375}px;
 
     margin-bottom: ${t.$rythm * 2}px;
 
     @media ${t.$phone}, ${t.$tablet} {
+      height: ${t.$rythm * 17.6875}px;
       padding: 0 ${t.$rythm * 0.75}px;
       margin-bottom: 0;
+      padding-left: 18px;
+      padding-right: 6px;
+
+      .rc-checkbox-inner {
+        width: 40px;
+        height: 40px;
+      }
     }
   `}
 `;
 
-export const SendButton = styled(Button)`
+export const HeroFormSendButton = styled(Button)`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 18}px;
-    height: ${t.$rythm * 3.75}px;
+    height: ${t.$rythm * 3.8125}px;
+
+    position: relative;
+    bottom: ${t.$rythm * 0.1875}px;
+
+    font-size: ${t.$rythm * 1.25}px;
 
     line-height: ${t.$rythm * 1.5}px;
     margin-bottom: ${t.$rythm * 2}px;
@@ -277,6 +307,8 @@ export const SendButton = styled(Button)`
     }
 
     @media ${t.$phone}, ${t.$tablet} {
+      width: 295px;
+      left: 7px;
       border-radius: ${t.$rythm}px;
       padding: 0 ${t.$rythm * 0.75}px;
       font-size: ${t.$rythm}px;
@@ -284,7 +316,7 @@ export const SendButton = styled(Button)`
   `}
 `;
 
-export const FormSelect = styled(Select)`
+export const HeroFormSelect = styled(Select)`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 18}px;
 
@@ -301,7 +333,7 @@ export const FormSelect = styled(Select)`
   `}
 `;
 
-export const FormText = styled(Input)`
+export const HeroFormText = styled(Input)`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 18}px;
 
@@ -318,24 +350,7 @@ export const FormText = styled(Input)`
   `}
 `;
 
-export const FormNumber = styled(Input)`
-  ${({ theme: t }) => css`
-    width: ${t.$rythm * 18}px;
-
-    &:not(:last-child) {
-      margin-bottom: ${t.$rythm * 1.3125}px;
-    }
-    
-    @media ${t.$phone}, ${t.$tablet} {
-      width: 100%;
-      &:not(:last-child) {
-        margin-bottom: ${t.$rythm}px;
-      }
-    }
-  `}
-`;
-
-export const FormInputMask = styled(InputMask)`
+export const HeroFormNumber = styled(Input)`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 18}px;
 
@@ -352,5 +367,22 @@ export const FormInputMask = styled(InputMask)`
   `}
 `;
 
-export const FormCheckbox = styled(Checkbox)`
+export const HeroFormInputMask = styled(InputMask)`
+  ${({ theme: t }) => css`
+    width: ${t.$rythm * 18}px;
+
+    &:not(:last-child) {
+      margin-bottom: ${t.$rythm * 1.3125}px;
+    }
+    
+    @media ${t.$phone}, ${t.$tablet} {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: ${t.$rythm}px;
+      }
+    }
+  `}
+`;
+
+export const HeroFormCheckbox = styled(Checkbox)`
 `;

@@ -1,17 +1,19 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { 
+  Header, Hero, Info, SliderWithTabs, RateSlider, 
+  PriceBlock, SliderBlock, FAQ, OrderBlock, Footer,
+} from 'src/components/modules';
 import { throttle } from 'throttle-debounce';
+import { Helmet } from 'react-helmet';
+import ConnectedThemeProvider from 'src/components/modules/ThemeProvider/index';
+
+import LocaleData from 'src/locale';
+import { deviceSizes } from 'src/theme/vars/base';
+
+import { LocaleDataType } from 'src/types';
 import { LayoutProps } from './types';
 
 import './layout.css';
-import LocaleData from 'src/locale';
-import { LocaleDataType } from 'src/types';
-import ConnectedThemeProvider from 'src/components/modules/ThemeProvider/index';
-
-import { 
-  Header, Hero, InfoBlock, SliderWithTabs, RateSlider, 
-  PriceBlock, SliderBlock, FAQ, OrderBlock, Footer,
-} from 'src/components/modules';
-import { deviceSizes } from 'src/theme/vars/base';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const checkScreen = () => document.documentElement.clientWidth < deviceSizes.desktop;
@@ -23,9 +25,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     setScreenStatus(checkScreen);
   });
 
-  if (typeof window !== 'undefined') window.addEventListener('resize', throttleMethod);
-
   useEffect(() => {
+    if (typeof window !== 'undefined') window.addEventListener('resize', throttleMethod);
+    
     setScreenStatus(checkScreen);
   });
   
@@ -33,11 +35,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <React.Fragment>
+      <Helmet defer={false} title={'Reshetar'}>
+        <html lang='ru' />
+        <meta name='viewport' content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover' />
+      </Helmet>
+
       <ConnectedThemeProvider theme={'purple'}>
         {!isMobile && <Header data={localeData.header} isMobile={isMobile} />}
 
         <Hero data={localeData.hero} isMobile={isMobile} />
-        <InfoBlock data={localeData.infoBlock} isMobile={isMobile} />
+        <Info data={localeData.info} isMobile={isMobile} />
         <SliderWithTabs data={localeData.sliderWithTabs} isMobile={isMobile} />
         <RateSlider data={localeData.rateSlider} isMobile={isMobile} />
         <PriceBlock data={localeData.priceBlock} isMobile={isMobile} />

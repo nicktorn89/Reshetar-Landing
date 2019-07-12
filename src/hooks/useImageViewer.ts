@@ -8,9 +8,11 @@ export const useImageViewer = (imagesContainer?: RefObject<HTMLDivElement>) => {
     setActiveIndex(index);
     setViewerStatus(!viewerStatus);
     
-    setTimeout(() => {
+    setTimeout(() => {  // Без этого после закрытия просмотрщика, скроллится к верху экрана
       imagesContainer && (imagesContainer.current as HTMLDivElement).scrollIntoView();
-    }, 100);
+
+      if (!activeIndex) document.body.style.cssText = 'overflow: auto;';
+    }, 330);
   };
 
   return { viewerStatus, changeViewerStatus, activeIndex };

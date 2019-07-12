@@ -1,15 +1,15 @@
 import styled, { css } from 'styled-components';
 
 import { 
-  Header as HeaderUI, ContactsBlock, NumberBlock,
-  NumberSpan, BeforeContactsText, IconsBlock, IconContainer,
+  Header as HeaderUI, HeaderContactsBlock, HeaderNumberBlock,
+  HeaderNumberSpan, HeaderContactsText, HeaderIconsBlock, HeaderIconContainer,
 } from '../Header/styled';
 
 export const Footer = styled.footer`
   ${({ theme: t }) => css`
     width: 100%;
     height: ${t.$rythm * 12.9375}px;
-    padding: 0 ${t.$rythm * 9.8125}px 0 ${t.$rythm * 10.3125}px;
+    padding: 0 11.2% 0 11.2%;
     background-color: ${t.$header_bg};
     display: flex;
     align-content: flex-start;
@@ -21,25 +21,35 @@ export const Footer = styled.footer`
       height: ${t.$rythm * 1.5625}px;
     }
 
-    ${ContactsBlock} {
-      width: ${t.$rythm * 42.5}px;
-      margin-right: ${t.$rythm * 14.375}px;
+    ${HeaderContactsBlock} {
+      width: 59%;
+      margin-right: 23.5%;
 
-      ${BeforeContactsText} {
+      position: relative;
+      bottom: 4px;
+
+      ${HeaderContactsText} {
         margin-left: 0;
       }
     }
 
-    ${NumberBlock} {
+    ${HeaderNumberBlock} {
       width: ${t.$rythm * 13}px;
       line-height: 1.56;
       font-style: normal;
       font-stretch: normal;
 
-      ${NumberSpan} {
+      ${HeaderNumberSpan} {
         font-size: ${t.$rythm}px;
         margin-right: 0;
         width: 100%;
+        white-space: pre-line;
+      }
+    }
+
+    @media screen and (min-width: 992px) and (max-width: 1200px) {
+      ${HeaderNumberSpan} {
+        width: 150px !important;
       }
     }
 
@@ -55,31 +65,34 @@ export const Footer = styled.footer`
         height: ${t.$rythm * 20.375}px;
 
         flex-direction: column;
+        display: block;
       }
 
-      ${ContactsBlock} {
+      ${HeaderContactsBlock} {
         width: ${t.$rythm * 20}px;
         margin: 0 auto;
         flex-direction: column;
         flex-wrap: nowrap;
 
-        ${BeforeContactsText} {
+        ${HeaderContactsText} {
           margin-bottom: ${t.$rythm * 1.5}px;
         }
       }
 
-      ${BeforeContactsText} {
+      ${HeaderContactsText} {
         font-weight: ${t.$font_weight_bold};
+        margin-top: 0;
+        margin-left: 17px;
       }
 
-      ${IconsBlock} {
+      ${HeaderIconsBlock} {
         flex-direction: column;
         width: ${t.$rythm * 10}px;
         
         margin: 0 auto;
       }
 
-      ${IconContainer} {
+      ${HeaderIconContainer} {
         width: ${t.$rythm * 10}px;
 
         padding-left: ${t.$rythm / 2}px;
@@ -95,14 +108,14 @@ export const Footer = styled.footer`
         }
       }
 
-      ${NumberBlock} {
+      ${HeaderNumberBlock} {
         display: flex;
         flex-direction: column;
 
         width: ${t.$rythm * 12.5}px;
-        margin: ${t.$rythm * 1.5}px auto 0 auto;
+        margin: 80px auto 0 auto;
 
-        ${NumberSpan} {
+        ${HeaderNumberSpan} {
           height: ${t.$rythm * 3.125}px;
 
           margin-top: ${t.$rythm}px;
@@ -114,16 +127,38 @@ export const Footer = styled.footer`
 
 export const FooterTextContainer = styled.div`
   ${({ theme: t }) => css`
+    width: 100%;
     margin-top: ${t.$rythm * 3.125}px;
     display: flex;
     align-items: flex-start;
 
     @media ${t.$phone}, ${t.$tablet} {
       flex-direction: column-reverse;
-      width: ${t.$rythm * 10}px;
+      width: ${t.$rythm * 10.3125}px;
 
       margin: 0 auto;
       margin-top: ${t.$rythm * 1.125}px;
+    }
+  `}
+`;
+
+export const CopyrightWrapper = styled.div`
+  ${({ theme: t }) => css`
+    width: 61%;
+    margin-right: 20.5%;
+
+    @media screen and (min-width: 992px) and (max-width: 1130px) {
+      margin-right: 17%;
+    }
+
+    @media screen and (min-width: 1130px) and (max-width: 1200px) {
+      margin-right: 18%;
+    }
+
+    @media ${t.$phone}, ${t.$tablet} {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
     }
   `}
 `;
@@ -134,7 +169,7 @@ export const FooterCopyright = styled.span`
     width: ${t.$rythm * 10.2}px;
     height: ${t.$rythm * 2}px;
     line-height: normal;
-    margin-right: 240%;
+    display: block;
 
     @media ${t.$phone}, ${t.$tablet} {
       margin: 0;
@@ -148,6 +183,10 @@ export const FooterSocialLinks = styled.div`
     align-items: flex-start;
     width: ${t.$rythm * 10}px;
     display: flex;
+
+    position: relative;
+    bottom: ${t.$rythm * 0.75}px;
+    left: ${t.$rythm * 1.875}px;
 
     & > a:not(:nth-child(2)) {
       color: ${t.$header_bg};
@@ -182,13 +221,16 @@ export const FooterSocialLinks = styled.div`
       margin-right: ${t.$rythm * 0.625}px;
       svg {
         position: relative;
-        left: 3px;
+        left: 4px;
         top: 1px;
       }
     }
 
     @media ${t.$phone}, ${t.$tablet} {
-      ${IconContainer} {
+      left: 9px;
+      top: 11px;
+
+      ${HeaderIconContainer} {
         padding: 0;
       }
 

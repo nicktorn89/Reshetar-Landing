@@ -1,6 +1,13 @@
-import styled, { css, ifProp } from 'src/theme';
+import styled, { css } from 'src/theme';
 import Slider from 'react-slick';
 import { Button as ButtonComponent } from 'src/components/UI/Button';
+
+export const SliderBlock = styled.div<{sliderHeight: number}>`
+  ${({ theme: t, sliderHeight }) => css`
+    width: 100%;
+    height: ${sliderHeight}px;
+  `}
+`;
 
 export const SliderContainer = styled(Slider)<{sliderHeight: number}>`
   ${({ theme: t, sliderHeight }) => css`

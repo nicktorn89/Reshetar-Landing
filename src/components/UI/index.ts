@@ -8,8 +8,9 @@ import Select from './Select';
 import Slider from './Slider';
 import InputMask from './InputMask';
 import MobileSlider from './MobileSlider';
+import Heading from './Heading';
 
 export { 
-  Button, ButtonGroup, ButtonTypesMap, Checkbox, 
-  Icon, ImageViewer, Input, Logo, Select, Slider, InputMask, MobileSlider,
+  Button, ButtonGroup, ButtonTypesMap, Checkbox, Icon, ImageViewer,
+  Input, Logo, Select, Slider, InputMask, MobileSlider, Heading,
 };

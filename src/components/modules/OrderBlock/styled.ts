@@ -1,12 +1,13 @@
 import styled, { css } from 'styled-components';
-import { SendButton } from '../Hero/styled';
+import { HeroFormSendButton } from '../Hero/styled';
 import { CheckboxLabel } from 'src/components/UI/Checkbox/styled';
+import { Heading } from 'src/components/UI';
 
 export const OrderBlockContainer = styled.section`
   ${({ theme: t }) => css`
     height: ${t.$rythm * 40.625}px;
     border-top: 1px solid ${t.$block_border_color};
-    padding: 0 ${t.$rythm * 9.375}px;
+    padding: 0 10.5%;
 
     @media ${t.$phone}, ${t.$tablet} {
       width: 100%;
@@ -19,19 +20,15 @@ export const OrderBlockContainer = styled.section`
   `}
 `;
 
-export const OrderBlockHeading = styled.h3`
+export const OrderBlockHeading = styled(Heading)`
   ${({ theme: t }) => css`
     margin: ${t.$rythm * 9.8125}px 0 ${t.$rythm * 3.75}px 0;
-    font-size: ${t.$rythm * 3.125}px;
-    font-weight: ${t.$font_weight_bold};
     color: ${t.$order_block_heading};
-
-    text-align: center;
 
     @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 20}px;
 
-      margin: ${t.$rythm * 1.5}px auto ${t.$rythm * 1.125}px auto;
+      margin: ${t.$rythm * 1.5}px auto ${t.$rythm * 0.75}px auto;
 
       font-size: ${t.$rythm * 1.5}px;
       line-height: 1.4;
@@ -39,15 +36,15 @@ export const OrderBlockHeading = styled.h3`
   `}
 `;
 
-export const OrderBlockFormContainer = styled.div`
+export const OrderBlockFormContainer = styled.form`
   ${({ theme: t }) => css`
-    padding: 0 ${t.$rythm * 12.25}px 0 ${t.$rythm * 18.8}px;
+    padding: 0 13.61% 0 26.3%;
 
     display: flex;
 
     @media ${t.$phone}, ${t.$tablet} {
-      width: ${t.$rythm * 20}px;
-      height: ${t.$rythm * 16.5}px;
+      width: 304px;
+      height: 303px;
 
       flex-direction: column;
 
@@ -59,14 +56,17 @@ export const OrderBlockFormContainer = styled.div`
 
 export const OrderBlockFormInputs = styled.div`
   ${({ theme: t }) => css`
-    width: 50%;
+    width: 42%;
+    margin-right: 5.7%;
+    padding-top: ${t.$rythm * 0.75}px;
 
-    ${SendButton} {
+    ${OrderBlockFormButton} {
       height: ${t.$rythm * 3.75}px;
+      width: 100%;
     }
 
     & > div {
-      width: ${t.$rythm * 18}px;
+      width: 100%;
 
       &:not(:last-child) {
         margin-bottom: ${t.$rythm * 1.3125}px;
@@ -78,7 +78,7 @@ export const OrderBlockFormInputs = styled.div`
     }
 
     @media ${t.$phone}, ${t.$tablet} {
-      width: ${t.$rythm * 19}px;
+      width: 100%;
 
       margin: 0 auto;
 
@@ -97,11 +97,14 @@ export const OrderBlockFormInputs = styled.div`
   `}
 `;
 
-export const OrderBlockFormButton = styled(SendButton)`
+export const OrderBlockFormButton = styled(HeroFormSendButton)`
   ${({ theme: t }) => css`
     @media ${t.$phone}, ${t.$tablet} {
-      width: ${t.$rythm * 19}px;
-      margin: 0 auto;
+      width: 296px;
+
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
     }
   `}
 `;
@@ -111,7 +114,7 @@ export const OrderBlockFormCheckboxes = styled.div`
     width: 50%;
 
     ${CheckboxLabel}:first-of-type {
-      margin-top: ${t.$rythm * 0.75}px;
+      margin-top: ${t.$rythm * 1.4375}px;
     }
 
     @media ${t.$phone}, ${t.$tablet} {

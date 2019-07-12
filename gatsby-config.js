@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Reshetar`,
+    title: `Reshetar Landing`,
     description: `Reshetar Landing`,
     author: `Vlad Komanchy`,
   },

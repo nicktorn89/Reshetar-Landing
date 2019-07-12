@@ -1,23 +1,21 @@
 import React, { memo } from 'react';
-import FAQProps from './types';
-import { FAQContainer, FAQHeading, QuestionsContainer } from './styled';
 import { default as Accordion } from 'react-collapsible';
 
-const FAQComponent: React.FC<FAQProps> = ({ data, isMobile }) => {
+import FAQProps from './types';
+
+import { FAQContainer, FAQHeading, QuestionsContainer } from './styled';
+
+const FAQ: React.FC<FAQProps> = ({ data }) => {
   const { heading, questions } = data;
 
-  const allQuestions = isMobile 
-    ? questions.filter((k, index) => index < 2)
-    : questions;
-
-  const renderQuestions = allQuestions.map((question, index) =>
+  const renderQuestions = questions.map((question, index) =>
     <Accordion
       key={index}
       trigger={question.question}
       open={index === 0}
       lazyRender={true}
-      className={index === allQuestions.length - 1 ? 'last-accordion' : 'ordinar'}
-      openedClassName={index === allQuestions.length - 1 ? 'last-accordion' : 'ordinar'}
+      className={index === questions.length - 1 ? 'last-accordion' : 'ordinar'}
+      openedClassName={index === questions.length - 1 ? 'last-accordion' : 'ordinar'}
     >
       {question.answer}
     </Accordion>,
@@ -25,7 +23,7 @@ const FAQComponent: React.FC<FAQProps> = ({ data, isMobile }) => {
 
   return (
     <FAQContainer>
-      <FAQHeading>{heading}</FAQHeading>
+      <FAQHeading fontSize={50} node={'h3'}>{heading}</FAQHeading>
 
       <QuestionsContainer>
         {renderQuestions}
@@ -34,6 +32,4 @@ const FAQComponent: React.FC<FAQProps> = ({ data, isMobile }) => {
   );
 };
 
-FAQComponent.displayName = 'FAQ';
-
-export default memo(FAQComponent);
+export default memo(FAQ);

@@ -1,34 +1,36 @@
 import React, { memo } from 'react';
+
 import HeaderProps from './types';
+
 import { 
-  Header, ContactsBlock, BeforeContactsText,
-  IconsBlock, IconContainer, StyledIcon, 
-  IconText, NumberBlock, NumberSpan,
+  Header, HeaderContactsBlock, HeaderContactsText,
+  HeaderIconsBlock, HeaderIconContainer, HeaderStyledIcon, 
+  HeaderIconText, HeaderNumberBlock, HeaderNumberSpan,
 } from './styled';
 
-const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile }) => {
+const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile, node = 'header' }) => {
   const { beforeContacts, text, links, icons, phoneNumber } = data;
 
-  const renderLinks = text.map((name, index) => (
-    <IconContainer key={index} href={links[index]}>
-      <StyledIcon size='lg' icon={icons[index]} />
-      <IconText>{name}</IconText>
-    </IconContainer>
-  ));
+  const renderLinks = text.map((name, index) => 
+    <HeaderIconContainer key={index} href={links[index]}>
+      <HeaderStyledIcon size='lg' icon={icons[index]} />
+      <HeaderIconText>{name}</HeaderIconText>
+    </HeaderIconContainer>,
+  );
 
   return (
-    <Header>
-      <ContactsBlock>
-        <BeforeContactsText>{beforeContacts}</BeforeContactsText>
-        <IconsBlock>
+    <Header as={node}>
+      <HeaderContactsBlock>
+        <HeaderContactsText>{beforeContacts}</HeaderContactsText>
+        <HeaderIconsBlock>
           {renderLinks}
-        </IconsBlock>
-      </ContactsBlock>
+        </HeaderIconsBlock>
+      </HeaderContactsBlock>
 
-      <NumberBlock>
-        {isMobile && <BeforeContactsText>Контакты</BeforeContactsText>}
-        <NumberSpan>{phoneNumber}</NumberSpan>
-      </NumberBlock>
+      <HeaderNumberBlock>
+        {isMobile && <HeaderContactsText>Контакты</HeaderContactsText>}
+        <HeaderNumberSpan>{phoneNumber}</HeaderNumberSpan>
+      </HeaderNumberBlock>
     </Header>
   );
 };
