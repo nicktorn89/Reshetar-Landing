@@ -4,13 +4,13 @@ import ImageViewer from '../ImageViewer';
 import { useImageViewer } from 'src/hooks';
 import { createSliderItem, emptyFunc } from 'src/utils';
 
-import { MobileSliderProps } from './types';
+import { MobileSliderProps, SliderState } from './types';
 import { ImageDecorator } from 'react-viewer/lib/ViewerProps';
 
 import { SliderContainer, SliderItem, ItemImage, SliderBlock } from './styled';
 
-const MobileSlider: React.FC<MobileSliderProps> = ({ images, sliderHeight = 230, initialSlide = 1 }) => {
-  const sliderState = {
+const MobileSlider: React.FC<MobileSliderProps> = ({ images, sliderHeight = 230, initialSlide = 1, forwardRef }) => {
+  const sliderState: SliderState = {
     initialSlide,
     swipe: true,
     slidesToShow: 1,
@@ -19,8 +19,9 @@ const MobileSlider: React.FC<MobileSliderProps> = ({ images, sliderHeight = 230,
     centerMode: true,
     centerPadding: '8px',
     variableWidth: true,
-    lazyLoad: 'progressive' as 'progressive' | 'ondemand' | undefined,
   };
+
+  if (forwardRef) sliderState.ref = forwardRef;
 
   const viewerImages: ImageDecorator[] = createSliderItem(images.high);
 
