@@ -34,11 +34,19 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   
   let sliderObj = {} as unknown as Slider | null;
 
+  const mobileSlider: Slider[] | Object[] = [
+    {},
+    {},
+    {},
+  ];
+
   const [activeTab, setActiveTab] = useState(0);
 
   const sliderContainer = useRef<HTMLDivElement>(null);
   const { viewerStatus, changeViewerStatus, activeIndex } = useImageViewer(sliderContainer);
   const viewerImages: ImageDecorator[] = createSliderItem(images[activeTab].high);
+
+  const initializeMobileControls = (index: number) => (slider: Slider) => { mobileSlider[index] = slider; };
 
   const changeTab = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { tabIndex } = e.currentTarget.dataset;
@@ -51,13 +59,16 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   };
 
   const handleChangeImg = (isNext: boolean) => () => {
-    isNext
-      ? sliderObj && sliderObj.slickNext()
-      : sliderObj && sliderObj.slickPrev();
+    if (isMobile && mobileSlider) {
+      isNext
+        ? mobileSlider[activeTab] && (mobileSlider[activeTab] as Slider).slickNext()
+        : mobileSlider[activeTab] && (mobileSlider[activeTab] as Slider).slickPrev();
+    } else {
+      isNext
+        ? sliderObj && sliderObj.slickNext()
+        : sliderObj && sliderObj.slickPrev();
+    }    
   };
-
-  const [prevButtonStatus, changePrevButtonStatus] = useState(false);
-  const [nextButtonStatus, changeNextButtonStatus] = useState(true);
 
   const renderSliderImages = images[activeTab].high.map((k, index) =>
     <ImageItem key={index} onClick={!viewerStatus ? changeViewerStatus(index) : emptyFunc}>
@@ -84,7 +95,12 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
       data-tab-index={index}
       handleTriggerClick={accordionChangeTab(index)}
     >
-      <MobileSlider images={images[activeTab]} sliderHeight={218} initialSlide={0} />
+      <MobileSlider 
+        forwardRef={initializeMobileControls(index)} 
+        images={images[activeTab]} 
+        sliderHeight={218} 
+        initialSlide={0} 
+      />
     </Accordion>,
   );
   
@@ -109,11 +125,11 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
           </AccordionsContainer>}
 
           <SliderControlsGroup>
-            <SliderControl onClick={!prevButtonStatus ? emptyFunc : handleChangeImg(false)}>
+            <SliderControl onClick={handleChangeImg(false)}>
               <Icon icon={faLongArrowAltLeft} />
             </SliderControl>
 
-            <SliderControl onClick={!nextButtonStatus ? emptyFunc : handleChangeImg(true)} next={true}>
+            <SliderControl onClick={handleChangeImg(true)} next={true}>
               <span>{nextButtonText}</span>
               <Icon icon={faLongArrowAltRight} />
             </SliderControl>
