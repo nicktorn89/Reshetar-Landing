@@ -198,7 +198,7 @@ const LocaleData = createContext({
 
   orderBlock: {
     heading: 'Оформление заказа',
-    mobileHeading: 'Оформление заказа со\u00a0скидкой 10%',
+    mobileHeading: 'Оформление заказа',
     form: {
       buttonText: 'Заказать',
       mobileButtonText: 'Заказать',

@@ -58,7 +58,7 @@ export const HeroLogoContainer = styled.div`
       }
 
       ${HeaderNumberSpan} {
-        width: ${t.$rythm * 9}px;
+        min-width: ${t.$rythm * 9}px;
         height: ${t.$rythm * 1.375}px;
         
         font-size: ${t.$rythm}px;
