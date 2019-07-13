@@ -42,6 +42,10 @@ export const OrderBlockFormContainer = styled.form`
 
     display: flex;
 
+    @media screen and (max-width: 1050px) {
+      padding: 0 8% 0 16%;
+    }
+
     @media ${t.$phone}, ${t.$tablet} {
       width: 304px;
       height: 303px;
