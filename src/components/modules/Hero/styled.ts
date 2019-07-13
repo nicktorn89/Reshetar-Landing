@@ -107,6 +107,10 @@ export const HeroHeading = styled(Heading)`
       margin-left: 19.5%;
     }
 
+    @media screen and (max-width: 1050px) {
+      font-size: ${t.$rythm * 3.75}px;
+    }
+
     @media ${t.$phone}, ${t.$tablet} {
       height: ${t.$rythm * 5.625}px;
       width: ${t.$rythm * 18}px;
