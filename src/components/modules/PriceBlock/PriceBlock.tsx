@@ -53,6 +53,7 @@ const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
         <PriceBlockItemOrderButton
           node={'a'}
           href={'#order-block'}
+          target='_blank'
           themeType={index === 1 ? ButtonTypesMap.base : ButtonTypesMap.hollow}
           active={index === 1}
         >
