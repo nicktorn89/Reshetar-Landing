@@ -3,4 +3,5 @@ export interface CheckboxProps {
   value: boolean;
   name: string;
   onChange: Function;
+  checked: boolean;
 }

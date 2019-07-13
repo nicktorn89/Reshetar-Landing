@@ -4,7 +4,7 @@ import { CheckboxProps } from './types';
 
 import { StyledCheckbox, CheckboxLabel, LabelSpan } from './styled';
 
-const Checkbox: React.FC<CheckboxProps> = ({ label, value, name, onChange }) => {
+const Checkbox: React.FC<CheckboxProps> = ({ label, value, name, onChange, checked }) => {
   const handleChange = ({ currentTarget }: React.MouseEvent<HTMLInputElement>): void => {
     const { name, checked } = currentTarget;
 
@@ -18,7 +18,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ label, value, name, onChange }) => 
     <CheckboxLabel>
       { /* 
       // @ts-ignore */}
-      <StyledCheckbox name={name} value={value} onClick={handleChange} />
+      <StyledCheckbox checked={checked} name={name} value={value} onClick={handleChange} />
       <LabelSpan>{label}</LabelSpan>
     </CheckboxLabel>
   );
