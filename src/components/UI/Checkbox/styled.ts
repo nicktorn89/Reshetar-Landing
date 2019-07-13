@@ -9,8 +9,8 @@ export const StyledCheckbox = styled(VendorCheckbox)`
     }
 
     .rc-checkbox-inner:after {
-      left: ${t.$rythm / 2.5}px !important;
-      top: ${t.$rythm / 8}px !important;
+      left: 4.5px !important;
+      top: 1px !important;
       width: ${t.$rythm / 2}px !important;
       height: ${t.$rythm * 0.75}px !important;
     }
