@@ -45,12 +45,14 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
   const renderInputs = formBlock.formInputs.map((input, index) => {
     const InputComponent = inputs[input.type];
 
+    // @ts-ignore
     return <InputComponent 
       key={index} 
       type={input.type as InputProps['type']} 
       name={input.name}
       options={input.options!}
       value={formState[input.name] as never || input.value as never}
+      checked={formState[input.name] as never || input.value as never}
       label={input.label as never}
       onChange={handleChangeForm}
     />;
