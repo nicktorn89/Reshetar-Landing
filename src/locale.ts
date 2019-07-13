@@ -8,7 +8,7 @@ const LocaleData = createContext({
     beforeContacts: 'Задайте вопрос:',
     text: ['ВКонтакте', 'Telegram', 'Whatsapp'],
     icons: [faVk, faTelegramPlane, faWhatsapp],
-    links: ['https://vk.me/reshetarmuaa', 'https://t.me/reshetarmua', 'https://api.whatsapp.com/send?phone=79267208260'],
+    links: ['https://vk.me/reshetarmuaa', 'https://tlgg.ru/reshetarmua', 'https://api.whatsapp.com/send?phone=79267208260'],
     phoneNumber: '+7 926 720-82-60',
   },
 
@@ -211,7 +211,7 @@ const LocaleData = createContext({
       beforeContacts: 'Задайте вопрос:',
       text: ['ВКонтакте', 'Telegram', 'Whatsapp'],
       icons: [faVk, faTelegramPlane, faWhatsapp],
-      links: ['https://vk.me/reshetarmuaa', 'https://t.me/reshetarmua', 'https://api.whatsapp.com/send?phone=79267208260'],
+      links: ['https://vk.me/reshetarmuaa', 'https://tlgg.ru/reshetarmua', 'https://api.whatsapp.com/send?phone=79267208260'],
       phoneNumber: 'г.Москва \n +7 926 720-82-60',
     },
     copyright: '© 2019, reshetar.ru Ekaterinareshetar@gmail.com',
