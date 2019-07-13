@@ -40,7 +40,7 @@ const Info: React.FC<InfoBlockProps> = ({ data, isMobile }) => {
           {!isMobile && <InfoDescLogoContainer>
             <InfoDescLogo />
 
-            <InfoDescLink href={link.url}>
+            <InfoDescLink href={link.url} target='_blank'>
               {link.text}
             </InfoDescLink>
           </InfoDescLogoContainer>}

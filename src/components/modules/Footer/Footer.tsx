@@ -11,7 +11,7 @@ const FooterComponent: React.FC<FooterProps> = ({ data, isMobile }) => {
   const { headerClone, copyright, socialLinks } = data;
 
   const renderSocialLinks = socialLinks.map((link, index) => 
-    <HeaderIconContainer key={index} href={link.url}>
+    <HeaderIconContainer key={index} href={link.url} target='_blank'>
       <HeaderStyledIcon size='lg' icon={link.icon} />
     </HeaderIconContainer>,
   );
