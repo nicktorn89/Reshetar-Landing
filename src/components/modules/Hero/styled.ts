@@ -275,10 +275,8 @@ export const HeroInputsGroup = styled.div`
 
     @media ${t.$phone}, ${t.$tablet} {
       height: ${t.$rythm * 17.6875}px;
-      padding: 0 ${t.$rythm * 0.75}px;
+      padding: 0 ${t.$rythm / 2}px;
       margin-bottom: 0;
-      padding-left: 18px;
-      padding-right: 6px;
 
       .rc-checkbox-inner {
         width: 40px;
@@ -312,7 +310,6 @@ export const HeroFormSendButton = styled(Button)`
 
     @media ${t.$phone}, ${t.$tablet} {
       width: 295px;
-      left: 7px;
       border-radius: ${t.$rythm}px;
       padding: 0 ${t.$rythm * 0.75}px;
       font-size: ${t.$rythm}px;
