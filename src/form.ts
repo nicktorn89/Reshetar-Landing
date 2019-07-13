@@ -33,3 +33,27 @@ export const orderForm = [
     value: false,
   },
 ];
+
+export const priceBlockStates = [
+  {
+    serviceType: 0,
+    phoneNumber: '',
+    repetition: false,
+    earlyDeparture: true,
+    guestMakeup: false,
+  },
+  {
+    serviceType: 0,
+    phoneNumber: '',
+    repetition: true,
+    earlyDeparture: true,
+    guestMakeup: false,
+  },
+  {
+    serviceType: 0,
+    phoneNumber: '',
+    repetition: true,
+    earlyDeparture: true,
+    guestMakeup: true,
+  },
+];
