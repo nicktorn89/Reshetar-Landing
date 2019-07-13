@@ -52,6 +52,8 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
     const { tabIndex } = e.currentTarget.dataset;
     tabIndex && setActiveTab(+tabIndex);
     sliderObj && sliderObj.slickGoTo(0);
+
+    isMobile && mobileSlider && (mobileSlider[activeTab] as Slider).slickGoTo(0);
   };
 
   const accordionChangeTab = (index: number) => () => {
@@ -89,9 +91,10 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
       key={index}
       trigger={tab.text}
       open={index === activeTab}
-      lazyRender={true}
+      lazyRender={false}
+      easing={'ease-in'}
       openedClassName={'opened-accordion'}
-      transitionTime={200}
+      transitionTime={0.1}
       data-tab-index={index}
       handleTriggerClick={accordionChangeTab(index)}
     >
