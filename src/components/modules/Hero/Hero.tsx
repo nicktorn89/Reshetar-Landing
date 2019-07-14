@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import parse from 'html-react-parser';
 
 import { useFormState } from 'src/hooks';
+import { normalizeToSend } from 'src/components/utils';
 
 import HeroProps, { InputTypes, FormType } from './types';
 import { InputProps } from 'src/components/UI/Input';
@@ -16,6 +17,8 @@ import {
   HeroFormNumber, HeroFormCheckbox, HeroFormInputMask,
 } from './styled';
 import { HeaderNumberSpan } from '../Header/styled';
+
+const axios = require('axios');
 
 export const inputs: InputTypes = {
   select: HeroFormSelect,
@@ -40,6 +43,14 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
   const handleSendButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log(formState);
+    axios
+      .post('/action', normalizeToSend(formState as FormType))
+      .then((response: string) => {
+        console.log(response);
+      })
+      .catch((error: string) => {
+        console.log(error);
+      });
   };
 
   const renderInputs = formBlock.formInputs.map((input, index) => {

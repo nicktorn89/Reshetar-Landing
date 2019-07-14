@@ -1,14 +1,16 @@
 import { InputProps } from 'src/components/UI/Input';
 
+export const serviceTypeOptions = [
+  { label: 'Макияж + прическа', value: 0 },
+  { label: 'Макияж', value: 1 },
+  { label: 'Прическа', value: 2 },
+];
+
 export const orderForm = [
   {
     type: 'select' as InputProps['type'],
     name: 'serviceType',
-    options: [
-      { label: 'Макияж + прическа', value: 0 },
-      { label: 'Макияж', value: 1 },
-      { label: 'Прическа', value: 2 },
-    ],
+    options: serviceTypeOptions,
   },
   {
     type: 'maskInput',

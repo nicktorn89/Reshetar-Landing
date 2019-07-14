@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { inputs } from '../Hero/Hero';
-import { useFormState } from 'src/hooks';
+import { normalizeToSend } from 'src/components/utils';
 
 import { OrderBlockProps } from './types';
 import { InputProps } from 'src/components/UI/Input';
@@ -9,6 +9,8 @@ import {
   OrderBlockContainer, OrderBlockHeading, OrderBlockFormContainer,
   OrderBlockFormInputs, OrderBlockFormCheckboxes, OrderBlockFormButton,
 } from './styled';
+
+const axios = require('axios');
 
 const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile, formState, handleChangeForm }) => {
   const { form, heading, mobileHeading } = data;
@@ -25,7 +27,14 @@ const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile, formState, hand
 
   const handleSendButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(formState);
+    axios
+      .post('/action', normalizeToSend(formState))
+      .then((response: string) => {
+        console.log(response);
+      })
+      .catch((error: string) => {
+        console.log(error);
+      });
   };
 
   const renderInputsByType = (inputTypes: string[]) => form.formInputs.map((input, index) => {
