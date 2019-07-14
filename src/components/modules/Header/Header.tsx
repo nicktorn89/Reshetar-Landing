@@ -12,7 +12,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile, node = 'header
   const { beforeContacts, text, links, icons, phoneNumber } = data;
 
   const renderLinks = text.map((name, index) => 
-    <HeaderIconContainer key={index} href={links[index]}>
+    <HeaderIconContainer key={index} href={links[index]} target='_blank'>
       <HeaderStyledIcon size='lg' icon={icons[index]} />
       <HeaderIconText>{name}</HeaderIconText>
     </HeaderIconContainer>,

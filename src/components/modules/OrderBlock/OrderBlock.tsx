@@ -3,7 +3,6 @@ import { inputs } from '../Hero/Hero';
 import { useFormState } from 'src/hooks';
 
 import { OrderBlockProps } from './types';
-import { FormType } from '../Hero/types';
 import { InputProps } from 'src/components/UI/Input';
 
 import { 
@@ -11,18 +10,18 @@ import {
   OrderBlockFormInputs, OrderBlockFormCheckboxes, OrderBlockFormButton,
 } from './styled';
 
-const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile }) => {
+const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile, formState, handleChangeForm }) => {
   const { form, heading, mobileHeading } = data;
 
-  const formObject: FormType = {
-    serviceType: 0,
-    phoneNumber: '',
-    repetition: false,
-    earlyDeparture: false,
-    guestMakeup: false,
-  };
+  const handleChange = ({ name, value }: { name: string, value: number | string | boolean }) => {
+    const clonedFormState = { ...formState };
 
-  const { formState, handleChangeForm } = useFormState(formObject);
+    clonedFormState[name] = name === 'phoneNumber'
+      ? (value as string).replace(/\s/g, '')
+      : value;
+
+    handleChangeForm(clonedFormState);
+  };
 
   const handleSendButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -33,6 +32,7 @@ const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile }) => {
     const InputComponent = inputs[input.type];
 
     if (inputTypes.some((el) => input.type === el)) {
+      // @ts-ignore
       return (<InputComponent
         key={index}
         type={input.type as InputProps['type']}
@@ -40,7 +40,8 @@ const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile }) => {
         options={input.options!}
         value={formState[input.name] as never || input.value as never}
         label={input.label as never}
-        onChange={handleChangeForm}
+        checked={formState[input.name] as never || input.value as never}
+        onChange={handleChange}
       />);
     }
   });

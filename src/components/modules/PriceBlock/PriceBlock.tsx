@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { Icon, ButtonTypesMap } from 'src/components/UI';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { priceBlockStates } from 'src/form';
 
 import PriceBlockProps from './types';
 
@@ -11,8 +12,12 @@ import {
   PriceBlockItemOrderButton, PriceBlockClarifyingText,
  } from './styled';
 
-const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
+const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile, handleChangeForm }) => {
   const { heading, prices, clarifying } = data;
+
+  const handleChange = (index: number) => () => {
+    handleChangeForm(priceBlockStates[index]);
+  };
 
   const renderPriceItems = prices.map((item, index) => {
     const { title, beforePrice, price, options, buttonText } = item;
@@ -53,6 +58,7 @@ const PriceBlock: React.FC<PriceBlockProps> = ({ data, isMobile }) => {
         <PriceBlockItemOrderButton
           node={'a'}
           href={'#order-block'}
+          onClick={handleChange(index)}
           themeType={index === 1 ? ButtonTypesMap.base : ButtonTypesMap.hollow}
           active={index === 1}
         >
