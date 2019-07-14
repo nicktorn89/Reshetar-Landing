@@ -8,6 +8,7 @@ before_install:
 branches:
   only:
   - master
+  - develop
 
 script:
   - rm -rf public
@@ -18,5 +19,3 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
-  on:
-    branch: master
