@@ -34,8 +34,12 @@ export const PriceBlockHeading = styled(Heading)`
     height: ${t.$rythm * 3.4}px;
 
     margin: 0 auto ${t.$rythm * 5.875}px auto;
+
+    @media (max-width: 1150px) {
+      margin-top: ${t.$rythm * 2}px;
+    }
     
-    @media ${t.$phone}, ${t.$tablet}, (max-width: 1134px) {
+    @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 15.625}px;
       height: 69px;
 
