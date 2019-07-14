@@ -101,7 +101,7 @@ export const OrderBlockFormInputs = styled.div`
   `}
 `;
 
-export const OrderBlockFormButton = styled(HeroFormSendButton)`
+export const OrderBlockFormButtonWrapper = styled.div`
   ${({ theme: t }) => css`
     @media ${t.$phone}, ${t.$tablet} {
       width: 296px;
@@ -109,6 +109,14 @@ export const OrderBlockFormButton = styled(HeroFormSendButton)`
       position: relative;
       left: 50%;
       transform: translateX(-50%);
+    }
+  `}
+`;
+
+export const OrderBlockFormButton = styled(HeroFormSendButton)`
+  ${({ theme: t }) => css`
+    @media ${t.$phone}, ${t.$tablet} {
+      width: 296px;
     }
   `}
 `;

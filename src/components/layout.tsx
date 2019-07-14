@@ -44,7 +44,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const renderSliderBlocks = localeData.sliderBlocks.map((block, index) => <SliderBlock data={block} key={index} isMobile={isMobile} />);
 
   const handleChangeOrderBlock = (object: FormType) => {
-    console.log('work', object);
     handleChangeForm(object);
   };
 
