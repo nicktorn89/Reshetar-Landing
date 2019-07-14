@@ -6,6 +6,7 @@ export const FAQContainer = styled.section`
     width: 100%;
     min-height: ${t.$rythm * 55.125}px;
     border-top: 1px solid ${t.$block_border_color};
+    background: #fafbfc;
 
     padding-bottom: ${t.$rythm}px;
 
@@ -45,7 +46,7 @@ export const QuestionsContainer = styled.div`
     padding: 0 ${t.$rythm * 11}px 0 ${t.$rythm * 10}px;
 
     .Collapsible {
-      background-color: ${t.$bg};
+      background: #fafbfc;
     }
 
     .Collapsible__contentInner {
@@ -55,6 +56,7 @@ export const QuestionsContainer = styled.div`
       font-size: ${t.$rythm}px;
 
       color: ${t.$text_color_black};
+      background: #fafbfc;
     }
 
     .ordinar .Collapsible__contentInner {
