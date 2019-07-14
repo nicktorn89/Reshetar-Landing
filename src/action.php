@@ -1,14 +1,9 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if ((!empty($_POST['form__email']) || !empty($_POST['form__phone']))) {
-        if (isset($_POST['form__email'])) {
-            if (!empty($_POST['form__email'])) {
-                $uemail = strip_tags($_POST['form__email']) . "<br>";
-                $uemailFieldset = "<b>Почта:</b>";
-            }
-        }
+    if (!empty($_POST['form__phone'])) {
         if (isset($_POST['form__phone'])) {
             if (!empty($_POST['form__phone'])) {
+                $phone_for_title = strip_tags($_POST['form__phone']);
                 $uphone = strip_tags($_POST['form__phone']) . "<br>";
                 $uphoneFieldset = "<b>Телефон:</b>";
             }
@@ -45,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html;charset=utf-8 \r\n";
         $headers .= "Content-Transfer-Encoding: 8bit \r\n";
-        $subject = "Письмо от wedding.reshetar.ru";
+        $subject = "Заявка от $phone_for_title";
         $message = "$uemailFieldset $uemail
                 $uphoneFieldset $uphone
                 $unameFieldset $uname
@@ -58,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $send = mail($to, $subject, $message, $headers);
 
     } else {
-        echo '<p class="fail">Ошибка. Вы заполнили не все обязательные поля!</p>';
+        header('HTTP/1.1 403 Bad Request', true, 403);
     }
 } else {
     header("Location: https://reshetar.ru");

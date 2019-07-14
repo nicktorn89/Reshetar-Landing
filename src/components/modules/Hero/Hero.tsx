@@ -1,10 +1,11 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import parse from 'html-react-parser';
 
 import { useFormState } from 'src/hooks';
 import { normalizeToSend } from 'src/components/utils';
 
 import HeroProps, { InputTypes, FormType } from './types';
+import { Status } from 'src/components/UI';
 import { InputProps } from 'src/components/UI/Input';
 
 import { 
@@ -30,6 +31,10 @@ export const inputs: InputTypes = {
 
 const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
   const { textBlock, formBlock, phoneNumber } = data;
+
+  const [showStatus, setShowStatus] = useState(false);
+  const [requestStatus, setRequestStatus] = useState(false);
+  
   const formObject: FormType = {
     serviceType: 0,
     phoneNumber: '',
@@ -42,15 +47,20 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
 
   const handleSendButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(formState);
     axios
-      .post('/action', normalizeToSend(formState as FormType))
-      .then((response: string) => {
-        console.log(response);
+      .post('/action.php', normalizeToSend(formState as FormType))
+      .then(() => {
+        setShowStatus(true);
+        setRequestStatus(true);
       })
-      .catch((error: string) => {
-        console.log(error);
+      .catch(() => {
+        setShowStatus(true);
+        setRequestStatus(false);
       });
+
+    setTimeout(() => {
+      setShowStatus(false);
+    }, 3000);
   };
 
   const renderInputs = formBlock.formInputs.map((input, index) => {
@@ -102,6 +112,8 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
           <HeroFormSendButton onClick={handleSendButton}>{isMobile ? formBlock.mobileButtonText : formBlock.buttonText}</HeroFormSendButton>
         </HeroFormContainer>
       </HeroFormBlock>
+
+      {showStatus && <Status status={requestStatus} />}
     </HeroContainer>
   );
 };

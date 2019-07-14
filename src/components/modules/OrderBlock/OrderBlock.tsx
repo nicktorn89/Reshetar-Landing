@@ -1,5 +1,6 @@
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { inputs } from '../Hero/Hero';
+import { Status } from 'src/components/UI';
 import { normalizeToSend } from 'src/components/utils';
 
 import { OrderBlockProps } from './types';
@@ -7,13 +8,16 @@ import { InputProps } from 'src/components/UI/Input';
 
 import { 
   OrderBlockContainer, OrderBlockHeading, OrderBlockFormContainer,
-  OrderBlockFormInputs, OrderBlockFormCheckboxes, OrderBlockFormButton,
+  OrderBlockFormInputs, OrderBlockFormCheckboxes, OrderBlockFormButton, OrderBlockFormButtonWrapper,
 } from './styled';
 
 const axios = require('axios');
 
 const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile, formState, handleChangeForm }) => {
   const { form, heading, mobileHeading } = data;
+
+  const [showStatus, setShowStatus] = useState(false);
+  const [requestStatus, setRequestStatus] = useState(false);
 
   const handleChange = ({ name, value }: { name: string, value: number | string | boolean }) => {
     const clonedFormState = { ...formState };
@@ -28,13 +32,19 @@ const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile, formState, hand
   const handleSendButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     axios
-      .post('/action', normalizeToSend(formState))
-      .then((response: string) => {
-        console.log(response);
+      .post('/action.php', normalizeToSend(formState))
+      .then(() => {
+        setShowStatus(true);
+        setRequestStatus(true);
       })
-      .catch((error: string) => {
-        console.log(error);
+      .catch(() => {
+        setShowStatus(true);
+        setRequestStatus(false);
       });
+
+    setTimeout(() => {
+      setShowStatus(false);
+    }, 3000);
   };
 
   const renderInputsByType = (inputTypes: string[]) => form.formInputs.map((input, index) => {
@@ -56,20 +66,26 @@ const OrderBlock: React.FC<OrderBlockProps> = ({ data, isMobile, formState, hand
   });
 
   return (
-    <OrderBlockContainer id='order-block'>
-      <OrderBlockHeading fontSize={50} node={'h3'}>{isMobile ? mobileHeading : heading}</OrderBlockHeading>
+    <React.Fragment>
+      {showStatus && <Status status={requestStatus} />}
+      <OrderBlockContainer id='order-block'>
+        <OrderBlockHeading fontSize={50} node={'h3'}>{isMobile ? mobileHeading : heading}</OrderBlockHeading>
 
-      <OrderBlockFormContainer>
-        <OrderBlockFormInputs>
-          {renderInputsByType(['select', 'text', 'number', 'maskInput'])}
-          {!isMobile && <OrderBlockFormButton onClick={handleSendButton}>{form.buttonText}</OrderBlockFormButton>}
-        </OrderBlockFormInputs>
+        <OrderBlockFormContainer>
+          <OrderBlockFormInputs>
+            {renderInputsByType(['select', 'text', 'number', 'maskInput'])}
+            {!isMobile && <OrderBlockFormButton onClick={handleSendButton}>{form.buttonText}</OrderBlockFormButton>}
+          </OrderBlockFormInputs>
 
-        <OrderBlockFormCheckboxes>{renderInputsByType(['checkbox'])}</OrderBlockFormCheckboxes>
-      </OrderBlockFormContainer>
-
-      {isMobile && <OrderBlockFormButton onClick={handleSendButton}>{form.buttonText}</OrderBlockFormButton>}
-    </OrderBlockContainer>
+          <OrderBlockFormCheckboxes>{renderInputsByType(['checkbox'])}</OrderBlockFormCheckboxes>
+        </OrderBlockFormContainer>
+        {isMobile && 
+        <OrderBlockFormButtonWrapper>
+          <OrderBlockFormButton onClick={handleSendButton}>{form.buttonText}</OrderBlockFormButton>
+        </OrderBlockFormButtonWrapper>
+        }
+      </OrderBlockContainer>
+    </React.Fragment>
   );
 };
 
