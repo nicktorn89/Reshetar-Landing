@@ -49,7 +49,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <React.Fragment>
-      <Helmet defer={false} title={'Reshetar'}>
+      <Helmet defer={false} title={'Свадебный образ 2019 от Екатерины Решетар'}>
         <html lang='ru' />
         <meta name='viewport' content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover' />
       </Helmet>

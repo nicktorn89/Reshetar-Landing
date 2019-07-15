@@ -25,7 +25,7 @@ export const orderForm = [
   {
     type: 'checkbox' as InputProps['type'],
     name: 'earlyDeparture',
-    label: 'Ранний выезд (до 8:00)',
+    label: 'Ранний выезд (с 8:00)',
     value: false,
   },
   {
