@@ -5,7 +5,7 @@ import {
   HeaderNumberSpan, HeaderContactsText, HeaderIconsBlock, HeaderIconContainer,
 } from '../Header/styled';
 
-export const Footer = styled.footer`
+export const FooterContainer = styled.footer`
   ${({ theme: t }) => css`
     width: 100%;
     height: ${t.$rythm * 12.9375}px;
@@ -125,7 +125,7 @@ export const Footer = styled.footer`
   `}
 `;
 
-export const FooterTextContainer = styled.div`
+export const FooterText = styled.div`
   ${({ theme: t }) => css`
     width: 100%;
     margin-top: ${t.$rythm * 3.125}px;
