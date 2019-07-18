@@ -18,7 +18,7 @@ const FooterComponent: React.FC<FooterProps> = ({ data, isMobile }) => {
 
   return (
     <Footer>
-      <Header data={headerClone} isMobile={isMobile} />
+      <Header data={headerClone} isMobile={isMobile} node='div' />
 
       <FooterTextContainer>
         <CopyrightWrapper>
