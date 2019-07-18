@@ -7,6 +7,7 @@ import { normalizeToSend } from 'src/components/utils';
 import HeroProps, { InputTypes, FormType } from './types';
 import { Status } from 'src/components/UI';
 import { InputProps } from 'src/components/UI/Input';
+import { HeaderNumberSpan } from '../Header';
 
 import { 
   HeroContainer, HeroLogoBlock, HeroLogoContainer, HeroLogoImg, 
@@ -17,7 +18,6 @@ import {
   HeroFormSendButton, HeroFormSelect, HeroFormText,
   HeroFormNumber, HeroFormCheckbox, HeroFormInputMask,
 } from './styled';
-import { HeaderNumberSpan } from '../Header/styled';
 
 const axios = require('axios');
 

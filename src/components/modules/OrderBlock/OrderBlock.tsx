@@ -1,5 +1,5 @@
 import React, { memo, useState } from 'react';
-import { inputs } from '../Hero/Hero';
+import { inputs } from '../Hero';
 import { Status } from 'src/components/UI';
 import { normalizeToSend } from 'src/components/utils';
 

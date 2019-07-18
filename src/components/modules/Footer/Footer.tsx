@@ -1,11 +1,9 @@
 import React, { memo } from 'react';
-
-import Header from '../Header';
+import Header, { HeaderIconContainer, HeaderStyledIcon } from '../Header';
 
 import FooterProps from './types';
 
 import { Footer, FooterTextContainer, CopyrightWrapper, FooterCopyright, FooterSocialLinks } from './styled';
-import { HeaderIconContainer, HeaderStyledIcon } from '../Header/styled';
 
 const FooterComponent: React.FC<FooterProps> = ({ data, isMobile }) => {
   const { headerClone, copyright, socialLinks } = data;

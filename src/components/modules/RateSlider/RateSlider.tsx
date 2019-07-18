@@ -3,10 +3,7 @@ import { Slider, MobileSlider } from 'src/components/UI';
 
 import { RateSliderProps } from './types';
 
-import { 
-  RateSliderContainer, RateContainer, RateNumber, 
-  RateText, RateLink,
-} from './styled';
+import { RateSliderContainer, RateContainer, RateNumber, RateText, RateLink } from './styled';
 
 const RateSlider: React.FC<RateSliderProps> = ({ data, isMobile }) => {
   const { rate, rateText, link, images } = data;
