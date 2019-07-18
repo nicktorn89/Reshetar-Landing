@@ -172,7 +172,6 @@ export const TextDesc = styled.span`
     & > span {
       color: ${t.$text_color_black};
       font-size: ${t.$rythm}px;
-      white-space: nowrap
       width: 100%;
     }
 
@@ -324,7 +323,6 @@ export const SliderControl = styled(Button)<{next?: boolean}>`
 export const ImageItem = styled.picture`
    ${({ theme: t }) => css`
     height: 461px;
-    width: 350x;
     margin-right: ${t.$rythm * 2}px;
     cursor: zoom-in;
 
