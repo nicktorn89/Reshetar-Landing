@@ -3,9 +3,9 @@ import Header, { HeaderIconContainer, HeaderStyledIcon } from '../Header';
 
 import FooterProps from './types';
 
-import { Footer, FooterTextContainer, CopyrightWrapper, FooterCopyright, FooterSocialLinks } from './styled';
+import { FooterContainer, FooterText, CopyrightWrapper, FooterCopyright, FooterSocialLinks } from './styled';
 
-const FooterComponent: React.FC<FooterProps> = ({ data, isMobile }) => {
+const Footer: React.FC<FooterProps> = ({ data, isMobile }) => {
   const { headerClone, copyright, socialLinks } = data;
 
   const renderSocialLinks = socialLinks.map((link, index) => 
@@ -15,20 +15,18 @@ const FooterComponent: React.FC<FooterProps> = ({ data, isMobile }) => {
   );
 
   return (
-    <Footer>
+    <FooterContainer>
       <Header data={headerClone} isMobile={isMobile} node='div' />
 
-      <FooterTextContainer>
+      <FooterText>
         <CopyrightWrapper>
           <FooterCopyright>{copyright}</FooterCopyright>
         </CopyrightWrapper>
 
         <FooterSocialLinks>{renderSocialLinks}</FooterSocialLinks>
-      </FooterTextContainer>      
-    </Footer>
+      </FooterText>      
+    </FooterContainer>
   );
 };
 
-FooterComponent.displayName = 'Footer';
-
-export default memo(FooterComponent);
+export default memo(Footer);
