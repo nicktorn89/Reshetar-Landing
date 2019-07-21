@@ -1,6 +1,3 @@
-import { LocaleDataType } from 'src/types';
-
-export default interface InfoBlockProps {
+export default interface InfoBlockProps extends BacicModuleProps {
   data: LocaleDataType['info'];
-  isMobile: boolean;
 }

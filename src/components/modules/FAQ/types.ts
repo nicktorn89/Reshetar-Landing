@@ -1,6 +1,3 @@
-import { LocaleDataType } from 'src/types';
-
-export default interface FAQProps {
+export default interface FAQProps extends BacicModuleProps {
   data: LocaleDataType['faq'];
-  isMobile: boolean;
 }

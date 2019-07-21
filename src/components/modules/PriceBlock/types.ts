@@ -1,7 +1,4 @@
-import { LocaleDataType } from 'src/types';
-
-export default interface PriceBlockProps {
+export default interface PriceBlockProps extends BacicModuleProps {
   data: LocaleDataType['priceBlock'];
-  isMobile: boolean;
   handleChangeForm: Function;
 }

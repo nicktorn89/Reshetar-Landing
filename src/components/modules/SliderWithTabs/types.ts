@@ -1,6 +1,3 @@
-import { LocaleDataType } from 'src/types';
-
-export interface SliderWithTabsProps {
+export interface SliderWithTabsProps extends BacicModuleProps {
   data: LocaleDataType['sliderWithTabs'];
-  isMobile: boolean;
 }
