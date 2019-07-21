@@ -49,7 +49,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <React.Fragment>
-      <Helmet defer={false} title={'Свадебный образ 2019 от Екатерины Решетар'}>
+      <Helmet 
+        defer={false} 
+        title={'Свадебный образ 2019 от Екатерины Решетар'}
+        script={[{
+          type: 'text/javascript',
+          innerHTML: `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+         
+            ym(54484087, "init", {
+                 clickmap:true,
+                 trackLinks:true,
+                 accurateTrackBounce:true,
+                 webvisor:true
+            });`,
+        }]
+        }
+      >
         <html lang='ru' />
         <meta name='viewport' content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover' />
       </Helmet>
