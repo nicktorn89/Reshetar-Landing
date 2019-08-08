@@ -20,6 +20,7 @@ import {
 } from './styled';
 
 const axios = require('axios');
+const logo = require('src/images/logo.png');
 
 export const inputs: InputTypes = {
   select: HeroFormSelect,
@@ -39,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
     serviceType: 0,
     phoneNumber: '',
     repetition: false,
-    earlyDeparture: false,
+    earlyDeparture: true,
     guestMakeup: false,
   };
 
@@ -83,7 +84,7 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
     <HeroContainer>
       <HeroLogoBlock>
         <HeroLogoContainer>
-          <HeroLogoImg />
+          <HeroLogoImg src={logo} />
           {isMobile && <HeaderNumberSpan>{phoneNumber}</HeaderNumberSpan>}
         </HeroLogoContainer>
       </HeroLogoBlock>

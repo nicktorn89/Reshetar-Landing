@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { useDescImage, useAdvantagesImg } from 'src/hooks';
+const logo = require('src/images/logo.png');
 
 import InfoBlockProps from './types';
 
@@ -32,13 +33,13 @@ const Info: React.FC<InfoBlockProps> = ({ data, isMobile }) => {
       <InfoDescriptionBlock>
         <InfoDescriptionPhoto>
           <InfoDescImg fixed={file.childImageSharp.fixed} />
-          {isMobile && <InfoDescLogo />}
+          {isMobile && <InfoDescLogo src={logo} />}
         </InfoDescriptionPhoto>
         <InfoDescriptionText>
           {renderDescription}
 
           {!isMobile && <InfoDescLogoContainer>
-            <InfoDescLogo />
+            <InfoDescLogo src={logo} />
 
             <InfoDescLink href={link.url} target='_blank'>
               {link.text}

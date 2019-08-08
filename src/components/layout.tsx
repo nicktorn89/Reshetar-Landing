@@ -68,12 +68,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         }
       >
         <html lang='ru' />
+        <meta name='yandex-verification' content='71641501fafc5044' />
         <meta name='viewport' content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover' />
       </Helmet>
 
       <ConnectedThemeProvider theme={'purple'}>
-        {!isMobile && <Header data={localeData.header} isMobile={isMobile} />}
-
+        <Header data={localeData.header} isMobile={isMobile} />
         <Hero data={localeData.hero} isMobile={isMobile} />
         <Info data={localeData.info} isMobile={isMobile} />
         <SliderWithTabs data={localeData.sliderWithTabs} isMobile={isMobile} />
