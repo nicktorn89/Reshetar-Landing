@@ -1,6 +1,3 @@
-import { LocaleDataType } from 'src/types';
-
-export interface RateSliderProps {
+export interface RateSliderProps extends BacicModuleProps {
   data: LocaleDataType['rateSlider'];
-  isMobile: boolean;
 }

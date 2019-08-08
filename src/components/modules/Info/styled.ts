@@ -17,6 +17,7 @@ export const InfoContainer = styled.section`
     box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.2);
 
     @media ${t.$phone}, ${t.$tablet} {
+      display: none;
       width: 100%;
       min-height: ${t.$rythm * 77.3125}px;
 
@@ -129,7 +130,10 @@ export const InfoDescLogoContainer = styled.div`
   `}
 `;
 
-export const InfoDescLogo = styled(Logo)``;
+export const InfoDescLogo = styled.img`
+  height: 54px;
+  margin-bottom: 0;
+`;
 
 export const InfoDescLink = styled.a`
   ${({ theme: t }) => css`

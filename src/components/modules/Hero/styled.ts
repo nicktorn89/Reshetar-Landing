@@ -51,6 +51,7 @@ export const HeroLogoContainer = styled.div`
 
       display: flex;
       justify-content: space-between;
+      align-items: center;
 
       & > div {
         height: ${t.$rythm * 2.5625}px !important;
@@ -66,7 +67,6 @@ export const HeroLogoContainer = styled.div`
         font-weight: 600;
         
         margin-right: ${t.$rythm * 0.75}px;
-        margin-top: ${t.$rythm * 1.5}px;
 
         color: ${t.$text_color_black};
       }
@@ -74,7 +74,9 @@ export const HeroLogoContainer = styled.div`
   `}
 `;
 
-export const HeroLogoImg = styled(Logo)`
+export const HeroLogoImg = styled.img`
+  height: 41px;
+  margin-bottom: 0;
 `;
 
 export const HeroTextBlock = styled.div`

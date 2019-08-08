@@ -1,4 +1,3 @@
-import { ImageType } from 'src/types';
 import Slider from 'react-slick';
 
 export interface SliderState {

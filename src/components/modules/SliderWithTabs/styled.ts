@@ -9,6 +9,7 @@ export const SliderContainer = styled.section`
     height: ${t.$rythm * 58}px;
 
     @media ${t.$phone}, ${t.$tablet} {
+      display: none;
       width: 100%;
       height: ${t.$rythm * 45.6875}px;
 

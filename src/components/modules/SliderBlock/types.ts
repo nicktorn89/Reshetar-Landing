@@ -1,6 +1,3 @@
-import { LocaleDataType } from 'src/types';
-
-export interface SliderBlockProps {
+export interface SliderBlockProps extends BacicModuleProps {
   data: LocaleDataType['sliderBlocks'][0];
-  isMobile: boolean;
 }

@@ -1,6 +1,3 @@
-import { LocaleDataType } from 'src/types';
-
-export default interface HeaderProps {
+export default interface HeaderProps extends BacicModuleProps {
   data: LocaleDataType['footer'];
-  isMobile: boolean;
 }

@@ -1,5 +1,3 @@
-import { ImageType } from 'src/types';
-
 export interface SliderProps {
   imageSizes: {
     height: number;

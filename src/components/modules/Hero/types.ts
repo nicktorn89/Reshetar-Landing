@@ -1,9 +1,7 @@
-import { LocaleDataType } from 'src/types';
 import { HeroFormSelect, HeroFormText, HeroFormNumber, HeroFormCheckbox, HeroFormInputMask } from './styled';
 
-export default interface HeroProps {
+export default interface HeroProps extends BacicModuleProps {
   data: LocaleDataType['hero'];
-  isMobile: boolean;
 }
 
 export type InputTypes = {
