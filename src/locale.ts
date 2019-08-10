@@ -2,6 +2,7 @@ import { createContext } from 'react';
 import { faInstagram, faVk, faTelegramPlane, faWhatsapp, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { orderForm } from './form';
 import images from './images';
+import { getUntilDate } from './utils';
 
 const LocaleData = createContext({
   header: {
@@ -19,7 +20,7 @@ const LocaleData = createContext({
       description: 'Идеальный образ <br/> по идеальной цене',
       price: '5 900',
       currency: 'руб',
-      untilDate: 'до 10 августа',
+      untilDate: `до ${getUntilDate()}`,
       note: '*макияж + прическа + ранний выезд',
     },
 
