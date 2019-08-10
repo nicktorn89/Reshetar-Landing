@@ -10,7 +10,6 @@ import ConnectedThemeProvider from 'src/components/modules/ThemeProvider/index';
 import LocaleData from 'src/locale';
 import { deviceSizes } from 'src/theme/vars/base';
 
-import { LocaleDataType } from 'src/types';
 import { LayoutProps } from './types';
 import { FormType } from 'src/components/modules/Hero/types';
 
