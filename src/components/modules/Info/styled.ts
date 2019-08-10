@@ -17,9 +17,8 @@ export const InfoContainer = styled.section`
     box-shadow: 0 20px 50px 0 rgba(0, 0, 0, 0.2);
 
     @media ${t.$phone}, ${t.$tablet} {
-      display: none;
       width: 100%;
-      min-height: ${t.$rythm * 77.3125}px;
+      min-height: ${t.$rythm * 31.5}px;
 
       box-shadow: none;
 
@@ -151,6 +150,7 @@ export const InfoAdvantagesBlock = styled.div`
     grid-template-columns: repeat(2, 1fr);
 
     @media ${t.$phone}, ${t.$tablet} {
+      display: none;
       min-height: ${t.$rythm * 43}px;      
       width: ${t.$rythm * 20}px;
       margin: 0 auto;
