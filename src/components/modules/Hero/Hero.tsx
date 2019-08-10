@@ -104,7 +104,7 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
 
       <HeroFormBlock>
         <HeroFormContainer>
-          {!isMobile && <HeroFormHeading>{formBlock.heading && formBlock.heading}</HeroFormHeading>}
+          <HeroFormHeading>{formBlock.heading && formBlock.heading}</HeroFormHeading>
 
           <HeroInputsGroup>
             {renderInputs}

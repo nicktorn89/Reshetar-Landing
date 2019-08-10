@@ -34,6 +34,16 @@ export const HeaderContactsText = styled.span`
   `}
 `;
 
+export const MobileHeaderContactsText = styled.span`
+  ${({ theme: t }) => css`
+    display: none;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      display: initial;
+    }
+  `}
+`;
+
 export const HeaderIconsBlock = styled.div`
   ${({ theme: t }) => css`
     width: ${t.$rythm * 30}px;

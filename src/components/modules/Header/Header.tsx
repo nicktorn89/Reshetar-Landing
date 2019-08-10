@@ -5,7 +5,7 @@ import HeaderProps from './types';
 import { 
   Header, HeaderContactsBlock, HeaderContactsText,
   HeaderIconsBlock, HeaderIconContainer, HeaderStyledIcon, 
-  HeaderIconText, HeaderNumberBlock, HeaderNumberSpan,
+  HeaderIconText, HeaderNumberBlock, HeaderNumberSpan, MobileHeaderContactsText,
 } from './styled';
 
 const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile, node = 'header' }) => {
@@ -28,7 +28,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({ data, isMobile, node = 'header
       </HeaderContactsBlock>
 
       <HeaderNumberBlock>
-        {isMobile && <HeaderContactsText>Контакты</HeaderContactsText>}
+        <MobileHeaderContactsText>Контакты</MobileHeaderContactsText>
         <HeaderNumberSpan>{phoneNumber}</HeaderNumberSpan>
       </HeaderNumberBlock>
     </Header>

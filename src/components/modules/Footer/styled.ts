@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { 
   Header as HeaderUI, HeaderContactsBlock, HeaderNumberBlock,
-  HeaderNumberSpan, HeaderContactsText, HeaderIconsBlock, HeaderIconContainer,
+  HeaderNumberSpan, HeaderIconsBlock, HeaderIconContainer, MobileHeaderContactsText,
 } from '../Header/styled';
 
 export const FooterContainer = styled.footer`
@@ -28,7 +28,7 @@ export const FooterContainer = styled.footer`
       position: relative;
       bottom: 4px;
 
-      ${HeaderContactsText} {
+      ${MobileHeaderContactsText} {
         margin-left: 0;
       }
     }
@@ -74,15 +74,16 @@ export const FooterContainer = styled.footer`
         flex-direction: column;
         flex-wrap: nowrap;
 
-        ${HeaderContactsText} {
+        ${MobileHeaderContactsText} {
           margin-bottom: ${t.$rythm * 1.5}px;
         }
       }
 
-      ${HeaderContactsText} {
+      ${MobileHeaderContactsText} {
         font-weight: ${t.$font_weight_bold};
         margin-top: 0;
-        margin-left: 17px;
+        color: rgb(178, 176, 207);    
+        font-family: "Avenir Next Cyr Demi", sans-serif;
       }
 
       ${HeaderIconsBlock} {

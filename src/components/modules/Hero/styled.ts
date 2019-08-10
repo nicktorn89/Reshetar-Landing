@@ -265,6 +265,10 @@ export const HeroFormHeading = styled.span`
     font-size: ${t.$font_size_base * 1.875}px;
 
     opacity: 0.9;
+
+    @media ${t.$phone}, ${t.$tablet} {
+      display: none;
+    }
   `}
 `;
 
