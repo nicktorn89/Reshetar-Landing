@@ -4,6 +4,7 @@ module.exports = {
     description: `Reshetar Landing`,
     author: `Vlad Komanchy`,
   },
+  // pathPrefix: "/Reshetar-Landing",
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
