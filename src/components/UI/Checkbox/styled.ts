@@ -42,6 +42,21 @@ export const CheckboxLabel = styled.label`
 
     font-size: ${t.$rythm}px;
 
+    & > .rc-checkbox-checked .rc-checkbox-inner {
+      background-color: ${t.$checkbox_bg};
+      border-color: ${t.$checkbox_bg};
+    }
+
+    & > .rc-checkbox-checked .rc-checkbox-inner::after {
+      border: 2px solid black;    
+      border-top: 0;
+      border-left: 0;
+    }
+
+    & > .rc-checkbox:hover .rc-checkbox-inner, .rc-checkbox-input:focus + .rc-checkbox-inner {
+      border-color: ${t.$checkbox_bg};
+    }
+
     &:first-of-type {
       margin-top: ${t.$rythm * 2}px;
     }

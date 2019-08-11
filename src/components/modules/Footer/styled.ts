@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { 
   Header as HeaderUI, HeaderContactsBlock, HeaderNumberBlock,
-  HeaderNumberSpan, HeaderIconsBlock, HeaderIconContainer, MobileHeaderContactsText,
+  HeaderNumberSpan, HeaderIconsBlock, HeaderIconContainer, MobileHeaderContactsText, HeaderContactsText,
 } from '../Header/styled';
 
 export const FooterContainer = styled.footer`
@@ -28,7 +28,7 @@ export const FooterContainer = styled.footer`
       position: relative;
       bottom: 4px;
 
-      ${MobileHeaderContactsText} {
+      ${HeaderContactsText} {
         margin-left: 0;
       }
     }
