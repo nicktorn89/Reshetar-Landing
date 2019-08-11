@@ -6,12 +6,14 @@ import './style.css';
 import slickcarousel from './libs/slick-carousel';
 import rcCheckbox from './libs/rc-checkbox';
 import reactViewer from './libs/react-viewer';
+import accordion from './libs/accordion';
 
 export default createGlobalStyle`
   ${normalize}
   ${slickcarousel}
   ${rcCheckbox}
   ${reactViewer}
+  ${accordion}
   
   html, body, #root {
     width: 100%;
