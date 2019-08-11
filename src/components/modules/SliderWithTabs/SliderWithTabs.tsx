@@ -1,7 +1,14 @@
 import React, { memo, useRef, useState } from 'react';
 
 import Slider from 'react-slick';
-import { default as Accordion } from 'react-collapsible';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion';
+
 import { faLongArrowAltLeft, faLongArrowAltRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Icon, ImageViewer, MobileSlider } from 'src/components/UI';
 
@@ -88,24 +95,26 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   );
 
   const renderAccordions = isMobile && tabs.map((tab, index) =>
-    <Accordion
-      key={index}
-      trigger={tab.text}
-      open={index === activeTab}
-      lazyRender={false}
-      easing={'ease-in'}
-      openedClassName={'opened-accordion'}
-      transitionTime={0.1}
-      data-tab-index={index}
-      handleTriggerClick={accordionChangeTab(index)}
+    <AccordionItem 
+      key={index} 
+      uuid={`item-${index}`}
+      onClick={accordionChangeTab(index)}
     >
-      <MobileSlider 
-        forwardRef={initializeMobileControls(index)} 
-        images={images[activeTab]} 
-        sliderHeight={218} 
-        initialSlide={0} 
-      />
-    </Accordion>,
+      <AccordionItemHeading>
+        <AccordionItemButton>
+          {tab.text}
+        </AccordionItemButton>
+      </AccordionItemHeading>
+
+      <AccordionItemPanel>
+        <MobileSlider
+          forwardRef={initializeMobileControls(index)} 
+          images={images[activeTab]} 
+          sliderHeight={218} 
+          initialSlide={0} 
+        />      
+      </AccordionItemPanel>
+    </AccordionItem>,
   );
   
   const renderDescription = descriptions[activeTab].description.map((desc, index) => 
@@ -130,7 +139,11 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
           {!isMobile && <TextDesc>{renderDescription}</TextDesc>}
 
           {isMobile && <AccordionsContainer>
-            {renderAccordions}
+            <Accordion
+              preExpanded={['item-0']}
+            >
+              {renderAccordions}
+            </Accordion>
           </AccordionsContainer>}
 
           <SliderControlsGroup>

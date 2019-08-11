@@ -9,9 +9,9 @@ export const SliderContainer = styled.section`
     height: ${t.$rythm * 58}px;
 
     @media ${t.$phone}, ${t.$tablet} {
-      display: none;
+      // display: none;
       width: 100%;
-      height: ${t.$rythm * 45.6875}px;
+      height: ${t.$rythm * 46}px;
 
       background: ${t.$form_bg};
 
@@ -214,76 +214,67 @@ export const AccordionsContainer = styled.div`
 
     margin-left: ${t.$rythm * 1.1875}px;
 
-    .Collapsible {
-      overflow: hidden;
+    .accordion {
+      border: 0;
     }
 
-    .opened-accordion {
-      border: 1px solid ${t.$accordion_slider_border};
-      border-top-left-radius: ${t.$rythm * 2}px;
-      border-bottom-left-radius: ${t.$rythm * 2}px;
+    .accordion__button[aria-expanded='true'] {
+      border: 2px solid rgb(235, 235, 236);
+      border-bottom: 0;
+      border-top-left-radius: 32px;
 
+      padding-bottom: 26px;
+    }
+
+    .accordion__button[aria-expanded='false'] {
+      height: ${t.$rythm * 2}px;
+      margin-bottom: ${t.$rythm}px;
+      padding: 0 18px;
+    }
+
+    .accordion__item + .accordion__item {
+      border: 0;
+    }
+  
+    .accordion__panel {
+      border: 2px solid rgb(235, 235, 236);
+      border-top: 0;
+      border-bottom-left-radius: 32px;
+    }
+
+    .accordion__button:before {
+      transform: rotate(45deg);
+      position: relative;
+      bottom: 4px;
+
+      height: 12px;
+      width: 12px;
+      border-bottom: 3px solid ${t.$text_color_black};
+      border-right: 3px solid ${t.$text_color_black};
+    }
+
+    .accordion__button[aria-expanded='true']::before, .accordion__button[aria-selected='true']::before {
+      top: 4px;
+
+      transform: rotate(225deg);
+
+      border-bottom: 3px solid ${t.$text_color_alt};
+      border-right: 3px solid ${t.$text_color_alt};
+    }
+
+    .accordion__panel {
+      overflow: hidden;
+      padding-bottom: 40px;
       margin-bottom: ${t.$rythm}px;
     }
 
-    .Collapsible__contentInner {
-      margin-bottom: ${t.$rythm * 2}px;
-      padding-left: ${t.$rythm * 1.125}px;
-      font-size: ${t.$rythm}px;
+    .accordion__button {
+      background-color: transparent;
+      outline: none;
 
-      color: ${t.$text_color_black};
-      background: ${t.$bg};
-    }
-
-    .Collapsible__contentInner p {
-      margin-bottom: ${t.$rythm * 1.5}px;
-      font-size: ${t.$rythm}px;
-      line-height: ${t.$rythm * 1.5}px; 
-    }
-
-    .Collapsible__contentInner p:last-child {
-      margin-bottom: 0; 
-    }
-
-    .Collapsible__trigger {
-      display: block;
-      position: relative;
-
-      height: ${t.$rythm * 1.5}px;
-      margin: ${t.$rythm}px 0 ${t.$rythm}px ${t.$rythm * 2.875}px;
-
-      font-size: ${t.$rythm * 1.125}px;
-      font-weight: ${t.$font_weight_normal};
-      text-decoration: none;  
-      color: ${t.$text_color_black};
-
-      cursor: pointer;
-    }
-
-    .Collapsible__trigger.is-open {
-      margin-bottom: ${t.$rythm * 2.25}px;
-    }
-    
-    .Collapsible__trigger.is-closed {
-      margin-top: 0;
-    }
-    
-    .Collapsible__trigger:before {
-      font-family: 'FontAwesome';
-      content: '\f107';
-      font-size: ${t.$rythm * 1.5}px;
-      font-weight: ${t.$font_weight_bold};
-      position: absolute;
-      right: ${t.$rythm * 16.6875}px;
-      bottom: -1px;
-      display: block;
-      transition: transform 300ms; 
-      color: ${t.$text_color_black};
-    }
-
-    .Collapsible__trigger.is-open:before {
-      transform: rotateZ(180deg); 
-      color: ${t.$text_color_alt};
+      &:hover {
+        background-color: transparent;
+      }
     }
 
     ${SliderBlock} {
