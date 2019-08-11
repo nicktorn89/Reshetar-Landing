@@ -2,7 +2,7 @@ import React, { memo, useRef, useState } from 'react';
 
 import Slider from 'react-slick';
 import { default as Accordion } from 'react-collapsible';
-import { faLongArrowAltLeft, faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import { faLongArrowAltLeft, faLongArrowAltRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Icon, ImageViewer, MobileSlider } from 'src/components/UI';
 
 import { useImageViewer } from 'src/hooks';
@@ -15,7 +15,8 @@ import {
   SliderContainer, SliderHeading, TabsContainer, 
   Tab, ImagesContainer, DescContainer, 
   HeadingDesc, TextDesc, SliderControlsGroup, 
-  SliderControl, ImageItem, AccordionsContainer, SliderUI,
+  SliderControl, ImageItem, AccordionsContainer, SliderUI, 
+  AdvantageTextContainer,
 } from './styled';
 
 const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
@@ -107,7 +108,12 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
     </Accordion>,
   );
   
-  const renderDescription = descriptions[activeTab].description.map((desc, index) => <span key={index}>{desc}</span>);
+  const renderDescription = descriptions[activeTab].description.map((desc, index) => 
+    <AdvantageTextContainer key={index}>
+      <Icon icon={faCheck} size='lg' />
+      <span>{desc}</span>
+    </AdvantageTextContainer>,
+  );
 
   return (
     <SliderContainer ref={sliderContainer}>

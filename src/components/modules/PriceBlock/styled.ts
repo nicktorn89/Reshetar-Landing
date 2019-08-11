@@ -154,9 +154,10 @@ export const PriceBlockItemOption = styled.li`
     margin-bottom: 0;
     font-size: ${t.$rythm * 1.125}px;
 
-    & > svg {
+    &&& > svg {
       color: ${t.$btn_icon_active};
       margin-right: ${t.$rythm / 2}px;
+      font-size: ${t.$rythm * 1.5}px;;
     }
   `}
 `;
