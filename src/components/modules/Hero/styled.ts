@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
-import { Button, Logo, Select, Input, Checkbox, InputMask, Heading } from 'src/components/UI';
+import { Button, Select, Input, Checkbox, InputMask, Heading } from 'src/components/UI';
 import { HeaderNumberSpan } from '../Header/styled';
-const background = require('src/images/background.jpg');
+
+const background = require('src/images/background1.jpg');
+const mobileBackground = require('src/images/background-mobile.jpg');
 
 export const HeroContainer = styled.section`
   ${({ theme: t }) => css`
@@ -11,11 +13,15 @@ export const HeroContainer = styled.section`
     display: flex;
     flex-wrap: wrap;
 
-    background: url(${background}) repeat center center fixed;
+    background: #d7c3c5;
+    background: url(${background});
     background-size: cover;
 
     @media ${t.$phone}, ${t.$tablet} {
       height: ${t.$rythm * 53.375}px;
+
+      background: #d7c3c5;
+      background: url(${mobileBackground});
 
       overflow: hidden;
 
