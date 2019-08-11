@@ -11,6 +11,10 @@ const months = [
   'октября', 'ноября', 'декабря',
 ];
 
+const daysPerMonth = [
+  31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31,
+];
+
 const getSundayDate = () => {
   const today = new Date();
   const daysUntilSunday = 6 - today.getDay() + 1;
@@ -18,4 +22,8 @@ const getSundayDate = () => {
   return today.getDate() + daysUntilSunday;
 };
 
-export const getUntilDate = (): string => `${getSundayDate()} ${months[new Date().getMonth()]}`;
+export const getUntilDate = (): string => {
+  const month = new Date().getMonth();
+
+  return `${getSundayDate()} ${getSundayDate() > daysPerMonth[month] ? months[month + 1] : months[month]}`;
+};
