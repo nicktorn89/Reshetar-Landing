@@ -160,24 +160,37 @@ export const HeadingDesc = styled.h3`
 export const TextDesc = styled.span`
   ${({ theme: t }) => css`
     min-height: ${t.$rythm * 8}px;
-    width: ${t.$rythm * 13}px;
+    width: 82%;
 
     display: flex;
     flex-wrap: wrap;
 
-    margin: ${t.$rythm * 2}px 0 0 ${t.$rythm}px;
+    margin-top: ${t.$rythm * 2}px;
 
     font-size: ${t.$rythm * 1.25}px;
     line-height: 1;
+  `}
+`;
+
+export const AdvantageTextContainer = styled.div`
+  ${({ theme: t }) => css`
+    display: flex;
+
+    &:not(:last-of-type) {
+      margin-bottom: ${t.$rythm}px;
+    }
+
+    &&& > svg {
+      font-size: ${t.$rythm}px;
+      color: ${t.$btn_icon_active};
+      margin-right: ${t.$rythm}px;
+    }
     
     & > span {
       color: ${t.$text_color_black};
+      line-height: 1.1;
       font-size: ${t.$rythm}px;
       width: 100%;
-    }
-
-    & > span:not(:last-of-type) {
-      margin-bottom: ${t.$rythm}px;
     }
   `}
 `;
