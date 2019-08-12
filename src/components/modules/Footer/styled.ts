@@ -220,6 +220,7 @@ export const FooterSocialLinks = styled.div`
       width: ${t.$rythm * 2.8125}px !important;
       height: ${t.$rythm * 2.8125}px;
       margin-right: ${t.$rythm * 0.625}px;
+      
       svg {
         position: relative;
         left: 4px;
