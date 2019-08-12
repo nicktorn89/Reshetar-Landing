@@ -85,7 +85,7 @@ const purple = {
   $circle_bg_3: colors.$purple000,
 
   // --- CHECKBOX ------------------------------------------------------------------------------------
-  $checkbox_bg: colors.$yellow400,
+  $checkbox_bg: colors.$orange400,
 };
 
 export default purple;

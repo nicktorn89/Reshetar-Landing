@@ -22,7 +22,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     serviceType: 0,
     phoneNumber: '',
     repetition: false,
-    earlyDeparture: false,
+    earlyDeparture: true,
     guestMakeup: false,
   };
 

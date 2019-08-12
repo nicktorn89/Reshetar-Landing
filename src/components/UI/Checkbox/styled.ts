@@ -8,26 +8,26 @@ export const StyledCheckbox = styled(VendorCheckbox)`
       height: ${t.$rythm * 1.25}px;
     }
 
-    .rc-checkbox-inner:after {
-      left: 4.5px !important;
-      top: 1px !important;
-      width: ${t.$rythm / 2}px !important;
-      height: ${t.$rythm * 0.75}px !important;
+    &&& > .rc-checkbox-inner:after {
+      left: 5.5px;
+      top: 1px;
+      width: ${t.$rythm / 2}px;
+      height: ${t.$rythm * 0.75}px;
     }
 
     margin-right: ${t.$rythm / 2}px;
     
     @media ${t.$phone}, ${t.$tablet} {
-      & > .rc-checkbox-inner {
-        width: 30px !important;
-        height: 30px !important;
+      &&& > .rc-checkbox-inner {
+        width: 30px;
+        height: 30px;
       }
 
-      .rc-checkbox-inner:after {
-        left: 10px !important;
-        top: 6px !important;
-        width: ${t.$rythm / 2}px !important;
-        height: ${t.$rythm * 0.75}px !important;
+      &&& > .rc-checkbox-inner:after {
+        left: 10px;
+        top: 6px;
+        width: ${t.$rythm / 2}px;
+        height: ${t.$rythm * 0.75}px;
       }
     }
   `}
