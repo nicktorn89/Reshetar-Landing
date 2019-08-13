@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import Logo from 'src/components/UI/Logo';
 import Img from 'gatsby-image';
 
 export const InfoContainer = styled.section`
@@ -18,7 +17,7 @@ export const InfoContainer = styled.section`
 
     @media ${t.$phone}, ${t.$tablet} {
       width: 100%;
-      min-height: ${t.$rythm * 31.5}px;
+      min-height: ${t.$rythm * 29.8125}px;
 
       box-shadow: none;
 
@@ -40,8 +39,9 @@ export const InfoDescriptionBlock = styled.div`
 
     @media ${t.$phone}, ${t.$tablet} {      
       width: ${t.$rythm * 20}px;
-      min-height: ${t.$rythm * 30.5625}px;
+      min-height: ${t.$rythm * 29.375}px;
       margin: 0 auto;
+      background: none;
 
       bottom: 0;
     }
@@ -94,7 +94,7 @@ export const InfoDescriptionText = styled.span`
     line-height: 1.25;
 
     @media ${t.$phone}, ${t.$tablet} {
-      min-height: ${t.$rythm * 22.25}px;
+      min-height: ${t.$rythm * 20.625}px;
       width: auto;
 
       padding: 0 ${t.$rythm * 0.75}px;

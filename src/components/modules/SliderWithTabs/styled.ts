@@ -11,7 +11,7 @@ export const SliderContainer = styled.section`
     @media ${t.$phone}, ${t.$tablet} {
       // display: none;
       width: 100%;
-      height: ${t.$rythm * 46}px;
+      height: ${t.$rythm * 41.5}px;
 
       background: ${t.$form_bg};
 
@@ -202,6 +202,7 @@ export const SliderControlsGroup = styled.div`
     padding-left: ${t.$rythm / 2}px;
 
     @media ${t.$phone}, ${t.$tablet} {
+      display: none;
       margin-top: ${t.$rythm * 1.625}px;
       padding-left: ${t.$rythm * 1.25}px;
     }

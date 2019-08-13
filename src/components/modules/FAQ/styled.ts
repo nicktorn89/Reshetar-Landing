@@ -13,6 +13,7 @@ export const FAQContainer = styled.section`
     @media ${t.$phone}, ${t.$tablet} {
       width: 100%;
       min-height: ${t.$rythm * 32}px;
+      background: none;
 
       overflow: hidden;
 
@@ -137,6 +138,7 @@ export const QuestionsContainer = styled.div`
         display: inline-block;
         min-height: 60px;
         margin-left: 8px;
+        background: none;
       }
       
       .Collapsible__trigger {
@@ -151,6 +153,7 @@ export const QuestionsContainer = styled.div`
       .Collapsible__contentInner {
         padding: ${t.$rythm}px 0;
         margin-top: 10px;
+        background: none;
       }
     }
   `}
