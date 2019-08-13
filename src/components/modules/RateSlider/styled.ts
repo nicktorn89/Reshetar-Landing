@@ -24,6 +24,7 @@ export const RateSliderContainer = styled.section`
     @media ${t.$phone}, ${t.$tablet} {
       width: 100%;
       height: ${t.$rythm * 40.875}px;
+      background: none;
 
       overflow: hidden;
 
