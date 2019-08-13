@@ -81,7 +81,7 @@ const Hero: React.FC<HeroProps> = ({ data, isMobile }) => {
   });
 
   return (
-    <HeroContainer>
+    <HeroContainer id='hero-block'>
       <HeroLogoBlock>
         <HeroLogoContainer>
           <HeroLogoImg src={logo} />

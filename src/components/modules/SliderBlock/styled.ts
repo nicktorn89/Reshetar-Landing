@@ -12,7 +12,8 @@ export const SliderBlockContainer = styled.section`
 
     @media ${t.$phone}, ${t.$tablet} {
       width: 100%;
-      height: ${t.$rythm * 21.28125}px;
+      min-height: ${t.$rythm * 22.5}px;
+      height: auto;
 
       overflow: hidden;
 
@@ -41,7 +42,7 @@ export const SliderBlockHeading = styled.h3`
     @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 20}px;
       
-      margin: ${t.$rythm * 1.6875}px auto ${t.$rythm * 0.625}px auto;
+      margin: ${t.$rythm * 1.6875}px auto ${t.$rythm * 2.6875}px auto;
 
       display: block;
 

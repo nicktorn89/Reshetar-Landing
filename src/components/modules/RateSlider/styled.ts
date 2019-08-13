@@ -99,10 +99,10 @@ export const RateText = styled.span`
     color: ${t.$text_color_black};
     
     @media ${t.$phone}, ${t.$tablet} {
-      width: ${t.$rythm * 17.625}px;
+      width: 320px;
 
-      margin-bottom: ${t.$rythm * 0.6875}px;
-      margin-left: 10px;
+      margin: 0 auto;
+      margin-bottom: ${t.$rythm / 2}px;
 
       font-size: ${t.$rythm * 1.5625}px;
       line-height: 1.4;
