@@ -10,7 +10,7 @@ import {
 } from 'react-accessible-accordion';
 
 import { faLongArrowAltLeft, faLongArrowAltRight, faCheck } from '@fortawesome/free-solid-svg-icons';
-import { Icon, ImageViewer, MobileSlider } from 'src/components/UI';
+import { Icon, ImageViewer, MobileSlider, ButtonTypesMap } from 'src/components/UI';
 
 import { useImageViewer } from 'src/hooks';
 import { createSliderItem, emptyFunc } from 'src/utils';
@@ -25,6 +25,7 @@ import {
   SliderControl, ImageItem, AccordionsContainer, SliderUI, 
   AdvantageTextContainer,
 } from './styled';
+import { PriceBlockItemOrderButton } from '../PriceBlock/styled';
 
 const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   const { heading, tabs, descriptions, images, nextButtonText } = data;
@@ -69,15 +70,9 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
   };
 
   const handleChangeImg = (isNext: boolean) => () => {
-    if (isMobile && mobileSlider) {
-      isNext
-        ? mobileSlider[activeTab] && (mobileSlider[activeTab] as Slider).slickNext()
-        : mobileSlider[activeTab] && (mobileSlider[activeTab] as Slider).slickPrev();
-    } else {
-      isNext
-        ? sliderObj && sliderObj.slickNext()
-        : sliderObj && sliderObj.slickPrev();
-    }    
+    isNext
+      ? sliderObj && sliderObj.slickNext()
+      : sliderObj && sliderObj.slickPrev();
   };
 
   const renderSliderImages = images[activeTab].high.map((k, index) =>
@@ -92,6 +87,13 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
     <Tab key={index} active={index === activeTab} data-tab-index={index} onClick={changeTab}>
       {tab.text}
     </Tab>,
+  );
+  
+  const renderDescription = descriptions[activeTab].description.map((desc, index) => 
+    <AdvantageTextContainer key={index}>
+      <Icon icon={faCheck} size='lg' />
+      <span>{desc}</span>
+    </AdvantageTextContainer>,
   );
 
   const renderAccordions = isMobile && tabs.map((tab, index) =>
@@ -112,16 +114,25 @@ const SliderWithTabs: React.FC<SliderWithTabsProps> = ({ data, isMobile }) => {
           images={images[activeTab]} 
           sliderHeight={218} 
           initialSlide={0} 
-        />      
+        />
+
+        <DescContainer>
+          <TextDesc>{renderDescription}</TextDesc>
+        </DescContainer>
+
+        {/* 
+        //@ts-ignore */}
+        <PriceBlockItemOrderButton
+          node={'a'}
+          href={'#hero-block'}
+          themeType={ButtonTypesMap.base}
+          style={{ marginTop: 24 }}
+          active={true}
+        >
+          Заказать образ
+        </PriceBlockItemOrderButton>
       </AccordionItemPanel>
     </AccordionItem>,
-  );
-  
-  const renderDescription = descriptions[activeTab].description.map((desc, index) => 
-    <AdvantageTextContainer key={index}>
-      <Icon icon={faCheck} size='lg' />
-      <span>{desc}</span>
-    </AdvantageTextContainer>,
   );
 
   return (

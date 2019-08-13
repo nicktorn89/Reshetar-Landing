@@ -30,10 +30,10 @@ export const FAQHeading = styled(Heading)`
     text-align: center;
 
     @media ${t.$phone}, ${t.$tablet} {
-      width: 306px;
+      width: 320px;
 
-      margin: ${t.$rythm * 2.3125}px auto ${t.$rythm * 2.375}px auto;
-      padding-left: 14px;
+      margin: ${t.$rythm * 2.3125}px auto ${t.$rythm * 2.6875}px auto;
+      padding-left: 0;
 
       font-size: ${t.$rythm * 1.5625}px;
       line-height: 1.4;

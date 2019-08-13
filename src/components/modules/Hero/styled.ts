@@ -22,6 +22,7 @@ export const HeroContainer = styled.section`
 
       background: #d7c3c5;
       background: url(${mobileBackground});
+      background-position: 50%;
 
       overflow: hidden;
 

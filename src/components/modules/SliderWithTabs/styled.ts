@@ -11,7 +11,8 @@ export const SliderContainer = styled.section`
     @media ${t.$phone}, ${t.$tablet} {
       // display: none;
       width: 100%;
-      height: ${t.$rythm * 41.5}px;
+      min-height: ${t.$rythm * 57}px;
+      height: auto;
 
       background: ${t.$form_bg};
 
@@ -112,6 +113,8 @@ export const ImagesContainer = styled.div`
 
     @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 20}px;
+      min-height: ${t.$rythm * 28.8125}px;
+      height: auto;
 
       justify-content: flex-start;
       margin: 0 auto;
