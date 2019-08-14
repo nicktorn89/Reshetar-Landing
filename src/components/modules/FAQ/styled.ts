@@ -143,6 +143,11 @@ export const QuestionsContainer = styled.div`
       
       .Collapsible__trigger {
         display: inline-table;
+        padding-bottom: ${t.$rythm * 1.5}px;
+
+        &::after {
+          bottom: ${t.$rythm * 2}px;
+        }
       }
 
       .Collapsible__trigger.is-closed {

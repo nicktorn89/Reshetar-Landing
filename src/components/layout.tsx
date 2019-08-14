@@ -16,7 +16,7 @@ import { FormType } from 'src/components/modules/Hero/types';
 import './layout.css';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const checkScreen = () => document.documentElement.clientWidth < deviceSizes.desktop;
+  const checkIsMobile = () => document.documentElement.clientWidth < deviceSizes.desktop;
 
   const formObject: FormType = {
     serviceType: 0,
@@ -31,13 +31,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [formState, handleChangeForm] = useState(formObject);
 
   const throttleMethod = throttle(500, () => {
-    setScreenStatus(checkScreen);
+    setScreenStatus(checkIsMobile());
   });
 
   useEffect(() => {
     if (typeof window !== 'undefined') window.addEventListener('resize', throttleMethod);
     
-    setScreenStatus(checkScreen);
+    setScreenStatus(checkIsMobile());
+
+    return (() => {
+      window.removeEventListener('resize', throttleMethod);
+    });
   });
   
   const renderSliderBlocks = localeData.sliderBlocks.map((block, index) => <SliderBlock data={block} key={index} isMobile={isMobile} />);

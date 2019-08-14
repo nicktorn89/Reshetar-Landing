@@ -29,7 +29,7 @@ export const OrderBlockHeading = styled(Heading)`
     @media ${t.$phone}, ${t.$tablet} {
       width: ${t.$rythm * 20}px;
 
-      margin: ${t.$rythm * 1.5}px auto ${t.$rythm * 0.75}px auto;
+      margin: ${t.$rythm * 1.3125}px auto ${t.$rythm * 2.6875}px auto;
 
       font-size: ${t.$rythm * 1.5}px;
       line-height: 1.4;
