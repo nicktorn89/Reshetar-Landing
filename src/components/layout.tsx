@@ -71,7 +71,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         }
       >
         <html lang='ru' />
-        <meta name='yandex-verification' content='71641501fafc5044' />
+        <meta name='yandex-verification' content='a8c0d93ea9d10d1a' />
         <meta name='viewport' content='width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover' />
       </Helmet>
 
