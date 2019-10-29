@@ -16,6 +16,7 @@ const daysPerMonth = [
 ];
 
 const getSundayDate = () => {
+  debugger;
   const today = new Date();
   const daysUntilSunday = 6 - today.getDay() + 1;
 
@@ -25,5 +26,8 @@ const getSundayDate = () => {
 export const getUntilDate = (): string => {
   const month = new Date().getMonth();
 
-  return `${getSundayDate()} ${getSundayDate() > daysPerMonth[month] ? months[month + 1] : months[month]}`;
+  console.log(getSundayDate());
+
+  // tslint:disable-next-line
+  return `${getSundayDate() > daysPerMonth[month] ? Math.abs(daysPerMonth[month] - getSundayDate()) : getSundayDate()} ${getSundayDate() > daysPerMonth[month] ? months[month + 1] : months[month]}`;
 };
